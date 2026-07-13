@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOA Science Portal</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans h-screen overflow-hidden">
+
+    <div class="h-screen flex flex-col">
+        <!-- Header (Fixed) -->
+        <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shrink-0">
+            <h1 class="text-lg font-bold text-gray-500 tracking-wider uppercase">BOA Science Portal</h1>
+            <div class="flex items-center space-x-4">
+                <a href="#" onclick="toggleLayout()" class="text-indigo-600 font-semibold underline text-sm">Rotate View</a>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main id="scroll-container" class="flex-1 overflow-y-auto relative">
+            <div id="loading" class="text-center py-12">
+                <p class="text-xl font-semibold text-gray-600 animate-pulse">Loading Assignment...</p>
+            </div>
+
+            <div id="error-container" class="hidden p-6 text-red-700">Error loading assignment.</div>
+
+            <!-- Portal Grid -->
+            <div id="portal" class="hidden h-full flex flex-col md:flex-row">
+                
+                <!-- Fixed/Sidebar Content -->
+                <div id="left-panel" class="w-full md:w-1/2 p-8 bg-gray-50 flex flex-col gap-6 shrink-0 md:h-full">
+                    <h1 id="quiz-title" class="text-3xl font-black tracking-tight text-gray-900">Quiz Portal</h1>
+                    <div id="video-container" class="hidden aspect-video w-full rounded-xl overflow-hidden shadow-md bg-black">
+                        <iframe id="quiz-video" class="w-full h-full" src="" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100">
+                        <label class="block text-sm font-bold text-gray-700 mb-2">School Email Address</label>
+                        <input type="email" id="student-email" placeholder="you@boa-academy.co.uk" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+                    </div>
+                </div>
+
+                <!-- Scrollable Content -->
+                <div id="right-panel" class="w-full md:w-1/2 h-full overflow-y-auto p-8 bg-white border-l border-gray-100">
+                    <div class="max-w-xl mx-auto space-y-8 pb-20">
+                        <div id="mc-section" class="space-y-6">
+                            <h2 class="text-xl font-bold border-b pb-2 text-indigo-900">Part 1: Multiple Choice</h2>
+                            <div id="mc-questions" class="space-y-6"></div>
+                        </div>
+
+                        <div id="la-section" class="space-y-4 pt-6 border-t border-gray-100">
+                            <h2 class="text-xl font-bold text-indigo-900">Part 2: Long Answer</h2>
+                            <p id="la-text" class="text-gray-700 font-medium select-all" draggable="false"></p>
+                            
+                            <!-- AI Abuse Prevention Warning Banner -->
+                            <div id="copy-paste-warning" class="hidden bg-red-50 border-l-4 border-red-500 p-3 text-red-800 text-sm font-semibold rounded-r-lg my-2 flex items-center space-x-2 transition-all duration-300">
+                                <span>⚠️ Copy/Paste blocked to prevent AI abuse</span>
+                            </div>
+
+                            <textarea id="la-input" rows="5" placeholder="Type your full analysis here..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+                        </div>
+
+                        <button id="submit-btn" onclick="submitAssignment()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition">
+                            Submit Assignment
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="results-portal" class="hidden p-12 text-center space-y-4">
+                <h2 class="text-2xl font-black text-gray-900">Assignment Submitted Successfully!</h2>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Set to your exact direct Power Automate workflow trigger URL
+        const BACKEND_URL = "https://default4a7dcc91048348f19bae8f17879c3c.f9.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/69f994d9c442436d98293e9736d91e2f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=JSlxpAAXM7COgS_rD1r9wXUnW-H6sfZa1aIePHekJBY"; 
+        let quizData = null;
+        let quizId = "101";
+        let userEmail = "";
+        let isStacked = false;
+        let warningTimeout = null;
+
+        // Timing analysis variables
+        let pageOpenTime = null;
+        let firstKeystrokeTime = null;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('quiz')) quizId = urlParams.get('quiz').trim();
+        if (urlParams.has('user')) userEmail = urlParams.get('user').trim();
+
+        function toggleLayout() {
+            isStacked = !isStacked;
+            const container = document.getElementById('portal');
+            const main = document.getElementById('scroll-container');
+            
+            if (isStacked) {
+                container.classList.remove('md:flex-row', 'h-full');
+                container.classList.add('flex-col');
+                main.classList.add('overflow-y-auto');
+            } else {
+                container.classList.add('md:flex-row', 'h-full');
+                container.classList.remove('flex-col');
+                main.classList.remove('overflow-y-auto');
+            }
+        }
+
+        async function loadQuiz() {
+            const url = "https://raw.githubusercontent.com/science-boa/BOA-Quiz/main/quizzes/QUIZ_" + quizId + ".yaml";
+            try {
+                const response = await fetch(url);
+                quizData = jsyaml.load(await response.text());
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('portal').classList.remove('hidden');
+                renderQuiz();
+                
+                if (window.innerWidth < 768) {
+                    toggleLayout();
+                }
+            } catch (err) {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('error-container').classList.remove('hidden');
+            }
+        }
+
+        function renderQuiz() {
+            document.getElementById('quiz-title').innerText = quizData.title || "Quiz Portal";
+            if (quizData.video_url) {
+                document.getElementById('quiz-video').src = quizData.video_url.replace("watch?v=", "embed/");
+                document.getElementById('video-container').classList.remove('hidden');
+            }
+            const mcContainer = document.getElementById('mc-questions');
+            quizData.multiple_choice?.forEach(q => {
+                const qDiv = document.createElement('div');
+                qDiv.innerHTML = "<p class='font-semibold text-gray-900'>" + q.question_num + ". " + q.text + "</p>" +
+                    ['A', 'B', 'C', 'D'].map(l => "<label class='flex items-center space-x-3 p-2 border rounded-lg cursor-pointer hover:bg-gray-50'><input type='radio' name='mc_" + q.question_num + "' value='" + l + "'><span>" + l + ": " + q[l] + "</span></label>").join('');
+                mcContainer.appendChild(qDiv);
+            });
+            if (quizData.long_answer) document.getElementById('la-text').innerText = quizData.long_answer.text;
+        }
+
+        // Show the security warning banner and automatically hide it after a few seconds
+        function triggerAbuseWarning() {
+            const banner = document.getElementById('copy-paste-warning');
+            banner.classList.remove('hidden');
+            
+            clearTimeout(warningTimeout);
+            warningTimeout = setTimeout(() => {
+                banner.classList.add('hidden');
+            }, 4000);
+        }
+
+        async function submitAssignment() {
+            const btn = document.getElementById('submit-btn');
+            const email = document.getElementById('student-email').value;
+
+            if (!email || !email.includes('@')) {
+                alert("Please enter a valid school email address.");
+                return;
+            }
+
+            const mc_answers = {};
+            let allAnswered = true;
+            
+            quizData.multiple_choice?.forEach(q => {
+                const selected = document.querySelector("input[name='mc_" + q.question_num + "']:checked");
+                if (!selected) {
+                    allAnswered = false;
+                } else {
+                    const selectedLetter = selected.value;
+                    mc_answers[q.question_num] = {
+                        answer: q[selectedLetter],
+                        explanation: q.explanation || null
+                    };
+                }
+            });
+
+            if (!allAnswered) {
+                alert("Please answer all multiple-choice questions.");
+                return;
+            }
+
+            if (!document.getElementById('la-input').value.trim()) {
+                alert("Please provide a response for the long answer question.");
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerText = "Submitting... 0s";
+            
+            let seconds = 0;
+            const timer = setInterval(() => {
+                seconds++;
+                btn.innerText = "Submitting... " + seconds + "s";
+            }, 1000);
+
+            // Calculate timing metrics
+            const submitTime = Date.now();
+            const totalSecs = (submitTime - pageOpenTime) / 1000;
+            const total_time = parseFloat(totalSecs.toFixed(1));
+
+            let long_answer_time = null;
+            if (firstKeystrokeTime) {
+                const laSecs = (submitTime - firstKeystrokeTime) / 1000;
+                long_answer_time = parseFloat(laSecs.toFixed(1));
+            }
+
+            const payload = {
+                quiz_id: quizId,
+                student_email: email,
+                mc_answers: mc_answers, 
+                la_input: document.getElementById('la-input').value,
+                quiz_schema: quizData,
+                KEY: 29031977,
+                total_time: total_time,
+                long_answer_time: long_answer_time
+            };
+            
+            try {
+                const response = await fetch(BACKEND_URL, {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'omit', // Strips school single sign-on cookies that cause gateway authentication errors
+                    mode: 'cors',
+                    body: JSON.stringify(payload)
+                });
+                
+                clearInterval(timer);
+                
+                if (response.ok) {
+                    document.getElementById('portal').classList.add('hidden');
+                    document.getElementById('results-portal').classList.remove('hidden');
+                } else {
+                    const errorText = await response.text();
+                    alert("Submission failed: " + errorText);
+                    btn.disabled = false;
+                    btn.innerText = "Submit Assignment";
+                }
+            } catch (err) { 
+                clearInterval(timer);
+                alert("Network error. Please check your connection."); 
+                btn.disabled = false;
+                btn.innerText = "Submit Assignment";
+            }
+        }
+
+        window.onload = () => { 
+            // Capture initial load time
+            pageOpenTime = Date.now();
+
+            loadQuiz(); 
+            if (userEmail) {
+                document.getElementById('student-email').value = userEmail;
+            }
+
+            // Copy and Paste abuse prevention handlers
+            const laText = document.getElementById('la-text');
+            const laInput = document.getElementById('la-input');
+
+            laText.addEventListener('copy', (e) => {
+                e.preventDefault();
+                triggerAbuseWarning();
+            });
+
+            laInput.addEventListener('paste', (e) => {
+                e.preventDefault();
+                triggerAbuseWarning();
+            });
+
+            // Prevent dragging from the question text
+            laText.addEventListener('dragstart', (e) => {
+                e.preventDefault();
+            });
+
+            // Prevent dropping into the long-answer input field
+            laInput.addEventListener('drop', (e) => {
+                e.preventDefault();
+                triggerAbuseWarning();
+            });
+
+            // Robust keystroke registration
+            const recordFirstKeystroke = () => {
+                if (!firstKeystrokeTime) {
+                    firstKeystrokeTime = Date.now();
+                }
+            };
+
+            // Bind to multiple events for maximum compatibility across devices, platforms and auto-fills
+            laInput.addEventListener('keydown', recordFirstKeystroke);
+            laInput.addEventListener('input', recordFirstKeystroke);
+            laInput.addEventListener('keyup', recordFirstKeystroke);
+            laInput.addEventListener('change', recordFirstKeystroke);
+        };
+    </script>
+</body>
+</html>
