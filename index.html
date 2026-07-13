@@ -148,10 +148,17 @@
         }
 
         async function loadQuiz() {
-            const url = "https://raw.githubusercontent.com/science-boa/BOA-Quiz/main/quizzes/QUIZ_" + quizId + ".yaml";
+            // Handle case-insensitive deduplication of the "QUIZ_" prefix in the URL parameter
+            let formattedQuizId = quizId;
+            if (!formattedQuizId.toLowerCase().startsWith("quiz_")) {
+                formattedQuizId = "QUIZ_" + formattedQuizId;
+            }
+
+            const url = "https://raw.githubusercontent.com/science-boa/BOA-Quiz/main/quizzes/" + formattedQuizId + ".yaml";
             try {
                 const response = await fetch(url);
                 
+                // CRITICAL FIX: Ensure non-200 responses (like 404s) throw an exception immediately
                 if (!response.ok) {
                     throw new Error(`HTTP Error ${response.status}: ${response.statusText}\nFailed to fetch from URL: ${url}\n\nMake sure the file exists in the raw quizzes directory on GitHub and that your parameters are correct.`);
                 }
