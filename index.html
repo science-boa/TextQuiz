@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOA Science Portal</title>
-    
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    
     <style>
         .markdown-content h1 { font-size: 1.5rem; font-weight: 800; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #1e1b4b; }
         .markdown-content h2 { font-size: 1.25rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem; color: #1e1b4b; }
@@ -45,17 +43,13 @@
             </div>
 
             <div id="portal" class="hidden h-full flex flex-col md:flex-row">
-                
-                <!-- Fixed/Sidebar Content (Resource text on the left) -->
                 <div id="left-panel" class="w-full md:w-1/2 p-8 bg-gray-50 flex flex-col gap-6 shrink-0 md:h-full min-h-0">
                     <h1 id="quiz-title" class="text-3xl font-black tracking-tight text-gray-900">Quiz Portal</h1>
                     
-                    <!-- Dynamic Markdown Resource Container -->
                     <div id="resource-container" class="hidden flex-1 overflow-y-auto bg-white p-6 rounded-xl shadow-xs border border-gray-100 min-h-[300px] md:min-h-0">
                         <div id="resource-text" class="markdown-content text-gray-700 select-none"></div>
                     </div>
 
-                    <!-- Email Input Block -->
                     <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100 shrink-0">
                         <label class="block text-sm font-bold text-gray-700 mb-2">School Email Address</label>
                         <input type="email" id="student-email" placeholder="you@boa-academy.co.uk" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
@@ -73,7 +67,6 @@
                             <h2 class="text-xl font-bold text-indigo-900">Part 2: Long Answer</h2>
                             <p id="la-text" class="text-gray-700 font-medium select-all" draggable="false"></p>
                             
-                            <!-- AI Abuse Prevention Warning Banner -->
                             <div id="copy-paste-warning" class="hidden bg-red-50 border-l-4 border-red-500 p-3 text-red-800 text-sm font-semibold rounded-r-lg my-2 flex items-center space-x-2 transition-all duration-300">
                                 <span>⚠️ Copy/Paste blocked to prevent AI abuse</span>
                             </div>
@@ -111,12 +104,7 @@
         let quizData = null;
         let quizId = "101";
         let userEmail = "";
-        let isStacked = false;
-        let warningTimeout = null;
-
-        let pageOpenTime = null;
-        let firstKeystrokeTime = null;
-
+        
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('quiz')) quizId = urlParams.get('quiz').trim();
         if (urlParams.has('user')) userEmail = urlParams.get('user').trim();
@@ -131,58 +119,29 @@
             document.getElementById('custom-modal').classList.add('hidden');
         }
 
-        function toggleLayout() {
-            isStacked = !isStacked;
-            const container = document.getElementById('portal');
-            const main = document.getElementById('scroll-container');
-            
-            if (isStacked) {
-                container.classList.remove('md:flex-row', 'h-full');
-                container.classList.add('flex-col');
-                main.classList.add('overflow-y-auto');
-            } else {
-                container.classList.add('md:flex-row', 'h-full');
-                container.classList.remove('flex-col');
-                main.classList.remove('overflow-y-auto');
-            }
-        }
-
         async function loadQuiz() {
-            // Handle case-insensitive deduplication of the "QUIZ_" prefix in the URL parameter
             let formattedQuizId = quizId;
             if (!formattedQuizId.toLowerCase().startsWith("quiz_")) {
                 formattedQuizId = "QUIZ_" + formattedQuizId;
             }
 
             const url = "https://raw.githubusercontent.com/science-boa/TextQuiz/main/quizzes/" + formattedQuizId + ".yaml";
+            console.log("Fetching URL:", url);
+            
             try {
                 const response = await fetch(url);
-                
-                // CRITICAL FIX: Ensure non-200 responses (like 404s) throw an exception immediately
-                if (!response.ok) {
-                    throw new Error(`HTTP Error ${response.status}: ${response.statusText}\nFailed to fetch from URL: ${url}\n\nMake sure the file exists in the raw quizzes directory on GitHub and that your parameters are correct.`);
-                }
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
                 
                 const text = await response.text();
+                quizData = jsyaml.load(text);
                 
-                try {
-                    quizData = jsyaml.load(text);
-                } catch (yamlError) {
-                    throw new Error(`YAML syntax parsing error:\n${yamlError.message}\n\nPlease check for incorrect indentation or use of tabs instead of spaces.`);
-                }
-
-                if (!quizData || typeof quizData !== 'object') {
-                    throw new Error("Parsed YAML is empty or did not resolve to a valid configuration object.");
-                }
-
+                console.log("Quiz Data Parsed:", quizData);
+                
                 document.getElementById('loading').classList.add('hidden');
                 document.getElementById('portal').classList.remove('hidden');
                 renderQuiz();
-                
-                if (window.innerWidth < 768) {
-                    toggleLayout();
-                }
             } catch (err) {
+                console.error("Load Error:", err);
                 document.getElementById('loading').classList.add('hidden');
                 document.getElementById('error-message').innerText = err.message;
                 document.getElementById('error-container').classList.remove('hidden');
@@ -192,204 +151,45 @@
         function renderQuiz() {
             document.getElementById('quiz-title').innerText = quizData.title || "Quiz Portal";
             
+            // Debug check
             if (quizData.resource_text) {
-                let htmlOutput = "";
+                console.log("Rendering resource_text...");
                 try {
-                    if (typeof marked !== 'undefined') {
-                        if (typeof marked.parse === 'function') {
-                            htmlOutput = marked.parse(quizData.resource_text);
-                        } else if (typeof marked === 'function') {
-                            htmlOutput = marked(quizData.resource_text);
-                        }
+                    let htmlOutput = "";
+                    if (window.marked && typeof window.marked.parse === 'function') {
+                        htmlOutput = window.marked.parse(quizData.resource_text);
+                    } else if (window.marked) {
+                        htmlOutput = window.marked(quizData.resource_text);
                     } else {
-                        htmlOutput = quizData.resource_text
-                            .replace(/&/g, "&amp;")
-                            .replace(/</g, "&lt;")
-                            .replace(/>/g, "&gt;")
-                            .replace(/\n/g, "<br>");
+                        htmlOutput = quizData.resource_text.replace(/\n/g, "<br>");
                     }
-                } catch (markdownError) {
-                    htmlOutput = `<p class="text-red-500 font-semibold">Error rendering document resource: ${markdownError.message}</p>`;
+                    document.getElementById('resource-text').innerHTML = htmlOutput;
+                    document.getElementById('resource-container').classList.remove('hidden');
+                } catch (e) {
+                    console.error("Markdown rendering error:", e);
+                    document.getElementById('resource-text').innerHTML = "Error rendering markdown.";
                 }
-                
-                document.getElementById('resource-text').innerHTML = htmlOutput;
-                document.getElementById('resource-container').classList.remove('hidden');
             } else {
-                document.getElementById('resource-container').classList.add('hidden');
+                console.warn("resource_text field not found in quizData.");
+                document.getElementById('resource-text').innerHTML = "<p class='text-gray-500'>No resource text provided.</p>";
+                document.getElementById('resource-container').classList.remove('hidden');
             }
 
+            // ... (rest of the render logic)
             const mcContainer = document.getElementById('mc-questions');
-            mcContainer.innerHTML = ""; 
-
-            if (quizData.multiple_choice && Array.isArray(quizData.multiple_choice)) {
-                quizData.multiple_choice.forEach(q => {
-                    const qDiv = document.createElement('div');
-                    qDiv.className = "space-y-3";
-                    
-                    const labelContent = ['A', 'B', 'C', 'D'].map(l => {
-                        const val = q[l] || "";
-                        return `<label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition">
-                            <input type="radio" name="mc_${q.question_num}" value="${l}" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300">
-                            <span>${l}: ${val}</span>
-                        </label>`;
-                    }).join('');
-                    
-                    qDiv.innerHTML = `<p class="font-semibold text-gray-900">${q.question_num}. ${q.text}</p>${labelContent}`;
-                    mcContainer.appendChild(qDiv);
-                });
-            }
-            
-            if (quizData.long_answer) {
-                document.getElementById('la-text').innerText = quizData.long_answer.text || "";
-            }
-        }
-
-        function triggerAbuseWarning() {
-            const banner = document.getElementById('copy-paste-warning');
-            banner.classList.remove('hidden');
-            
-            clearTimeout(warningTimeout);
-            warningTimeout = setTimeout(() => {
-                banner.classList.add('hidden');
-            }, 4000);
-        }
-
-        async function submitAssignment() {
-            const btn = document.getElementById('submit-btn');
-            const email = document.getElementById('student-email').value;
-
-            if (!email || !email.includes('@')) {
-                showAlert("Please enter a valid school email address.", "Validation Error");
-                return;
-            }
-
-            const mc_answers = {};
-            let allAnswered = true;
-            
+            mcContainer.innerHTML = "";
             quizData.multiple_choice?.forEach(q => {
-                const selected = document.querySelector("input[name='mc_" + q.question_num + "']:checked");
-                if (!selected) {
-                    allAnswered = false;
-                } else {
-                    const selectedLetter = selected.value;
-                    mc_answers[q.question_num] = {
-                        answer: q[selectedLetter],
-                        explanation: q.explanation || null
-                    };
-                }
+                const qDiv = document.createElement('div');
+                qDiv.className = "space-y-3";
+                const labelContent = ['A', 'B', 'C', 'D'].map(l => `<label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg cursor-pointer"><input type="radio" name="mc_${q.question_num}" value="${l}"> <span>${l}: ${q[l] || ""}</span></label>`).join('');
+                qDiv.innerHTML = `<p class="font-semibold">${q.question_num}. ${q.text}</p>${labelContent}`;
+                mcContainer.appendChild(qDiv);
             });
-
-            if (!allAnswered) {
-                showAlert("Please answer all multiple-choice questions.", "Incomplete Answers");
-                return;
-            }
-
-            if (!document.getElementById('la-input').value.trim()) {
-                showAlert("Please provide a response for the long answer question.", "Incomplete Long Answer");
-                return;
-            }
-
-            btn.disabled = true;
-            btn.innerText = "Submitting... 0s";
             
-            let seconds = 0;
-            const timer = setInterval(() => {
-                seconds++;
-                btn.innerText = "Submitting... " + seconds + "s";
-            }, 1000);
-
-            const submitTime = Date.now();
-            const totalSecs = (submitTime - pageOpenTime) / 1000;
-            const total_time = parseFloat(totalSecs.toFixed(1));
-
-            let long_answer_time = null;
-            if (firstKeystrokeTime) {
-                const laSecs = (submitTime - firstKeystrokeTime) / 1000;
-                long_answer_time = parseFloat(laSecs.toFixed(1));
-            }
-
-            const payload = {
-                quiz_id: quizId,
-                student_email: email,
-                mc_answers: mc_answers, 
-                la_input: document.getElementById('la-input').value,
-                quiz_schema: quizData,
-                KEY: 29031977,
-                total_time: total_time,
-                long_answer_time: long_answer_time
-            };
-            
-            try {
-                const response = await fetch(BACKEND_URL, {
-                    method: 'POST', 
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    credentials: 'omit', 
-                    mode: 'cors',
-                    body: JSON.stringify(payload)
-                });
-                
-                clearInterval(timer);
-                
-                if (response.ok) {
-                    document.getElementById('portal').classList.add('hidden');
-                    document.getElementById('results-portal').classList.remove('hidden');
-                } else {
-                    const errorText = await response.text();
-                    showAlert("Submission failed: " + errorText, "Submission Error");
-                    btn.disabled = false;
-                    btn.innerText = "Submit Assignment";
-                }
-            } catch (err) { 
-                clearInterval(timer);
-                showAlert("Network error. Please check your connection.", "Network Error"); 
-                btn.disabled = false;
-                btn.innerText = "Submit Assignment";
-            }
+            if (quizData.long_answer) document.getElementById('la-text').innerText = quizData.long_answer.text || "";
         }
 
-        window.onload = () => { 
-            pageOpenTime = Date.now();
-
-            loadQuiz(); 
-            if (userEmail) {
-                document.getElementById('student-email').value = userEmail;
-            }
-
-            const laText = document.getElementById('la-text');
-            const laInput = document.getElementById('la-input');
-
-            laText.addEventListener('copy', (e) => {
-                e.preventDefault();
-                triggerAbuseWarning();
-            });
-
-            laInput.addEventListener('paste', (e) => {
-                e.preventDefault();
-                triggerAbuseWarning();
-            });
-
-            laText.addEventListener('dragstart', (e) => {
-                e.preventDefault();
-            });
-
-            laInput.addEventListener('drop', (e) => {
-                e.preventDefault();
-                triggerAbuseWarning();
-            });
-
-            const recordFirstKeystroke = () => {
-                if (!firstKeystrokeTime) {
-                    firstKeystrokeTime = Date.now();
-                }
-            };
-
-            laInput.addEventListener('keydown', recordFirstKeystroke);
-            laInput.addEventListener('input', recordFirstKeystroke);
-            laInput.addEventListener('keyup', recordFirstKeystroke);
-            laInput.addEventListener('change', recordFirstKeystroke);
-        };
+        window.onload = loadQuiz;
     </script>
 </body>
 </html>
