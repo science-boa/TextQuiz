@@ -6,6 +6,22 @@
     <title>BOA Science Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Custom Markdown text container styles */
+        .markdown-content h1 { font-size: 1.5rem; font-weight: 800; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #1e1b4b; }
+        .markdown-content h2 { font-size: 1.25rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem; color: #1e1b4b; }
+        .markdown-content h3 { font-size: 1.125rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; color: #1e1b4b; }
+        .markdown-content p { margin-bottom: 1rem; line-height: 1.625; }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .markdown-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .markdown-content li { margin-bottom: 0.25rem; }
+        .markdown-content strong { font-weight: 700; color: #111827; }
+        .markdown-content em { font-style: italic; }
+        .markdown-content code { font-family: monospace; background-color: #f3f4f6; padding: 0.125rem 0.25rem; border-radius: 0.25rem; font-size: 0.875em; }
+        .markdown-content pre { background-color: #f3f4f6; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; }
+        .markdown-content blockquote { border-left: 4px solid #e5e7eb; padding-left: 1rem; color: #4b5563; font-style: italic; margin-bottom: 1rem; }
+    </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans h-screen overflow-hidden">
 
@@ -29,19 +45,23 @@
             <!-- Portal Grid -->
             <div id="portal" class="hidden h-full flex flex-col md:flex-row">
                 
-                <!-- Fixed/Sidebar Content -->
-                <div id="left-panel" class="w-full md:w-1/2 p-8 bg-gray-50 flex flex-col gap-6 shrink-0 md:h-full">
+                <!-- Fixed/Sidebar Content (Resource text on the left) -->
+                <div id="left-panel" class="w-full md:w-1/2 p-8 bg-gray-50 flex flex-col gap-6 shrink-0 md:h-full min-h-0">
                     <h1 id="quiz-title" class="text-3xl font-black tracking-tight text-gray-900">Quiz Portal</h1>
-                    <div id="video-container" class="hidden aspect-video w-full rounded-xl overflow-hidden shadow-md bg-black">
-                        <iframe id="quiz-video" class="w-full h-full" src="" frameborder="0" allowfullscreen></iframe>
+                    
+                    <!-- Dynamic Markdown Resource Container -->
+                    <div id="resource-container" class="hidden flex-1 overflow-y-auto bg-white p-6 rounded-xl shadow-xs border border-gray-100 min-h-[300px] md:min-h-0">
+                        <div id="resource-text" class="markdown-content text-gray-700 select-none"></div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100">
+
+                    <!-- Email Input Block -->
+                    <div class="bg-white p-6 rounded-xl shadow-xs border border-gray-100 shrink-0">
                         <label class="block text-sm font-bold text-gray-700 mb-2">School Email Address</label>
                         <input type="email" id="student-email" placeholder="you@boa-academy.co.uk" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
                     </div>
                 </div>
 
-                <!-- Scrollable Content -->
+                <!-- Scrollable Content (Questions and Input on the right) -->
                 <div id="right-panel" class="w-full md:w-1/2 h-full overflow-y-auto p-8 bg-white border-l border-gray-100">
                     <div class="max-w-xl mx-auto space-y-8 pb-20">
                         <div id="mc-section" class="space-y-6">
@@ -74,6 +94,19 @@
         </main>
     </div>
 
+    <!-- Custom Alert Modal (No-alert sandbox support) -->
+    <div id="custom-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-xl space-y-4 transform scale-95 transition-all duration-200">
+            <h3 id="modal-title" class="text-lg font-bold text-gray-900">Notification</h3>
+            <p id="modal-message" class="text-gray-600 text-sm"></p>
+            <div class="flex justify-end">
+                <button onclick="closeModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Set to your exact direct Power Automate workflow trigger URL
         const BACKEND_URL = "https://default4a7dcc91048348f19bae8f17879c3c.f9.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/69f994d9c442436d98293e9736d91e2f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=JSlxpAAXM7COgS_rD1r9wXUnW-H6sfZa1aIePHekJBY"; 
@@ -90,6 +123,17 @@
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('quiz')) quizId = urlParams.get('quiz').trim();
         if (urlParams.has('user')) userEmail = urlParams.get('user').trim();
+
+        // Safe Alert Replacement
+        function showAlert(message, title = "System Notification") {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-message').innerText = message;
+            document.getElementById('custom-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
 
         function toggleLayout() {
             isStacked = !isStacked;
@@ -127,10 +171,13 @@
 
         function renderQuiz() {
             document.getElementById('quiz-title').innerText = quizData.title || "Quiz Portal";
-            if (quizData.video_url) {
-                document.getElementById('quiz-video').src = quizData.video_url.replace("watch?v=", "embed/");
-                document.getElementById('video-container').classList.remove('hidden');
+            
+            // Render integrated Markdown resource block if present
+            if (quizData.resource_text) {
+                document.getElementById('resource-text').innerHTML = marked.parse(quizData.resource_text);
+                document.getElementById('resource-container').classList.remove('hidden');
             }
+
             const mcContainer = document.getElementById('mc-questions');
             quizData.multiple_choice?.forEach(q => {
                 const qDiv = document.createElement('div');
@@ -157,7 +204,7 @@
             const email = document.getElementById('student-email').value;
 
             if (!email || !email.includes('@')) {
-                alert("Please enter a valid school email address.");
+                showAlert("Please enter a valid school email address.", "Validation Error");
                 return;
             }
 
@@ -178,12 +225,12 @@
             });
 
             if (!allAnswered) {
-                alert("Please answer all multiple-choice questions.");
+                showAlert("Please answer all multiple-choice questions.", "Incomplete Answers");
                 return;
             }
 
             if (!document.getElementById('la-input').value.trim()) {
-                alert("Please provide a response for the long answer question.");
+                showAlert("Please provide a response for the long answer question.", "Incomplete Long Answer");
                 return;
             }
 
@@ -236,13 +283,13 @@
                     document.getElementById('results-portal').classList.remove('hidden');
                 } else {
                     const errorText = await response.text();
-                    alert("Submission failed: " + errorText);
+                    showAlert("Submission failed: " + errorText, "Submission Error");
                     btn.disabled = false;
                     btn.innerText = "Submit Assignment";
                 }
             } catch (err) { 
                 clearInterval(timer);
-                alert("Network error. Please check your connection."); 
+                showAlert("Network error. Please check your connection.", "Network Error"); 
                 btn.disabled = false;
                 btn.innerText = "Submit Assignment";
             }
