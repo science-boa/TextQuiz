@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOA Science Portal</title>
+    
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    
     <style>
-        /* Custom Markdown text container styles */
         .markdown-content h1 { font-size: 1.5rem; font-weight: 800; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #1e1b4b; }
         .markdown-content h2 { font-size: 1.25rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem; color: #1e1b4b; }
         .markdown-content h3 { font-size: 1.125rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; color: #1e1b4b; }
@@ -26,7 +27,6 @@
 <body class="bg-gray-50 text-gray-800 font-sans h-screen overflow-hidden">
 
     <div class="h-screen flex flex-col">
-        <!-- Header (Fixed) -->
         <header class="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shrink-0">
             <h1 class="text-lg font-bold text-gray-500 tracking-wider uppercase">BOA Science Portal</h1>
             <div class="flex items-center space-x-4">
@@ -34,15 +34,16 @@
             </div>
         </header>
 
-        <!-- Main Content Area -->
         <main id="scroll-container" class="flex-1 overflow-y-auto relative">
             <div id="loading" class="text-center py-12">
                 <p class="text-xl font-semibold text-gray-600 animate-pulse">Loading Assignment...</p>
             </div>
 
-            <div id="error-container" class="hidden p-6 text-red-700">Error loading assignment.</div>
+            <div id="error-container" class="hidden p-8 max-w-2xl mx-auto my-8 bg-red-50 border border-red-200 rounded-xl text-red-800 space-y-3">
+                <h2 class="text-lg font-bold">Failed to Load Quiz</h2>
+                <p id="error-message" class="text-sm font-mono whitespace-pre-wrap"></p>
+            </div>
 
-            <!-- Portal Grid -->
             <div id="portal" class="hidden h-full flex flex-col md:flex-row">
                 
                 <!-- Fixed/Sidebar Content (Resource text on the left) -->
@@ -61,7 +62,6 @@
                     </div>
                 </div>
 
-                <!-- Scrollable Content (Questions and Input on the right) -->
                 <div id="right-panel" class="w-full md:w-1/2 h-full overflow-y-auto p-8 bg-white border-l border-gray-100">
                     <div class="max-w-xl mx-auto space-y-8 pb-20">
                         <div id="mc-section" class="space-y-6">
@@ -94,7 +94,6 @@
         </main>
     </div>
 
-    <!-- Custom Alert Modal (No-alert sandbox support) -->
     <div id="custom-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
         <div class="bg-white rounded-xl max-w-md w-full p-6 shadow-xl space-y-4 transform scale-95 transition-all duration-200">
             <h3 id="modal-title" class="text-lg font-bold text-gray-900">Notification</h3>
@@ -108,7 +107,6 @@
     </div>
 
     <script>
-        // Set to your exact direct Power Automate workflow trigger URL
         const BACKEND_URL = "https://default4a7dcc91048348f19bae8f17879c3c.f9.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/69f994d9c442436d98293e9736d91e2f/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=JSlxpAAXM7COgS_rD1r9wXUnW-H6sfZa1aIePHekJBY"; 
         let quizData = null;
         let quizId = "101";
@@ -116,7 +114,6 @@
         let isStacked = false;
         let warningTimeout = null;
 
-        // Timing analysis variables
         let pageOpenTime = null;
         let firstKeystrokeTime = null;
 
@@ -124,7 +121,6 @@
         if (urlParams.has('quiz')) quizId = urlParams.get('quiz').trim();
         if (urlParams.has('user')) userEmail = urlParams.get('user').trim();
 
-        // Safe Alert Replacement
         function showAlert(message, title = "System Notification") {
             document.getElementById('modal-title').innerText = title;
             document.getElementById('modal-message').innerText = message;
@@ -155,7 +151,23 @@
             const url = "https://raw.githubusercontent.com/science-boa/BOA-Quiz/main/quizzes/QUIZ_" + quizId + ".yaml";
             try {
                 const response = await fetch(url);
-                quizData = jsyaml.load(await response.text());
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP Error ${response.status}: ${response.statusText}\nFailed to fetch from URL: ${url}\n\nMake sure the file exists in the raw quizzes directory on GitHub and that your parameters are correct.`);
+                }
+                
+                const text = await response.text();
+                
+                try {
+                    quizData = jsyaml.load(text);
+                } catch (yamlError) {
+                    throw new Error(`YAML syntax parsing error:\n${yamlError.message}\n\nPlease check for incorrect indentation or use of tabs instead of spaces.`);
+                }
+
+                if (!quizData || typeof quizData !== 'object') {
+                    throw new Error("Parsed YAML is empty or did not resolve to a valid configuration object.");
+                }
+
                 document.getElementById('loading').classList.add('hidden');
                 document.getElementById('portal').classList.remove('hidden');
                 renderQuiz();
@@ -165,6 +177,7 @@
                 }
             } catch (err) {
                 document.getElementById('loading').classList.add('hidden');
+                document.getElementById('error-message').innerText = err.message;
                 document.getElementById('error-container').classList.remove('hidden');
             }
         }
@@ -172,23 +185,58 @@
         function renderQuiz() {
             document.getElementById('quiz-title').innerText = quizData.title || "Quiz Portal";
             
-            // Render integrated Markdown resource block if present
             if (quizData.resource_text) {
-                document.getElementById('resource-text').innerHTML = marked.parse(quizData.resource_text);
+                let htmlOutput = "";
+                try {
+                    if (typeof marked !== 'undefined') {
+                        if (typeof marked.parse === 'function') {
+                            htmlOutput = marked.parse(quizData.resource_text);
+                        } else if (typeof marked === 'function') {
+                            htmlOutput = marked(quizData.resource_text);
+                        }
+                    } else {
+                        htmlOutput = quizData.resource_text
+                            .replace(/&/g, "&amp;")
+                            .replace(/</g, "&lt;")
+                            .replace(/>/g, "&gt;")
+                            .replace(/\n/g, "<br>");
+                    }
+                } catch (markdownError) {
+                    htmlOutput = `<p class="text-red-500 font-semibold">Error rendering document resource: ${markdownError.message}</p>`;
+                }
+                
+                document.getElementById('resource-text').innerHTML = htmlOutput;
                 document.getElementById('resource-container').classList.remove('hidden');
+            } else {
+                document.getElementById('resource-container').classList.add('hidden');
             }
 
             const mcContainer = document.getElementById('mc-questions');
-            quizData.multiple_choice?.forEach(q => {
-                const qDiv = document.createElement('div');
-                qDiv.innerHTML = "<p class='font-semibold text-gray-900'>" + q.question_num + ". " + q.text + "</p>" +
-                    ['A', 'B', 'C', 'D'].map(l => "<label class='flex items-center space-x-3 p-2 border rounded-lg cursor-pointer hover:bg-gray-50'><input type='radio' name='mc_" + q.question_num + "' value='" + l + "'><span>" + l + ": " + q[l] + "</span></label>").join('');
-                mcContainer.appendChild(qDiv);
-            });
-            if (quizData.long_answer) document.getElementById('la-text').innerText = quizData.long_answer.text;
+            mcContainer.innerHTML = ""; 
+
+            if (quizData.multiple_choice && Array.isArray(quizData.multiple_choice)) {
+                quizData.multiple_choice.forEach(q => {
+                    const qDiv = document.createElement('div');
+                    qDiv.className = "space-y-3";
+                    
+                    const labelContent = ['A', 'B', 'C', 'D'].map(l => {
+                        const val = q[l] || "";
+                        return `<label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition">
+                            <input type="radio" name="mc_${q.question_num}" value="${l}" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300">
+                            <span>${l}: ${val}</span>
+                        </label>`;
+                    }).join('');
+                    
+                    qDiv.innerHTML = `<p class="font-semibold text-gray-900">${q.question_num}. ${q.text}</p>${labelContent}`;
+                    mcContainer.appendChild(qDiv);
+                });
+            }
+            
+            if (quizData.long_answer) {
+                document.getElementById('la-text').innerText = quizData.long_answer.text || "";
+            }
         }
 
-        // Show the security warning banner and automatically hide it after a few seconds
         function triggerAbuseWarning() {
             const banner = document.getElementById('copy-paste-warning');
             banner.classList.remove('hidden');
@@ -243,7 +291,6 @@
                 btn.innerText = "Submitting... " + seconds + "s";
             }, 1000);
 
-            // Calculate timing metrics
             const submitTime = Date.now();
             const totalSecs = (submitTime - pageOpenTime) / 1000;
             const total_time = parseFloat(totalSecs.toFixed(1));
@@ -271,7 +318,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    credentials: 'omit', // Strips school single sign-on cookies that cause gateway authentication errors
+                    credentials: 'omit', 
                     mode: 'cors',
                     body: JSON.stringify(payload)
                 });
@@ -296,7 +343,6 @@
         }
 
         window.onload = () => { 
-            // Capture initial load time
             pageOpenTime = Date.now();
 
             loadQuiz(); 
@@ -304,7 +350,6 @@
                 document.getElementById('student-email').value = userEmail;
             }
 
-            // Copy and Paste abuse prevention handlers
             const laText = document.getElementById('la-text');
             const laInput = document.getElementById('la-input');
 
@@ -318,25 +363,21 @@
                 triggerAbuseWarning();
             });
 
-            // Prevent dragging from the question text
             laText.addEventListener('dragstart', (e) => {
                 e.preventDefault();
             });
 
-            // Prevent dropping into the long-answer input field
             laInput.addEventListener('drop', (e) => {
                 e.preventDefault();
                 triggerAbuseWarning();
             });
 
-            // Robust keystroke registration
             const recordFirstKeystroke = () => {
                 if (!firstKeystrokeTime) {
                     firstKeystrokeTime = Date.now();
                 }
             };
 
-            // Bind to multiple events for maximum compatibility across devices, platforms and auto-fills
             laInput.addEventListener('keydown', recordFirstKeystroke);
             laInput.addEventListener('input', recordFirstKeystroke);
             laInput.addEventListener('keyup', recordFirstKeystroke);
