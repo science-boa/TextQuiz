@@ -1,6 +1,46 @@
 quiz_id: 101
-video_url: https://www.youtube.com/watch?v=TQ_iCf8mzMA
 title: 'GCSE Biology Assessment: DNA, Genes, and the Human Genome'
+resource_text: |
+  # GCSE Biology: DNA, Genes, and the Human Genome
+
+  ## Introduction to Genetic Material
+  In eukaryotic cells, the genetic material is safely stored within the **nucleus**. This genetic material is organized into structures called **chromosomes**. Chromosomes are long, coiled molecules of a chemical known as **DNA** (Deoxyribonucleic Acid). 
+
+  DNA acts as the primary genetic material, carrying the code that determines all of an organism's inherited characteristics.
+
+  ---
+
+  ## The Structure of DNA
+  A DNA molecule is made up of two long strands coiled together in a unique spiral shape known as a **double helix**. 
+
+  ```
+     DNA Double Helix Structure
+     
+     |--|     <-- Chemical Backbones
+    |    |
+    |====|    <-- Nitrogenous Base Pairs (genetic code)
+    |    |
+     |--|
+  ```
+
+  ---
+
+  ## What is a Gene?
+  A **gene** is a small section of DNA located on a chromosome. Each gene contains the specific code to construct a particular sequence of **amino acids**, which fold together to create a specific **protein**. 
+
+  Chromosomes exist in matching pairs inside cells. Both chromosomes in a pair carry the same genes in the exact same positions. This means that for every characteristic, we have two copies of each gene (for example, the gene determining ABO blood groups is located on **chromosome 9**).
+
+  ---
+
+  ## The Human Genome
+  The **genome** refers to the entire genetic material of an organism. This includes all the genes and chromosomes within its cells.
+
+  Understanding and mapping the entire human genome has unlocked major advancements in modern medicine and science:
+  
+  1. **Predictive Medicine:** It allows scientists and doctors to search for genes linked to different types of non-communicable diseases, such as cancers or Alzheimer's disease.
+  2. **Treating Inherited Disorders:** It helps us understand, target, and treat genetic disorders caused by faulty genes, such as **cystic fibrosis**.
+  3. **Tracing Human History:** By looking at tiny mutations and variations in the genome over generations, scientists can track historical **human migration patterns** from the past, helping modern populations discover their ancestral roots.
+
 multiple_choice:
 - question_num: 1
   text: Where in a eukaryotic cell are chromosomes located?
