@@ -172,12 +172,22 @@
                 console.log("Rendering resource_text...");
                 try {
                     let htmlOutput = "";
+                    
+                    // Conditionally prepend floated image if image_url exists
+                    if (quizData.image_url) {
+                        htmlOutput += `
+                            <img src="${quizData.image_url}" 
+                                 alt="Resource Image" 
+                                 class="float-right w-1/2 ml-6 mb-4 rounded-xl border border-gray-100 shadow-sm object-cover" 
+                                 onerror="this.style.display='none';" />`;
+                    }
+
                     if (window.marked && typeof window.marked.parse === 'function') {
-                        htmlOutput = window.marked.parse(quizData.resource_text);
+                        htmlOutput += window.marked.parse(quizData.resource_text);
                     } else if (window.marked) {
-                        htmlOutput = window.marked(quizData.resource_text);
+                        htmlOutput += window.marked(quizData.resource_text);
                     } else {
-                        htmlOutput = quizData.resource_text.replace(/\n/g, "<br>");
+                        htmlOutput += quizData.resource_text.replace(/\n/g, "<br>");
                     }
                     document.getElementById('resource-text').innerHTML = htmlOutput;
                     document.getElementById('resource-container').classList.remove('hidden');
