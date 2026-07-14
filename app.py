@@ -67,7 +67,7 @@ if st.button("Generate Resource and Quiz", type="primary"):
         
         with st.spinner("Architecting resource and quiz..."):
             try:
-                model = genai.GenerativeModel(model_name='gemini-2.0-flash', system_instruction=system_instruction)
+                model = genai.GenerativeModel(model_name='gemini-3.1-flash-lite', system_instruction=system_instruction)
                 response = model.generate_content(prompt, generation_config=generation_config)
                 compiled_data = json.loads(response.text)
                 
@@ -84,8 +84,40 @@ if st.button("Generate Resource and Quiz", type="primary"):
 # --- REVIEW INTERFACE ---
 if 'quiz_data' in st.session_state:
     st.header("Review & Edit")
-    # (Existing editing logic remains the same for consistency)
-    # ... [Review/Edit interface logic] ...
+
+    edited_title = st.text_input("Quiz Title", value=st.session_state.get('quiz_title', ''))
+    
+    st.subheader("Multiple Choice Questions")
+    final_compiled_questions = []
+    
+    for i, q in enumerate(st.session_state['quiz_data']):
+        with st.expander(f"Q{i+1}: {q.get('text', '')[:50]}...", expanded=False):
+            e_text = st.text_input(f"Question {i+1}", value=q.get('text', ''), key=f"q_{i}")
+            e_A = st.text_input(f"A", value=q.get('A', ''), key=f"A_{i}")
+            e_B = st.text_input(f"B", value=q.get('B', ''), key=f"B_{i}")
+            e_C = st.text_input(f"C", value=q.get('C', ''), key=f"C_{i}")
+            e_D = st.text_input(f"D", value=q.get('D', ''), key=f"D_{i}")
+            
+            e_ans = st.text_input(f"Correct Answer Text", value=q.get('answer', ''), key=f"ans_{i}")
+            e_exp = st.text_area(f"Explanation", value=q.get('explanation', ''), key=f"exp_{i}")
+            e_pts = st.number_input(f"Points", value=int(q.get('points', 1)), key=f"pts_{i}")
+            
+            if st.checkbox(f"Include Q{i+1}", value=True, key=f"keep_{i}"):
+                final_compiled_questions.append({
+                    "question_num": len(final_compiled_questions) + 1,
+                    "text": e_text, "A": e_A, "B": e_B, "C": e_C, "D": e_D,
+                    "answer": e_ans, "points": e_pts, "explanation": e_exp
+                })
+
+    st.subheader("Long Answer Question")
+    la = st.session_state.get('long_answer_data', {})
+    with st.expander("Edit Long Answer Task", expanded=True):
+        e_la_text = st.text_area("Question Text", value=la.get('text', ''), key="la_t")
+        e_la_rubric = st.text_area("Rubric", value=la.get('rubric', ''), key="la_r")
+        e_la_pts = st.number_input("Points", value=int(la.get('points', 6)), key="la_p")
+    
+    final_la = {"question_num": 1, "text": e_la_text, "points": e_la_pts, "rubric": e_la_rubric}
+
 
     # --- YAML EXPORT ---
     st.divider()
