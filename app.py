@@ -51,7 +51,7 @@ def push_to_github(quiz_id, content_yaml):
     return response.status_code in [200, 201], response.text
 
 # --- STEP 1: CONTEXT PARAMS ---
-col1, col2, col3, col4 = st.columns([1, 2, 2, 2])
+col1, col2, col3, col4, col5 = st.columns([1, 2, 2, 2, 1])
 with col1:
     quiz_id_input = st.text_input("Quiz ID:", value="101")
 with col2:
@@ -60,6 +60,8 @@ with col3:
     url2 = st.text_input("URL 2:", placeholder="https://...")
 with col4:
     url3 = st.text_input("URL 3:", placeholder="https://...")
+with col5:
+    include_salary = st.toggle("Include salary details")
 
 # --- STEP 2: AI GENERATION ---
 if st.button("Generate Resource and Quiz", type="primary"):
@@ -86,16 +88,19 @@ if st.button("Generate Resource and Quiz", type="primary"):
             "Your task is to generate educational content calibrated to the secondary school standard."
         )
         
+        salary_instruction = "Include actual salary values in the resource where possible." if include_salary else ""
+        
         prompt = f"""
         You are an expert teacher. Your task is to generate educational content based STRICTLY on the provided text below.
         
         DO NOT use any external knowledge. If the answer to a question cannot be found within the provided text, do not create that question. 
+        {salary_instruction}
         
         Source text:
         {aggregated_content[:15000]} 
 
         Generate a JSON object containing:
-        1. "resource_text": A 500-550 word educational resource in Markdown format derived ONLY from the source text.
+        1. "resource_text": A 300-400 word educational resource in Markdown format derived ONLY from the source text.
         2. "title": A descriptive title for the assessment based on the text.
         3. "questions": Exactly 15 multiple choice objects. Each must have:
            "text", "A", "B", "C", "D", "answer", "explanation", "points".
