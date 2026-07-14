@@ -88,7 +88,7 @@ if st.button("Generate Resource and Quiz", type="primary"):
             "Your task is to generate educational content calibrated to the secondary school standard."
         )
         
-        salary_instruction = "Include actual salary values in pounds sterling in the resource where possible." if include_salary else ""
+        salary_instruction = "Include actual salary values in pounds sterling in the resource.." if include_salary else ""
         
         prompt = f"""
         You are an expert teacher. Your task is to generate educational content based STRICTLY on the provided text below.
@@ -100,7 +100,7 @@ if st.button("Generate Resource and Quiz", type="primary"):
         {aggregated_content[:15000]} 
 
         Generate a JSON object containing:
-        1. "resource_text": A 500-600 word educational resource in Markdown format derived ONLY from the source text.
+        1. "resource_text": A 600-700 word educational resource in Markdown format derived ONLY from the source text.
         2. "title": A descriptive title for the assessment based on the text.
         3. "questions": Exactly 15 multiple choice objects. Each must have:
            "text", "A", "B", "C", "D", "answer", "explanation", "points".
