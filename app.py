@@ -34,13 +34,23 @@ def push_to_github(quiz_id, content_yaml):
         "Accept": "application/vnd.github.v3+json"
     }
     
+    # 1. Check if file already exists to get its SHA
+    get_response = requests.get(url, headers=headers)
+    sha = None
+    if get_response.status_code == 200:
+        sha = get_response.json().get("sha")
+    
     # Base64 encode the content
     encoded_content = base64.b64encode(content_yaml.encode("utf-8")).decode("utf-8")
     
     data = {
-        "message": f"Add quiz {quiz_id} via Web-to-Quiz Architect",
+        "message": f"Update quiz {quiz_id} via Web-to-Quiz Architect",
         "content": encoded_content
     }
+    
+    # Include the SHA if updating an existing file
+    if sha:
+        data["sha"] = sha
     
     response = requests.put(url, headers=headers, json=data)
     return response.status_code in [200, 201], response.text
