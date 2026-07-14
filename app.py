@@ -3,6 +3,8 @@ import google.generativeai as genai
 import trafilatura
 import yaml
 import json
+import requests
+import base64
 
 st.set_page_config(page_title="Web-to-Quiz Architect", layout="wide")
 st.title("Web-to-Quiz Architect 🛠️")
@@ -19,6 +21,29 @@ if api_key:
 else:
     st.info("👉 Please ensure your Gemini API Key is set to activate the app.")
     st.stop()
+
+# --- GITHUB PUSH FUNCTION ---
+def push_to_github(quiz_id, content_yaml):
+    token = st.secrets.get("GITHUB_TOKEN")
+    if not token:
+        return False, "GITHUB_TOKEN not found in secrets."
+    
+    url = f"https://api.github.com/repos/science-boa/TextQuiz/contents/quizzes/QUIZ_{quiz_id}.yaml"
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    
+    # Base64 encode the content
+    encoded_content = base64.b64encode(content_yaml.encode("utf-8")).decode("utf-8")
+    
+    data = {
+        "message": f"Add quiz {quiz_id} via Web-to-Quiz Architect",
+        "content": encoded_content
+    }
+    
+    response = requests.put(url, headers=headers, json=data)
+    return response.status_code in [200, 201], response.text
 
 # --- STEP 1: CONTEXT PARAMS ---
 col1, col2 = st.columns([1, 3])
@@ -128,7 +153,7 @@ if 'quiz_data' in st.session_state:
     
     final_la = {"question_num": 1, "text": e_la_text, "points": e_la_pts, "rubric": e_la_rubric}
 
-    # --- YAML EXPORT ---
+    # --- YAML EXPORT & GITHUB PUSH ---
     st.divider()
     yaml_data = {
         "quiz_id": quiz_id_input,
@@ -139,9 +164,21 @@ if 'quiz_data' in st.session_state:
         "long_answer": final_la
     }
     
-    st.download_button(
-        label=f"💾 Download QUIZ_{quiz_id_input}.yaml",
-        data=yaml.dump(yaml_data, allow_unicode=True, sort_keys=False),
-        file_name=f"QUIZ_{quiz_id_input}.yaml",
-        mime="text/yaml"
-    )
+    yaml_string = yaml.dump(yaml_data, allow_unicode=True, sort_keys=False)
+    
+    col_dl, col_gh = st.columns(2)
+    with col_dl:
+        st.download_button(
+            label=f"💾 Download QUIZ_{quiz_id_input}.yaml",
+            data=yaml_string,
+            file_name=f"QUIZ_{quiz_id_input}.yaml",
+            mime="text/yaml"
+        )
+    
+    with col_gh:
+        if st.button("🚀 Push to GitHub"):
+            success, msg = push_to_github(quiz_id_input, yaml_string)
+            if success:
+                st.success("Successfully pushed to GitHub!")
+            else:
+                st.error(f"GitHub Push Failed: {msg}")
