@@ -5,202 +5,202 @@ resource_text: '### The Career of Sam Neill: A Study in Versatility
 
 
   Sam Neill (1947–2025) was a highly respected actor whose career spanned over five
-  decades. His work serves as an excellent case study for students interested in the
-  evolution of film and television, demonstrating how an actor can transition between
-  diverse genres, from high-budget Hollywood blockbusters to intimate, character-driven
-  dramas.
+  decades, demonstrating remarkable versatility across various genres. While he is
+  globally recognized for his role as Dr. Alan Grant in the *Jurassic Park* franchise,
+  his body of work encompasses everything from psychological thrillers and historical
+  dramas to television series and science fiction.
 
 
   #### Early Career and Breakthroughs
 
-  Neill’s early career was marked by his ability to portray complex, often unsettling
-  characters. His role as Damien in *The Omen III* (1981) established his presence
-  in the horror genre. He quickly proved his range by moving into psychological thrillers
-  like *Dead Calm* (1989) and military dramas such as *The Hunt for Red October* (1990).
-  These roles highlighted his capacity to hold the screen alongside major stars like
-  Nicole Kidman and Sean Connery.
+  Neill’s early career was defined by his ability to inhabit complex characters. In
+  1981, he took on the challenging role of Damien Thorn in *The Omen III: The Final
+  Conflict*, showcasing his capacity for intense, dramatic performances. Throughout
+  the 1980s and 90s, he became a staple of international cinema, appearing in high-profile
+  films such as *Dead Calm* (1989) alongside Nicole Kidman and the submarine thriller
+  *The Hunt for Red October* (1990). His performance in Jane Campion’s *The Piano*
+  (1993) further cemented his reputation as a serious actor capable of delivering
+  nuanced performances in critically acclaimed arthouse cinema.
 
 
   #### The Jurassic Park Phenomenon
 
-  While Neill’s filmography is extensive, he is most globally recognized for his portrayal
-  of the palaeontologist Dr. Alan Grant in Steven Spielberg’s *Jurassic Park* (1993).
-  This role is significant in cinema history for its integration of groundbreaking
-  CGI effects with traditional character-driven storytelling. Neill’s performance
-  provided a grounded, human element to a film dominated by spectacle. He returned
-  to the franchise in *Jurassic Park III* (2001) and reunited with the original cast
-  for *Jurassic World Dominion* (2022), illustrating the enduring legacy of the franchise.
+  In 1993, Neill achieved global superstardom when he was cast as the palaeontologist
+  Dr. Alan Grant in Steven Spielberg’s *Jurassic Park*. The film’s massive success
+  defined a generation of sci-fi adventure cinema. Neill’s portrayal of the pragmatic,
+  dinosaur-averse scientist provided a grounded human element amidst the groundbreaking
+  special effects. He reprised this iconic role in *Jurassic Park III* (2001) and
+  returned to the franchise for *Jurassic World Dominion* (2022), bridging the gap
+  between the original trilogy and the modern era.
 
 
-  #### Genre Versatility and Television
+  #### Television and Later Works
 
-  Beyond blockbusters, Neill was a staple of prestige television and arthouse cinema.
-  His work in Jane Campion’s *The Piano* (1993) showcased his ability to perform in
-  nuanced, Oscar-winning dramas. Furthermore, his title role in the fantasy series
-  *Merlin* (1998) and his portrayal of the antagonist Major Chester Campbell in the
-  gritty period drama *Peaky Blinders* demonstrated his adaptability. Whether playing
-  a hero, a villain, or a historical figure, Neill’s career was defined by a commitment
-  to craft. His late-career work, including *Apples Never Fall*, proves that an actor’s
-  range can continue to expand well into their later years, leaving a lasting impact
-  on both the big and small screens.'
+  Beyond the silver screen, Neill was a prolific television actor. He played the title
+  character in the fantasy series *Merlin* (1998) and later gained a new generation
+  of fans for his portrayal of the ruthless Major Chester Campbell in the hit BBC
+  drama *Peaky Blinders*. His ability to transition between heroic leads and menacing
+  antagonists highlights the breadth of his talent. Whether in space-based horror
+  like *Event Horizon* (1997) or contemporary mystery dramas like *Apples Never Fall*,
+  Sam Neill remained a constant, reliable presence in the entertainment industry,
+  leaving behind a legacy of professional excellence and artistic range.'
 multiple_choice:
 - question_num: 1
-  text: What is the primary focus of palaeontology?
-  A: The study of modern animal behaviour
-  B: The study of fossils and ancient life
-  C: The study of genetic engineering
-  D: The study of sedimentary rock formation only
-  answer: The study of fossils and ancient life
+  text: Which iconic 1993 film is Sam Neill most famous for?
+  A: The Piano
+  B: Jurassic Park
+  C: The Hunt for Red October
+  D: Dead Calm
+  answer: Jurassic Park
   points: 1
-  explanation: Palaeontology is the scientific study of life that existed prior to
-    the Holocene Epoch, primarily through the examination of fossils.
+  explanation: Sam Neill is best remembered for his role as Dr. Alan Grant in the
+    1993 sci-fi adventure Jurassic Park.
 - question_num: 2
-  text: In which type of rock are most dinosaur fossils found?
-  A: Igneous
-  B: Metamorphic
-  C: Sedimentary
-  D: Volcanic
-  answer: Sedimentary
+  text: In which 1981 film did Sam Neill play the adult antichrist?
+  A: The Omen III
+  B: Event Horizon
+  C: The Piano
+  D: Dead Calm
+  answer: The Omen III
   points: 1
-  explanation: Sedimentary rocks are formed by the accumulation of sediment, which
-    is the best environment for preserving biological remains.
+  explanation: 'Neill played the role of Damien Thorn in the 1981 film The Omen III:
+    The Final Conflict.'
 - question_num: 3
-  text: Why is it currently impossible to clone a dinosaur using ancient DNA?
-  A: DNA is too large to be cloned
-  B: DNA degrades over time and cannot survive for 66 million years
-  C: Dinosaurs did not have DNA
-  D: We lack the technology to read DNA sequences
-  answer: DNA degrades over time and cannot survive for 66 million years
+  text: Who did Sam Neill star alongside in the 1989 thriller Dead Calm?
+  A: Annette Bening
+  B: Sean Connery
+  C: Nicole Kidman
+  D: Jeff Goldblum
+  answer: Nicole Kidman
   points: 1
-  explanation: DNA is a chemical molecule that breaks down due to environmental factors,
-    making it impossible to recover from the Mesozoic era.
+  explanation: The text explicitly states he starred alongside Nicole Kidman in the
+    1989 psychological thriller Dead Calm.
 - question_num: 4
-  text: Which group of modern animals are the direct descendants of theropod dinosaurs?
-  A: Reptiles
-  B: Mammals
-  C: Birds
-  D: Amphibians
-  answer: Birds
+  text: What was the profession of Sam Neill's character, Dr. Alan Grant?
+  A: Submarine Captain
+  B: Palaeontologist
+  C: Major in the Army
+  D: Fantasy Wizard
+  answer: Palaeontologist
   points: 1
-  explanation: Phylogenetic evidence shows that birds evolved from a group of two-legged
-    dinosaurs known as theropods.
+  explanation: Dr. Alan Grant is identified in the text as a palaeontologist.
 - question_num: 5
-  text: What is the main role of DNA in an organism?
-  A: To provide energy for cells
-  B: To store genetic information
-  C: To transport oxygen in the blood
-  D: To act as a catalyst for chemical reactions
-  answer: To store genetic information
+  text: Which director was responsible for the 1993 film The Piano?
+  A: Steven Spielberg
+  B: Jane Campion
+  C: Sam Neill
+  D: Martin Ferrero
+  answer: Jane Campion
   points: 1
-  explanation: DNA contains the instructions needed for an organism to develop, survive,
-    and reproduce.
+  explanation: The text notes that Neill featured in Jane Campion's Oscar-winning
+    1993 drama The Piano.
 - question_num: 6
-  text: Which feature is shared by both birds and theropod dinosaurs?
-  A: Live birth
-  B: Hollow bones
-  C: Mammary glands
-  D: External ears
-  answer: Hollow bones
+  text: In which TV series did Sam Neill play Major Chester Campbell?
+  A: Merlin
+  B: Apples Never Fall
+  C: Peaky Blinders
+  D: Jurassic World
+  answer: Peaky Blinders
   points: 1
-  explanation: Many theropod dinosaurs possessed hollow, air-filled bones, a trait
-    that is also characteristic of modern birds to reduce weight for flight.
+  explanation: The text mentions his appearance as the ruthless Major Chester Campbell
+    in BBC TV's Peaky Blinders.
 - question_num: 7
-  text: What is the approximate age of the Mesozoic Era's end?
-  A: 1 million years ago
-  B: 10 million years ago
-  C: 66 million years ago
-  D: 500 million years ago
-  answer: 66 million years ago
+  text: What genre is the 1997 film Event Horizon?
+  A: Sci-fi thriller
+  B: Historical drama
+  C: Romantic comedy
+  D: Submarine thriller
+  answer: Sci-fi thriller
   points: 1
-  explanation: The Cretaceous-Paleogene extinction event, which ended the Mesozoic
-    Era, occurred approximately 66 million years ago.
+  explanation: The text classifies Event Horizon as a 1997 sci-fi thriller.
 - question_num: 8
-  text: What is a fossil?
-  A: A living organism found in deep caves
-  B: The preserved remains or traces of an ancient organism
-  C: A modern animal that looks like a dinosaur
-  D: A type of rock that contains no organic material
-  answer: The preserved remains or traces of an ancient organism
+  text: Which film marked the return of the original Jurassic Park stars in 2022?
+  A: Jurassic Park III
+  B: Jurassic World
+  C: Jurassic World Dominion
+  D: The Lost World
+  answer: Jurassic World Dominion
   points: 1
-  explanation: Fossils include bones, shells, imprints, and tracks that have been
-    preserved in the Earth's crust.
+  explanation: The original stars returned for one last hurrah in 2022's Jurassic
+    World Dominion.
 - question_num: 9
-  text: What is the process of 'de-extinction'?
-  A: The natural death of a species
-  B: The process of creating an organism that resembles an extinct species
-  C: The study of how species evolve
-  D: The classification of new species
-  answer: The process of creating an organism that resembles an extinct species
+  text: Which actress starred alongside Sam Neill in Apples Never Fall?
+  A: Nicole Kidman
+  B: Annette Bening
+  C: Laura Dern
+  D: Jane Campion
+  answer: Annette Bening
   points: 1
-  explanation: De-extinction involves using biotechnology to bring back or mimic the
-    traits of an extinct species.
+  explanation: The text states he appeared in Apples Never Fall alongside Annette
+    Bening.
 - question_num: 10
-  text: Which factor contributes most to the degradation of DNA?
-  A: Low temperatures
-  B: Lack of oxygen
-  C: Heat and radiation
-  D: High pressure
-  answer: Heat and radiation
+  text: Who directed the original Jurassic Park?
+  A: Jane Campion
+  B: Steven Spielberg
+  C: Sam Neill
+  D: Sean Connery
+  answer: Steven Spielberg
   points: 1
-  explanation: Environmental factors like heat, UV radiation, and chemical reactions
-    cause the chemical bonds in DNA to break.
+  explanation: The text identifies Steven Spielberg as the director of the 1993 sci-fi
+    adventure Jurassic Park.
 - question_num: 11
-  text: What does the fossil record provide evidence for?
-  A: The creation of the universe
-  B: The theory of evolution
-  C: The chemical composition of the sun
-  D: The speed of light
-  answer: The theory of evolution
+  text: In which film did Sam Neill appear opposite Sir Sean Connery?
+  A: The Hunt For Red October
+  B: The Piano
+  C: Dead Calm
+  D: Event Horizon
+  answer: The Hunt For Red October
   points: 1
-  explanation: The fossil record shows the gradual change of organisms over time,
-    supporting the theory of evolution by natural selection.
+  explanation: The text states Neill appeared opposite Sir Sean Connery in the 1990
+    submarine thriller The Hunt For Red October.
 - question_num: 12
-  text: Why are feathers significant in dinosaur research?
-  A: They prove dinosaurs could fly
-  B: They suggest a closer evolutionary link to birds
-  C: They were used for camouflage only
-  D: They were made of rock
-  answer: They suggest a closer evolutionary link to birds
+  text: What was the title role Sam Neill played in a 1998 TV series?
+  A: Damien
+  B: Alan Grant
+  C: Merlin
+  D: Chester Campbell
+  answer: Merlin
   points: 1
-  explanation: The discovery of feathers on non-avian dinosaurs provides strong evidence
-    for the evolutionary transition to birds.
+  explanation: The text states he played the title role in 1998's fantasy adventure
+    TV series Merlin.
 - question_num: 13
-  text: What is a 'half-life' in the context of biological molecules?
-  A: The time taken for half of the molecules to decay
-  B: The age of the organism
-  C: The speed at which an organism grows
-  D: The amount of DNA in a cell
-  answer: The time taken for half of the molecules to decay
+  text: How many times did Sam Neill play Dr. Alan Grant in the Jurassic franchise?
+  A: Once
+  B: Twice
+  C: Three times
+  D: Four times
+  answer: Three times
   points: 1
-  explanation: Half-life is a measure of the rate of decay of unstable substances,
-    including DNA molecules.
+  explanation: He played the role in Jurassic Park (1993), Jurassic Park III (2001),
+    and Jurassic World Dominion (2022).
 - question_num: 14
-  text: Which of these is a characteristic of sedimentary rock?
-  A: Formed by cooling magma
-  B: Formed by high pressure and heat
-  C: Formed by layers of sediment
-  D: Formed by volcanic activity
-  answer: Formed by layers of sediment
+  text: Which of these is NOT mentioned as a genre Sam Neill worked in?
+  A: Arthouse films
+  B: Hollywood blockbusters
+  C: Westerns
+  D: Psychological thrillers
+  answer: Westerns
   points: 1
-  explanation: Sedimentary rocks are formed by the deposition and lithification of
-    mineral or organic particles.
+  explanation: The text mentions arthouse, blockbusters, and thrillers, but does not
+    mention Westerns.
 - question_num: 15
-  text: What is the primary scientific limitation of the Jurassic Park premise?
-  A: The lack of dinosaur eggs
-  B: The inability to extract intact ancient DNA
-  C: The lack of modern animals to act as surrogates
-  D: The size of the dinosaurs
-  answer: The inability to extract intact ancient DNA
+  text: What was the primary reason Sam Neill is considered a versatile actor?
+  A: He only played dinosaurs.
+  B: He worked in many different genres and roles.
+  C: He only worked in television.
+  D: He only worked with Steven Spielberg.
+  answer: He worked in many different genres and roles.
   points: 1
-  explanation: DNA is too unstable to survive for millions of years, making it impossible
-    to obtain a complete genome for cloning.
+  explanation: The text highlights his long and varied career ranging from Hollywood
+    blockbusters to arthouse films.
 long_answer:
   question_num: 1
-  text: Explain why the fossil record is essential for our understanding of evolution,
-    and evaluate the scientific feasibility of using ancient DNA to recreate extinct
-    species.
+  text: Evaluate the impact of Sam Neill’s career on the film industry. In your answer,
+    discuss how his ability to transition between different genres contributed to
+    his longevity and reputation as an actor.
   points: 6
-  rubric: 'L1: Basic description of fossils or DNA. L2: Clear explanation of how fossils
-    show evolutionary change and why DNA degrades. L3: Detailed evaluation linking
-    the fossil record to evolutionary theory and providing a scientific argument against
-    the feasibility of de-extinction based on DNA half-life and degradation.'
+  rubric: 'L1 (1-2 marks): Basic identification of roles with limited explanation
+    of impact. L2 (3-4 marks): Clear discussion of genre versatility and specific
+    examples of his work. L3 (5-6 marks): Comprehensive evaluation of how his range
+    (from blockbusters to arthouse) established his professional legacy and longevity
+    in the industry.'
