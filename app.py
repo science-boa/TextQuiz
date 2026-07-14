@@ -95,7 +95,7 @@ if st.button("Generate Resource and Quiz", type="primary"):
         {aggregated_content[:15000]} 
 
         Generate a JSON object containing:
-        1. "resource_text": A 400-500 word educational resource in Markdown format derived ONLY from the source text.
+        1. "resource_text": A 500-550 word educational resource in Markdown format derived ONLY from the source text.
         2. "title": A descriptive title for the assessment based on the text.
         3. "questions": Exactly 15 multiple choice objects. Each must have:
            "text", "A", "B", "C", "D", "answer", "explanation", "points".
