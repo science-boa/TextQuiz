@@ -44,8 +44,8 @@ if st.button("Generate Resource and Quiz", type="primary"):
             st.stop()
 
         system_instruction = (
-            "You are an expert UK secondary school science teacher and GCSE examiner. "
-            "Your task is to generate educational content calibrated to the UK GCSE standard (14-15 year olds)."
+            "You are an expert secondary school teacher. "
+            "Your task is to generate educational content calibrated to the secondary school standard."
         )
         
         prompt = f"""
@@ -58,11 +58,11 @@ if st.button("Generate Resource and Quiz", type="primary"):
         3. "questions": Exactly 15 multiple choice objects. Each must have:
            "text", "A", "B", "C", "D", 
            "answer" (exact text of correct option), 
-           "explanation" (GCSE-level scientific explanation), 
+           "explanation" (a clear educational explanation), 
            "points" (1).
         4. "long_answer": Exactly 1 object:
-           "text" (A 6-mark question using command terms like 'Explain' or 'Evaluate'),
-           "rubric" (GCSE mark scheme levels L1-L3),
+           "text" (A 6-mark question using appropriate command terms),
+           "rubric" (Mark scheme levels L1-L3),
            "points" (6).
 
         Strict JSON structure:
