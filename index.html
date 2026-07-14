@@ -63,7 +63,7 @@
                             <div id="mc-questions" class="space-y-6"></div>
                         </div>
 
-                        <div id="la-section" class="space-y-4 pt-6 border-t border-gray-100">
+                        <div id="la-section" class="hidden space-y-4 pt-6 border-t border-gray-100">
                             <h2 class="text-xl font-bold text-indigo-900">Part 2: Long Answer</h2>
                             <p id="la-text" class="text-gray-700 font-medium select-all" draggable="false"></p>
                             
@@ -162,11 +162,12 @@
         function renderQuiz() {
             document.getElementById('quiz-title').innerText = quizData.title || "Quiz Portal";
             
-            // Set user email into input field if available
+            // Populate email input with student email parameter
             if (userEmail) {
                 document.getElementById('student-email').value = userEmail;
             }
 
+            // Resource render logic
             if (quizData.resource_text) {
                 console.log("Rendering resource_text...");
                 try {
@@ -190,6 +191,7 @@
                 document.getElementById('resource-container').classList.remove('hidden');
             }
 
+            // Part 1: Multiple Choice Question render logic
             const mcContainer = document.getElementById('mc-questions');
             mcContainer.innerHTML = "";
             quizData.multiple_choice?.forEach(q => {
@@ -200,8 +202,13 @@
                 mcContainer.appendChild(qDiv);
             });
             
-            if (quizData.long_answer) {
-                document.getElementById('la-text').innerText = quizData.long_answer.text || "";
+            // Part 2: Long Answer conditional rendering logic
+            const laSection = document.getElementById('la-section');
+            if (quizData.long_answer && quizData.long_answer.text) {
+                document.getElementById('la-text').innerText = quizData.long_answer.text;
+                laSection.classList.remove('hidden');
+            } else {
+                laSection.classList.add('hidden');
             }
         }
 
@@ -216,7 +223,7 @@
                 email: email,
                 quizId: quizId,
                 multipleChoice: {},
-                longAnswer: document.getElementById('la-input').value.trim()
+                longAnswer: ""
             };
 
             // Collect MC responses
@@ -224,6 +231,12 @@
                 const selected = document.querySelector(`input[name="mc_${q.question_num}"]:checked`);
                 answers.multipleChoice[q.question_num] = selected ? selected.value : "";
             });
+
+            // Gather long answer response if the section is currently active and visible
+            const laSection = document.getElementById('la-section');
+            if (!laSection.classList.contains('hidden')) {
+                answers.longAnswer = document.getElementById('la-input').value.trim();
+            }
 
             try {
                 const response = await fetch(BACKEND_URL, {
