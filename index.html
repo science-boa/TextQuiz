@@ -119,6 +119,17 @@
             document.getElementById('custom-modal').classList.add('hidden');
         }
 
+        function toggleLayout() {
+            const portal = document.getElementById('portal');
+            if (portal.classList.contains('flex-col')) {
+                portal.classList.remove('flex-col', 'md:flex-row');
+                portal.classList.add('flex-col-reverse', 'md:flex-row-reverse');
+            } else {
+                portal.classList.remove('flex-col-reverse', 'md:flex-row-reverse');
+                portal.classList.add('flex-col', 'md:flex-row');
+            }
+        }
+
         async function loadQuiz() {
             let formattedQuizId = quizId;
             if (!formattedQuizId.toLowerCase().startsWith("quiz_")) {
@@ -151,7 +162,11 @@
         function renderQuiz() {
             document.getElementById('quiz-title').innerText = quizData.title || "Quiz Portal";
             
-            // Debug check
+            // Set user email into input field if available
+            if (userEmail) {
+                document.getElementById('student-email').value = userEmail;
+            }
+
             if (quizData.resource_text) {
                 console.log("Rendering resource_text...");
                 try {
@@ -175,7 +190,6 @@
                 document.getElementById('resource-container').classList.remove('hidden');
             }
 
-            // ... (rest of the render logic)
             const mcContainer = document.getElementById('mc-questions');
             mcContainer.innerHTML = "";
             quizData.multiple_choice?.forEach(q => {
@@ -186,7 +200,47 @@
                 mcContainer.appendChild(qDiv);
             });
             
-            if (quizData.long_answer) document.getElementById('la-text').innerText = quizData.long_answer.text || "";
+            if (quizData.long_answer) {
+                document.getElementById('la-text').innerText = quizData.long_answer.text || "";
+            }
+        }
+
+        async function submitAssignment() {
+            const email = document.getElementById('student-email').value.trim();
+            if (!email) {
+                showAlert("Please enter your school email address.");
+                return;
+            }
+
+            const answers = {
+                email: email,
+                quizId: quizId,
+                multipleChoice: {},
+                longAnswer: document.getElementById('la-input').value.trim()
+            };
+
+            // Collect MC responses
+            quizData.multiple_choice?.forEach(q => {
+                const selected = document.querySelector(`input[name="mc_${q.question_num}"]:checked`);
+                answers.multipleChoice[q.question_num] = selected ? selected.value : "";
+            });
+
+            try {
+                const response = await fetch(BACKEND_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(answers)
+                });
+
+                if (response.ok) {
+                    document.getElementById('portal').classList.add('hidden');
+                    document.getElementById('results-portal').classList.remove('hidden');
+                } else {
+                    throw new Error("Failed to submit results. Please try again.");
+                }
+            } catch (err) {
+                showAlert(err.message, "Submission Error");
+            }
         }
 
         window.onload = loadQuiz;
