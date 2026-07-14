@@ -51,7 +51,7 @@ def push_to_github(quiz_id, content_yaml):
     return response.status_code in [200, 201], response.text
 
 # --- STEP 1: CONTEXT PARAMS ---
-col1, col2, col3, col4, col5 = st.columns([1, 2, 2, 2, 1])
+col1, col2, col3, col4, col5, col6 = st.columns([1, 2, 2, 2, 1, 1])
 with col1:
     quiz_id_input = st.text_input("Quiz ID:", value="101")
 with col2:
@@ -62,6 +62,8 @@ with col4:
     url3 = st.text_input("URL 3:", placeholder="https://...")
 with col5:
     include_salary = st.toggle("Include salary details")
+with col6:
+    include_image = st.toggle("Include image")
 
 # --- STEP 2: AI GENERATION ---
 if st.button("Generate Resource and Quiz", type="primary"):
@@ -89,12 +91,14 @@ if st.button("Generate Resource and Quiz", type="primary"):
         )
         
         salary_instruction = "Include actual salary values in pounds sterling in the resource.." if include_salary else ""
+        image_instruction = "Find a suitable representative image URL and include it in the JSON under the key 'image_url'." if include_image else ""
         
         prompt = f"""
         You are an expert teacher. Your task is to generate educational content based STRICTLY on the provided text below.
         
         DO NOT use any external knowledge. If the answer to a question cannot be found within the provided text, do not create that question. 
         {salary_instruction}
+        {image_instruction}
         
         Source text:
         {aggregated_content[:15000]} 
@@ -108,13 +112,15 @@ if st.button("Generate Resource and Quiz", type="primary"):
         4. "long_answer": Exactly 1 object:
            "text", "rubric", "points".
            THIS QUESTION MUST BE ANSWERABLE USING ONLY THE PROVIDED SOURCE TEXT.
+        5. "image_url": A URL to a suitable image (only if image toggle selected).
 
         Strict JSON structure:
         {{
           "resource_text": "...",
           "title": "...",
           "questions": [...],
-          "long_answer": {{ ... }}
+          "long_answer": {{ ... }},
+          "image_url": "..."
         }}
         """
         
@@ -130,6 +136,7 @@ if st.button("Generate Resource and Quiz", type="primary"):
                 st.session_state['quiz_title'] = compiled_data.get('title', 'Assessment')
                 st.session_state['quiz_data'] = compiled_data.get('questions', [])
                 st.session_state['long_answer_data'] = compiled_data.get('long_answer', {})
+                st.session_state['image_url'] = compiled_data.get('image_url', '')
                 st.session_state['saved_urls'] = urls
                 st.session_state['saved_quiz_id'] = quiz_id_input
                 status_placeholder.success("🎉 Content and assessment generated!")
@@ -140,6 +147,12 @@ if st.button("Generate Resource and Quiz", type="primary"):
 if 'quiz_data' in st.session_state:
     st.header("Review & Edit")
     edited_title = st.text_input("Quiz Title", value=st.session_state.get('quiz_title', ''))
+    
+    with st.expander("Edit Resource Text (Raw Markdown)", expanded=False):
+        edited_resource = st.text_area("Markdown Resource", value=st.session_state.get('resource_text', ''), height=300)
+    
+    if 'image_url' in st.session_state and st.session_state['image_url']:
+        edited_image_url = st.text_input("Image URL", value=st.session_state['image_url'])
     
     st.subheader("Multiple Choice Questions")
     final_compiled_questions = []
@@ -178,11 +191,13 @@ if 'quiz_data' in st.session_state:
         "quiz_id": quiz_id_input,
         "web_urls": st.session_state['saved_urls'],
         "title": edited_title,
-        "resource_text": st.session_state['resource_text'],
+        "resource_text": edited_resource,
         "multiple_choice": final_compiled_questions
     }
     if final_la:
         yaml_data["long_answer"] = final_la
+    if 'image_url' in st.session_state and st.session_state['image_url']:
+        yaml_data["image_url"] = edited_image_url
     
     yaml_string = yaml.dump(yaml_data, allow_unicode=True, sort_keys=False)
     
