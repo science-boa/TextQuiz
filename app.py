@@ -34,21 +34,16 @@ def push_to_github(quiz_id, content_yaml):
         "Accept": "application/vnd.github.v3+json"
     }
     
-    # 1. Check if file already exists to get its SHA
     get_response = requests.get(url, headers=headers)
     sha = None
     if get_response.status_code == 200:
         sha = get_response.json().get("sha")
     
-    # Base64 encode the content
     encoded_content = base64.b64encode(content_yaml.encode("utf-8")).decode("utf-8")
-    
     data = {
         "message": f"Update quiz {quiz_id} via Web-to-Quiz Architect",
         "content": encoded_content
     }
-    
-    # Include the SHA if updating an existing file
     if sha:
         data["sha"] = sha
     
@@ -56,26 +51,34 @@ def push_to_github(quiz_id, content_yaml):
     return response.status_code in [200, 201], response.text
 
 # --- STEP 1: CONTEXT PARAMS ---
-col1, col2 = st.columns([1, 3])
+col1, col2, col3, col4 = st.columns([1, 2, 2, 2])
 with col1:
-    quiz_id_input = st.text_input("Quiz ID:", value="101", placeholder="e.g., 101")
+    quiz_id_input = st.text_input("Quiz ID:", value="101")
 with col2:
-    web_url = st.text_input("Paste Webpage URL here:", placeholder="https://...")
+    url1 = st.text_input("URL 1:", placeholder="https://...")
+with col3:
+    url2 = st.text_input("URL 2:", placeholder="https://...")
+with col4:
+    url3 = st.text_input("URL 3:", placeholder="https://...")
 
 # --- STEP 2: AI GENERATION ---
 if st.button("Generate Resource and Quiz", type="primary"):
-    if not web_url:
-        st.warning("Please provide a valid URL.")
+    urls = [u for u in [url1, url2, url3] if u]
+    if not urls:
+        st.warning("Please provide at least one valid URL.")
     else:
         status_placeholder = st.empty()
+        aggregated_content = ""
         
-        # Fetch content using trafilatura
-        with st.spinner("Fetching content from the web..."):
-            downloaded = trafilatura.fetch_url(web_url)
-            page_content = trafilatura.extract(downloaded)
+        with st.spinner("Fetching and aggregating content..."):
+            for url in urls:
+                downloaded = trafilatura.fetch_url(url)
+                content = trafilatura.extract(downloaded)
+                if content:
+                    aggregated_content += f"\n\n--- Source: {url} ---\n\n" + content
         
-        if not page_content:
-            st.error("Failed to extract content from the URL. Please check the link or try another.")
+        if not aggregated_content:
+            st.error("Failed to extract content from any of the provided URLs.")
             st.stop()
 
         system_instruction = (
@@ -84,21 +87,22 @@ if st.button("Generate Resource and Quiz", type="primary"):
         )
         
         prompt = f"""
-        Analyze the following text extracted from a webpage:
-        {page_content[:15000]} 
+        You are an expert teacher. Your task is to generate educational content based STRICTLY on the provided text below.
+        
+        DO NOT use any external knowledge. If the answer to a question cannot be found within the provided text, do not create that question. 
+        
+        Source text:
+        {aggregated_content[:15000]} 
 
         Generate a JSON object containing:
-        1. "resource_text": A 300-400 word educational resource in Markdown format covering the topic.
-        2. "title": A descriptive title for the assessment.
+        1. "resource_text": A 300-400 word educational resource in Markdown format derived ONLY from the source text.
+        2. "title": A descriptive title for the assessment based on the text.
         3. "questions": Exactly 15 multiple choice objects. Each must have:
-           "text", "A", "B", "C", "D", 
-           "answer" (exact text of correct option), 
-           "explanation" (a clear educational explanation), 
-           "points" (1).
+           "text", "A", "B", "C", "D", "answer", "explanation", "points".
+           EACH QUESTION MUST BE DIRECTLY SUPPORTED BY THE PROVIDED SOURCE TEXT.
         4. "long_answer": Exactly 1 object:
-           "text" (A 6-mark question using appropriate command terms),
-           "rubric" (Mark scheme levels L1-L3),
-           "points" (6).
+           "text", "rubric", "points".
+           THIS QUESTION MUST BE ANSWERABLE USING ONLY THE PROVIDED SOURCE TEXT.
 
         Strict JSON structure:
         {{
@@ -121,7 +125,7 @@ if st.button("Generate Resource and Quiz", type="primary"):
                 st.session_state['quiz_title'] = compiled_data.get('title', 'Assessment')
                 st.session_state['quiz_data'] = compiled_data.get('questions', [])
                 st.session_state['long_answer_data'] = compiled_data.get('long_answer', {})
-                st.session_state['saved_url'] = web_url
+                st.session_state['saved_urls'] = urls
                 st.session_state['saved_quiz_id'] = quiz_id_input
                 status_placeholder.success("🎉 Content and assessment generated!")
             except Exception as e:
@@ -142,53 +146,46 @@ if 'quiz_data' in st.session_state:
             e_B = st.text_input(f"B", value=q.get('B', ''), key=f"B_{i}")
             e_C = st.text_input(f"C", value=q.get('C', ''), key=f"C_{i}")
             e_D = st.text_input(f"D", value=q.get('D', ''), key=f"D_{i}")
-            
-            e_ans = st.text_input(f"Correct Answer Text", value=q.get('answer', ''), key=f"ans_{i}")
+            e_ans = st.text_input(f"Correct Answer", value=q.get('answer', ''), key=f"ans_{i}")
             e_exp = st.text_area(f"Explanation", value=q.get('explanation', ''), key=f"exp_{i}")
-            e_pts = st.number_input(f"Points", value=int(q.get('points', 1)), key=f"pts_{i}")
             
             if st.checkbox(f"Include Q{i+1}", value=True, key=f"keep_{i}"):
                 final_compiled_questions.append({
                     "question_num": len(final_compiled_questions) + 1,
                     "text": e_text, "A": e_A, "B": e_B, "C": e_C, "D": e_D,
-                    "answer": e_ans, "points": e_pts, "explanation": e_exp
+                    "answer": e_ans, "points": 1, "explanation": e_exp
                 })
 
     st.subheader("Long Answer Question")
-    la = st.session_state.get('long_answer_data', {})
-    with st.expander("Edit Long Answer Task", expanded=True):
-        e_la_text = st.text_area("Question Text", value=la.get('text', ''), key="la_t")
-        e_la_rubric = st.text_area("Rubric", value=la.get('rubric', ''), key="la_r")
-        e_la_pts = st.number_input("Points", value=int(la.get('points', 6)), key="la_p")
+    include_la = st.checkbox("Include Long Answer Question", value=False)
     
-    final_la = {"question_num": 1, "text": e_la_text, "points": e_la_pts, "rubric": e_la_rubric}
+    final_la = None
+    if include_la:
+        la = st.session_state.get('long_answer_data', {})
+        with st.expander("Edit Long Answer Task", expanded=True):
+            e_la_text = st.text_area("Question Text", value=la.get('text', ''), key="la_t")
+            e_la_rubric = st.text_area("Rubric", value=la.get('rubric', ''), key="la_r")
+            final_la = {"question_num": 1, "text": e_la_text, "points": 6, "rubric": e_la_rubric}
 
     # --- YAML EXPORT & GITHUB PUSH ---
     st.divider()
     yaml_data = {
         "quiz_id": quiz_id_input,
-        "web_url": st.session_state['saved_url'],
+        "web_urls": st.session_state['saved_urls'],
         "title": edited_title,
         "resource_text": st.session_state['resource_text'],
-        "multiple_choice": final_compiled_questions,
-        "long_answer": final_la
+        "multiple_choice": final_compiled_questions
     }
+    if final_la:
+        yaml_data["long_answer"] = final_la
     
     yaml_string = yaml.dump(yaml_data, allow_unicode=True, sort_keys=False)
     
     col_dl, col_gh = st.columns(2)
     with col_dl:
-        st.download_button(
-            label=f"💾 Download QUIZ_{quiz_id_input}.yaml",
-            data=yaml_string,
-            file_name=f"QUIZ_{quiz_id_input}.yaml",
-            mime="text/yaml"
-        )
-    
+        st.download_button("💾 Download YAML", yaml_string, f"QUIZ_{quiz_id_input}.yaml", "text/yaml")
     with col_gh:
         if st.button("🚀 Push to GitHub"):
             success, msg = push_to_github(quiz_id_input, yaml_string)
-            if success:
-                st.success("Successfully pushed to GitHub!")
-            else:
-                st.error(f"GitHub Push Failed: {msg}")
+            if success: st.success("Pushed to GitHub!")
+            else: st.error(f"Failed: {msg}")
