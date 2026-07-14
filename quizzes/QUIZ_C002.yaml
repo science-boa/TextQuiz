@@ -1,0 +1,195 @@
+quiz_id: C002
+web_urls:
+- https://www.healthcareers.nhs.uk/explore-roles/healthcare-science/roles-healthcare-science/physiological-sciences/cardiac-sciences
+- https://www.healthcareers.nhs.uk/explore-roles/healthcare-science/roles-healthcare-science/physiological-sciences/clinical-exercise-physiologist
+- https://www.healthcareers.nhs.uk/working-health/working-nhs/nhs-pay-and-benefits/agenda-change-pay-rates
+title: Exploring Careers in Cardiac Science and Clinical Exercise Physiology
+resource_text: "### Careers in Cardiac Science and Clinical Exercise Physiology\n\n\
+  Healthcare science is a vital part of the NHS, offering diverse career paths for\
+  \ those interested in patient care, technology, and diagnostics. Two significant\
+  \ areas within this field are Cardiac Sciences and Clinical Exercise Physiology.\n\
+  \n#### Cardiac Sciences\nHealthcare scientists in cardiac science are responsible\
+  \ for diagnosing, monitoring, and conducting analytical procedures for patients\
+  \ with heart disease. This is a patient-facing role that involves working with individuals\
+  \ of all ages, from infants to the elderly. \n\nKey procedures performed in cardiac\
+  \ science include:\n- **Echocardiography:** Using ultrasound to visualize the heart's\
+  \ structure and function.\n- **Pacemaker Implantation and Follow-up:** Programming\
+  \ and monitoring devices to ensure they function correctly.\n- **Exercise Stress\
+  \ Testing:** Monitoring patients, often on a treadmill, to assess blood vessel function.\n\
+  \nRoles range from Healthcare Science Assistants (Bands 2/3) who perform routine\
+  \ tests like ECGs, to Practitioners (Band 5) who provide technical support and reports,\
+  \ and Clinical Scientists (Bands 6-8a) who handle complex diagnostics and team management.\
+  \ Consultant Clinical Scientists can reach bands 8a-9.\n\n#### Clinical Exercise\
+  \ Physiology\nClinical exercise physiologists prescribe and deliver evidence-based\
+  \ exercise programmes to help patients manage long-term conditions. They work in\
+  \ diverse settings, including cardiology, oncology, respiratory care, and mental\
+  \ health. Their tasks include cardiopulmonary exercise testing, muscular strength\
+  \ assessment, and providing advice on lifestyle changes to improve well-being.\n\
+  \nTo become a clinical exercise physiologist, you typically need a first degree\
+  \ in a relevant subject followed by a one-year Master’s degree in clinical exercise\
+  \ physiology. Registered professionals usually start at Band 6, with opportunities\
+  \ for progression.\n\n#### Pay and Benefits\nNHS staff are employed under the 'Agenda\
+  \ for Change' (AfC) system. As of April 2026, pay varies by band and experience:\n\
+  - **Band 2:** £25,272\n- **Band 4:** £28,392 to £31,157\n- **Band 5:** £32,073 to\
+  \ £39,043\n- **Band 6:** £39,959 to £48,117\n- **Band 7:** £49,387 to £56,515\n\
+  - **Band 8a:** £57,528 to £64,750\n\nBeyond salary, the NHS offers excellent benefits,\
+  \ including a pension scheme, flexible working, and high-income potential early\
+  \ in a career.\n\n#### Entry Requirements and Skills\nEntry routes are flexible.\
+  \ For apprenticeships, you generally need GCSEs (grades 9-4/A-C) in maths, English,\
+  \ and science. Higher-level roles require A-levels or relevant degrees. Essential\
+  \ skills for these roles include:\n- Excellent communication and interpersonal skills.\n\
+  - Emotional resilience and a calm temperament.\n- Strong problem-solving and diagnostic\
+  \ abilities.\n- Teamwork and leadership capacity.\n\nBoth fields are evolving, offering\
+  \ significant opportunities for research, teaching, and management. Whether you\
+  \ choose to specialize in cardiac diagnostics or exercise-based therapy, you will\
+  \ be at the forefront of patient care, utilizing modern technology to make a tangible\
+  \ difference in people's lives."
+multiple_choice:
+- question_num: 1
+  text: What is the primary purpose of echocardiography?
+  A: To measure blood pressure
+  B: To use ultrasound to obtain pictures of the heart
+  C: To perform a six-minute walk test
+  D: To provide mental health support
+  answer: B
+  points: 1
+  explanation: The text states echocardiography uses ultrasound to obtain pictures
+    of the heart to help diagnose and monitor diseases.
+- question_num: 2
+  text: Which pay band is typically associated with a Healthcare science practitioner?
+  A: Band 2
+  B: Band 4
+  C: Band 5
+  D: Band 8a
+  answer: C
+  points: 1
+  explanation: The text lists Healthcare science practitioner as Band 5.
+- question_num: 3
+  text: What is the minimum qualification to start the Scientist Training Programme?
+  A: GCSEs in maths and English
+  B: A Level 3 Diploma
+  C: A 1st or 2:1 in a relevant first degree
+  D: An NVQ level 3
+  answer: C
+  points: 1
+  explanation: The text specifies a 1st or 2:1 in a relevant first degree or higher
+    degree is required for the Scientist Training Programme.
+- question_num: 4
+  text: What is the salary for a Band 6 professional with 5+ years of experience?
+  A: £39,959
+  B: £42,170
+  C: £48,117
+  D: £56,515
+  answer: C
+  points: 1
+  explanation: According to the pay rates table, Band 6 with 5+ years experience is
+    £48,117.
+- question_num: 5
+  text: Which of these is a task performed by a clinical exercise physiologist?
+  A: Pacemaker implantation
+  B: Cardiopulmonary exercise testing
+  C: Performing ECGs as a routine assistant
+  D: Managing hospital budgets
+  answer: B
+  points: 1
+  explanation: The text lists cardiopulmonary exercise testing as a task for clinical
+    exercise physiologists.
+- question_num: 6
+  text: What is required to become a clinical exercise physiologist?
+  A: A Level 2 apprenticeship
+  B: A one-year master's degree in clinical exercise physiology
+  C: A nursing degree
+  D: Five years of experience as a cardiac assistant
+  answer: B
+  points: 1
+  explanation: The text states you need to do a one-year master's degree in clinical
+    exercise physiology.
+- question_num: 7
+  text: What is the starting salary for a Band 2 role?
+  A: £25,272
+  B: £25,760
+  C: £28,392
+  D: £32,073
+  answer: A
+  points: 1
+  explanation: The pay table shows Band 2 is £25,272.
+- question_num: 8
+  text: Which of these is a required skill for cardiac science roles?
+  A: Expertise in surgery
+  B: Emotional resilience and a calm temperament
+  C: Ability to prescribe medication
+  D: Fluency in a second language
+  answer: B
+  points: 1
+  explanation: The text lists emotional resilience and a calm temperament as must-have
+    skills.
+- question_num: 9
+  text: What is the role of a clinical scientist in cardiac sciences?
+  A: Performing routine ECGs only
+  B: Working at a senior level with responsibility for complex tests
+  C: Assisting with administrative tasks
+  D: Providing only technical support
+  answer: B
+  points: 1
+  explanation: The text states clinical scientists work at a more senior level with
+    responsibility for complex tests.
+- question_num: 10
+  text: What is the maximum salary for a Band 8a professional with 5+ years of experience?
+  A: £57,528
+  B: £60,417
+  C: £64,750
+  D: £70,896
+  answer: C
+  points: 1
+  explanation: The pay table shows Band 8a with 5+ years experience is £64,750.
+- question_num: 11
+  text: Which of these is a benefit of working in the NHS?
+  A: Guaranteed promotion every year
+  B: Excellent pension scheme
+  C: Free housing
+  D: Unlimited travel expenses
+  answer: B
+  points: 1
+  explanation: The text lists an excellent pension scheme as a benefit.
+- question_num: 12
+  text: What is the entry requirement for a level 4 apprenticeship?
+  A: A Master's degree
+  B: 5 GCSEs at 9-4/A-C or Level 2 Diploma in Healthcare Science
+  C: 3 A levels
+  D: No specific requirements
+  answer: B
+  points: 1
+  explanation: The text states you need 5 GCSEs at 9-4/A-C or a Level 2 Diploma to
+    start a level 4 apprenticeship.
+- question_num: 13
+  text: What is the typical pay band for a clinical exercise physiologist registered
+    with the Academy of Healthcare Science?
+  A: Band 4
+  B: Band 5
+  C: Band 6
+  D: Band 7
+  answer: C
+  points: 1
+  explanation: The text states they are usually paid at band 6.
+- question_num: 14
+  text: Which of these is NOT a setting where a clinical exercise physiologist might
+    work?
+  A: Oncology
+  B: Renal care
+  C: Aviation medicine
+  D: Metabolic care
+  answer: C
+  points: 1
+  explanation: Aviation medicine is not listed in the text as a setting for clinical
+    exercise physiologists.
+- question_num: 15
+  text: What is the purpose of exercise stress testing?
+  A: To test if blood vessels supplying the heart are working properly
+  B: To measure lung capacity
+  C: To diagnose mental health disorders
+  D: To program pacemakers
+  answer: A
+  points: 1
+  explanation: The text states exercise stress testing is to test if the blood vessels
+    supplying the heart are working properly.
+image_url: https://www.healthcareers.nhs.uk/sites/default/files/styles/hero_image/public/cardiac-science-hero.jpg
