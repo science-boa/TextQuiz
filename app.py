@@ -1,5 +1,6 @@
 import streamlit as st
 import google.generativeai as genai
+import trafilatura
 import yaml
 import json
 
@@ -33,13 +34,23 @@ if st.button("Generate Resource and Quiz", type="primary"):
     else:
         status_placeholder = st.empty()
         
+        # Fetch content using trafilatura
+        with st.spinner("Fetching content from the web..."):
+            downloaded = trafilatura.fetch_url(web_url)
+            page_content = trafilatura.extract(downloaded)
+        
+        if not page_content:
+            st.error("Failed to extract content from the URL. Please check the link or try another.")
+            st.stop()
+
         system_instruction = (
             "You are an expert UK secondary school science teacher and GCSE examiner. "
             "Your task is to generate educational content calibrated to the UK GCSE standard (14-15 year olds)."
         )
         
         prompt = f"""
-        Analyze the content at this URL: {web_url}
+        Analyze the following text extracted from a webpage:
+        {page_content[:15000]} 
 
         Generate a JSON object containing:
         1. "resource_text": A 300-400 word educational resource in Markdown format covering the topic.
@@ -84,7 +95,6 @@ if st.button("Generate Resource and Quiz", type="primary"):
 # --- REVIEW INTERFACE ---
 if 'quiz_data' in st.session_state:
     st.header("Review & Edit")
-
     edited_title = st.text_input("Quiz Title", value=st.session_state.get('quiz_title', ''))
     
     st.subheader("Multiple Choice Questions")
@@ -118,16 +128,15 @@ if 'quiz_data' in st.session_state:
     
     final_la = {"question_num": 1, "text": e_la_text, "points": e_la_pts, "rubric": e_la_rubric}
 
-
     # --- YAML EXPORT ---
     st.divider()
     yaml_data = {
         "quiz_id": quiz_id_input,
         "web_url": st.session_state['saved_url'],
-        "title": st.session_state['quiz_title'],
+        "title": edited_title,
         "resource_text": st.session_state['resource_text'],
-        "multiple_choice": st.session_state['quiz_data'],
-        "long_answer": st.session_state['long_answer_data']
+        "multiple_choice": final_compiled_questions,
+        "long_answer": final_la
     }
     
     st.download_button(
