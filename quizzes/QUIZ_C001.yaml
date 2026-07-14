@@ -4,170 +4,154 @@ web_urls:
 - https://www.healthcareers.nhs.uk/Explore-roles/healthcare-science/roles-healthcare-science/life-sciences/genomics
 - https://www.healthcareers.nhs.uk/working-health/working-nhs/nhs-pay-and-benefits/agenda-change-pay-rates
 title: Introduction to Genomic Counselling and Healthcare Science
-resource_text: "### Understanding Genomic Counselling and Genomics\n\nGenomics is\
-  \ the study of genes and how alterations in them can change how proteins are produced\
-  \ or function within the body. Genes act as instructions for the body to make the\
-  \ proteins necessary for survival and growth. DNA, or deoxyribonucleic acid, is\
-  \ the hereditary material found in almost every cell of the human body. Healthcare\
-  \ scientists working in genomics examine samples of DNA or RNA to identify alterations\
-  \ that may be responsible for inherited or acquired diseases, such as cancer or\
-  \ cystic fibrosis.\n\n#### The Role of a Genomic Counsellor\nGenomic counsellors,\
-  \ also known as genetic counsellors, are highly skilled healthcare professionals\
-  \ who combine specific training in genetics and genomics with excellent communication\
-  \ and counselling skills. Unlike healthcare scientists in genomics who often work\
-  \ in laboratories and have limited direct patient contact, genomic counsellors work\
-  \ directly with patients and their families. Their primary goal is to provide genetic\
-  \ information and emotional support to help individuals adapt to genetic diseases\
-  \ and conditions.\n\n#### Daily Responsibilities\nA typical day for a genomic counsellor\
-  \ is patient-focused and highly collaborative. They work within multidisciplinary\
-  \ teams—including cancer, neurology, and cardiology specialists—to provide expert\
-  \ advice. Key activities include:\n- Recording detailed patient and family medical\
-  \ histories.\n- Ordering and interpreting genetic and genomic tests.\n- Assessing\
-  \ the risk of inheriting or passing on a medical condition.\n- Communicating the\
-  \ significance of test results to patients and their families.\n- Using counselling\
-  \ skills to address cultural, linguistic, and ethical issues.\n- Teaching other\
-  \ health professionals and participating in clinical or psychosocial research.\n\
-  \n#### Career Path and Requirements\nTo become a genomic counsellor, one must typically\
-  \ complete the NHS Scientist Training Programme (STP). This requires a relevant\
-  \ science degree, or a degree in psychology, nursing, or midwifery supplemented\
-  \ by a short course in genetics. Essential skills for the role include emotional\
-  \ resilience, a calm temperament, excellent communication, and strong problem-solving\
-  \ abilities.\n\n#### Pay and Benefits\nNHS staff are generally employed under the\
-  \ 'Agenda for Change' (AfC) pay system, which consists of nine pay bands. Genomic\
-  \ counsellors and healthcare scientists can progress through these bands based on\
-  \ their role and level of responsibility. Beyond salary, the NHS offers benefits\
-  \ such as flexible working, an excellent pension scheme, good holiday entitlement,\
-  \ and various discounts. \n\nAs the field of genetics continues to expand—highlighted\
-  \ by projects like the Human Genome Project—the demand for skilled professionals\
-  \ grows. Whether working in a laboratory or as a counsellor, these roles offer the\
-  \ opportunity to make a significant difference in the quality of life for patients\
-  \ and their families by helping them understand their genetic health and make informed\
-  \ decisions."
+resource_text: '### Understanding Genomic Counselling and Genomics
+
+
+  Genomics is the study of genes and how alterations in them can change how proteins
+  are produced or function within cells. Genes act as instructions for the body, telling
+  it how to grow and survive. DNA (deoxyribonucleic acid) is the hereditary material
+  found in nearly every cell of the human body. Healthcare scientists in genomics
+  examine samples of a patient''s nucleic acid (DNA or RNA) to identify alterations
+  that may be responsible for inherited or acquired conditions, such as cancer or
+  cystic fibrosis.
+
+
+  #### The Role of a Genomic Counsellor
+
+  Genomic counsellors, also known as genetic counsellors, are highly skilled professionals
+  who combine specific training in genetics and genomics with excellent communication
+  and counselling skills. Unlike healthcare scientists in genomics, who often work
+  in laboratories and rarely have direct patient contact, genomic counsellors work
+  directly with patients and their families. Their role is patient-focused, providing
+  support and information to help individuals adapt to genetic diseases and conditions.
+
+
+  A typical day for a genomic counsellor involves recording detailed medical histories,
+  ordering and interpreting genetic tests, and assessing the risk of inheriting or
+  passing on a medical condition. They translate complex test results for patients
+  and non-genetic health professionals and communicate the significance of these findings.
+  They also provide emotional support, helping families come to terms with life-changing
+  news, such as a diagnosis of a condition in an unborn child. This role is highly
+  collaborative, requiring counsellors to work within multidisciplinary teams, including
+  cancer, neurology, and cardiology specialists.
+
+
+  #### Career Pathways and Requirements
+
+  To become a genomic counsellor, one must typically complete the NHS Scientist Training
+  Programme (STP). This requires a relevant science degree, or a degree in psychology,
+  nursing, or midwifery supplemented by a short course in genetics. For those interested
+  in healthcare science more broadly, entry-level positions or apprenticeships are
+  available. For example, a level 2 apprenticeship typically requires GCSEs in maths,
+  English, and science, while a level 6 apprenticeship or degree course requires relevant
+  level 3 qualifications, such as A-levels including at least one science subject.
+
+
+  #### Pay and Benefits
+
+  Most NHS staff, including those in genomic counselling and genomics, are employed
+  under the ''Agenda for Change'' (AfC) pay system. This system consists of nine pay
+  bands. A healthcare science assistant might start at band 2 or 3, while a clinical
+  scientist typically enters at band 6 or 7. With further experience and qualifications,
+  such as Higher Specialist Scientist Training, professionals can progress to higher
+  bands. Beyond salary, the NHS offers benefits including flexible working, an excellent
+  pension scheme, good holiday entitlement, and various discounts.
+
+
+  #### Essential Skills
+
+  Success in these fields requires a specific set of skills. Genomic counsellors need
+  emotional resilience, a calm temperament, and the ability to work under pressure.
+  They must possess excellent communication skills to manage relationships with patients
+  and colleagues, as well as strong organisational and problem-solving abilities.
+  Whether working in a lab or directly with patients, these professionals play a vital
+  role in healthcare, often working at the forefront of research and innovation to
+  ensure patients receive the best possible care.'
 multiple_choice:
 - question_num: 1
-  text: What is the primary function of genes according to the text?
-  A: To store energy for the cell
+  text: What is the primary function of genes in the human body?
+  A: To store energy for cells
   B: To act as instructions for making proteins
-  C: To repair damaged cellular membranes
+  C: To repair damaged tissue
   D: To regulate body temperature
   answer: B
   points: 1
   explanation: The text states that genes are instructions which tell the body how
     to make all the proteins it needs to survive and grow.
 - question_num: 2
-  text: Which of these is a core responsibility of a genomic counsellor?
-  A: Performing surgery on newborns
-  B: Managing hospital finances
-  C: Ordering and interpreting genetic tests
-  D: Manufacturing pharmaceutical drugs
-  answer: C
-  points: 1
-  explanation: The text lists ordering and interpreting genetic and genomic tests
-    as a typical activity for a genomic counsellor.
-- question_num: 3
-  text: What is the main difference between a genomic counsellor and a healthcare
-    scientist in genomics?
-  A: Scientists have more patient contact
-  B: Counsellors work only in laboratories
-  C: Counsellors work directly with patients
-  D: Scientists do not use DNA samples
+  text: Which of the following is a key difference between a genomic counsellor and
+    a healthcare scientist in genomics?
+  A: Only genomic counsellors study DNA
+  B: Only healthcare scientists in genomics work in the NHS
+  C: Genomic counsellors have direct patient contact, while healthcare scientists
+    in genomics rarely do
+  D: Healthcare scientists in genomics do not require a degree
   answer: C
   points: 1
   explanation: The text notes that genomic counsellors work directly with patients,
     whereas healthcare scientists in genomics rarely have direct patient contact.
-- question_num: 4
-  text: What is the name of the NHS pay system mentioned?
+- question_num: 3
+  text: What is the name of the pay system used for most NHS staff?
   A: National Salary Scale
   B: Agenda for Change
   C: Healthcare Pay Framework
-  D: Clinical Wage Structure
+  D: NHS Professional Pay Structure
   answer: B
   points: 1
-  explanation: The text identifies the national pay and conditions system as 'Agenda
-    for Change' (AfC).
-- question_num: 5
-  text: Which qualification is required to start the Scientist Training Programme
+  explanation: The text explicitly mentions that most jobs in the NHS are covered
+    by the Agenda for Change (AfC) pay system.
+- question_num: 4
+  text: Which qualification is required to start the NHS Scientist Training Programme
     (STP)?
-  A: A GCSE in English
-  B: A 1st or 2:1 in a relevant first degree
-  C: A Level 2 Diploma
-  D: Ten years of work experience
-  answer: B
+  A: GCSEs in Maths and English only
+  B: A Level 2 Diploma in Healthcare Science
+  C: A 1st or 2:1 in a relevant first degree or higher degree
+  D: A minimum of 5 years of work experience
+  answer: C
   points: 1
   explanation: The text states that to start the Scientist Training Programme, you
     need a 1st or 2:1 in a relevant first degree or relevant higher degree.
+- question_num: 5
+  text: What is a typical activity for a genomic counsellor?
+  A: Performing surgery on newborn babies
+  B: Recording detailed patient and family medical histories
+  C: Managing hospital finances
+  D: Repairing laboratory equipment
+  answer: B
+  points: 1
+  explanation: Recording detailed patient and family medical histories is listed as
+    a typical activity for a genomic counsellor.
 - question_num: 6
-  text: What is a key skill required for a genomic counsellor?
-  A: Advanced surgical skills
-  B: Emotional resilience
-  C: Expertise in hospital architecture
-  D: Ability to work in isolation
-  answer: B
+  text: Which of these is NOT mentioned as a multidisciplinary team a genomic counsellor
+    might work with?
+  A: Cancer team
+  B: Neurology team
+  C: Cardiology team
+  D: Dental team
+  answer: D
   points: 1
-  explanation: The text lists emotional resilience and a calm temperament as must-have
-    skills.
+  explanation: The text lists cancer, neurology, and cardiology teams, but does not
+    mention a dental team.
 - question_num: 7
-  text: What does a healthcare scientist in genomics examine?
-  A: Blood pressure levels
-  B: Nucleic acid (DNA or RNA)
-  C: Patient diet logs
-  D: Hospital hygiene standards
-  answer: B
+  text: What does DNA stand for?
+  A: Deoxyribonucleic acid
+  B: Dynamic nucleic acid
+  C: Deoxyribose nutrient acid
+  D: Defined nucleic acid
+  answer: A
   points: 1
-  explanation: The text states that healthcare scientists in genomics examine samples
-    of patients' nucleic acid (DNA or RNA).
+  explanation: The text defines DNA as deoxyribonucleic acid.
 - question_num: 8
-  text: Which of these is a benefit of working for the NHS mentioned in the text?
-  A: Free housing
-  B: Excellent pension scheme
-  C: Guaranteed promotion every year
-  D: Unlimited travel expenses
+  text: What is the minimum requirement for a level 2 apprenticeship?
+  A: A degree in science
+  B: GCSEs 9-4/A-C in maths, English and a science
+  C: Three A-levels
+  D: Experience in a laboratory
   answer: B
   points: 1
-  explanation: The text lists an excellent pension scheme as a benefit of working
-    in the NHS.
+  explanation: The text states that an entry-level job or level 2 apprenticeship typically
+    requires GCSEs 9-4/A-C in maths, English and a science.
 - question_num: 9
-  text: What is the typical weekly working hour for NHS staff?
-  A: 35 hours
-  B: 37.5 hours
-  C: 40 hours
-  D: 48 hours
-  answer: B
-  points: 1
-  explanation: The text states that NHS staff will usually work a standard 37.5 hours
-    per week.
-- question_num: 10
-  text: What is the purpose of prenatal diagnosis in genomics?
-  A: To predict adult height
-  B: To examine cells for possible anomalies in the foetus
-  C: To determine the gender of the baby
-  D: To test for allergies
-  answer: B
-  points: 1
-  explanation: The text defines prenatal diagnosis as examining cells for possible
-    anomalies in the foetus.
-- question_num: 11
-  text: Which multidisciplinary team might a genomic counsellor work with?
-  A: Catering team
-  B: Cancer team
-  C: Security team
-  D: Maintenance team
-  answer: B
-  points: 1
-  explanation: The text mentions that genomic counsellors work as part of multidisciplinary
-    teams such as cancer, neurology, and cardiology teams.
-- question_num: 12
-  text: What is the Human Genome Project mentioned in the text?
-  A: A project to build new hospitals
-  B: A project to understand how traits are passed from parents to children
-  C: A project to increase NHS staff salaries
-  D: A project to study ancient history
-  answer: B
-  points: 1
-  explanation: The text describes the Human Genome Project as a project that aims
-    to gain a better understanding of how certain traits and characteristics are passed
-    on from parents to children.
-- question_num: 13
   text: How many pay bands are there in the Agenda for Change system?
   A: Five
   B: Seven
@@ -177,23 +161,62 @@ multiple_choice:
   points: 1
   explanation: The text states that there are nine pay bands in the Agenda for Change
     system.
+- question_num: 10
+  text: Which of the following is a 'must-have' skill for a genomic counsellor?
+  A: Ability to perform complex surgery
+  B: Emotional resilience and a calm temperament
+  C: Expertise in hospital administration
+  D: Ability to speak three foreign languages
+  answer: B
+  points: 1
+  explanation: The text lists emotional resilience and a calm temperament as must-have
+    skills.
+- question_num: 11
+  text: What is the primary focus of prenatal diagnosis in genomics?
+  A: Examining cells for possible anomalies in the foetus
+  B: Testing the health of the mother
+  C: Predicting the gender of the baby
+  D: Treating genetic diseases in the mother
+  answer: A
+  points: 1
+  explanation: The text defines prenatal diagnosis as examining cells for possible
+    anomalies in the foetus.
+- question_num: 12
+  text: What is a benefit of working in the NHS mentioned in the text?
+  A: Guaranteed promotion every year
+  B: Excellent pension scheme
+  C: Free housing
+  D: Unlimited travel opportunities
+  answer: B
+  points: 1
+  explanation: The text lists an excellent pension scheme as a benefit of working
+    in the NHS.
+- question_num: 13
+  text: What is the standard weekly working hour for NHS staff?
+  A: 35 hours
+  B: 37.5 hours
+  C: 40 hours
+  D: 42 hours
+  answer: B
+  points: 1
+  explanation: The text states that NHS staff will usually work a standard 37.5 hours
+    per week.
 - question_num: 14
-  text: What is a recommended way to gain experience if you lack it for a specific
-    job?
+  text: What is the purpose of carrier testing in genomics?
+  A: To identify presymptomatic individuals at risk from single gene disorders
+  B: To test for allergies
+  C: To determine blood type
+  D: To check for viral infections
+  answer: A
+  points: 1
+  explanation: The text identifies carrier testing as a method for identifying presymptomatic
+    individuals at risk from single gene disorders.
+- question_num: 15
+  text: Which of these is a way to gain experience before applying for a job in genomics?
   A: Volunteering
-  B: Writing a complaint letter
-  C: Changing your name
-  D: Buying medical textbooks
+  B: Writing a book
+  C: Starting a private business
+  D: Attending a public lecture
   answer: A
   points: 1
   explanation: The text states that volunteering is an excellent way of gaining experience.
-- question_num: 15
-  text: What is the role of a healthcare science practitioner?
-  A: To perform surgery
-  B: To manage the hospital
-  C: To work in genomics, often starting on band 5
-  D: To provide legal advice
-  answer: C
-  points: 1
-  explanation: The text states that as a healthcare science practitioner, you would
-    usually start on band 5.
