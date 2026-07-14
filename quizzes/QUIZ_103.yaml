@@ -1,0 +1,191 @@
+quiz_id: '103'
+web_urls:
+- https://www.bbc.co.uk/news/articles/c8r271zx43mo
+- https://en.wikipedia.org/wiki/Sam_Neill
+title: 'Educational Assessment: The Life and Career of Sam Neill'
+resource_text: '### The Life and Career of Sam Neill
+
+
+  Sir Nigel John Dermot "Sam" Neill (1947–2026) was a highly accomplished New Zealand
+  actor and businessman. Born in Omagh, Northern Ireland, to an English mother and
+  a New Zealand father, Neill moved to New Zealand with his family in 1954. He held
+  citizenship in New Zealand, Ireland, and the United Kingdom. During his childhood,
+  Neill struggled with a stammer, which influenced his social interactions, and he
+  adopted the name "Sam" while at school to distinguish himself from other boys named
+  Nigel.
+
+
+  Neill’s acting career spanned over five decades, beginning in the early 1970s. After
+  attending the University of Canterbury and Victoria University of Wellington, he
+  gained professional experience in theatre before transitioning to film. His breakthrough
+  performance came in the 1977 New Zealand film *Sleeping Dogs*, which was the first
+  local film to be widely screened internationally. Throughout his career, Neill became
+  known for his versatility, playing both heroic and villainous roles in a wide range
+  of genres, including thrillers, dramas, and science fiction.
+
+
+  He achieved international prominence for his role as the palaeontologist Dr. Alan
+  Grant in Steven Spielberg’s 1993 blockbuster *Jurassic Park*, a character he reprised
+  in *Jurassic Park III* (2001) and *Jurassic World Dominion* (2022). His other notable
+  film credits include *Dead Calm* (1989), *The Hunt for Red October* (1990), *The
+  Piano* (1993), *Event Horizon* (1997), and *Hunt for the Wilderpeople* (2016). On
+  television, he was widely recognized for his portrayal of the title character in
+  the miniseries *Merlin* (1998) and as the ruthless Major Chester Campbell in the
+  BBC series *Peaky Blinders*.
+
+
+  Beyond acting, Neill was a businessman who owned a winery called Two Paddocks in
+  the Central Otago region of New Zealand. He was also an author, publishing his memoir,
+  *Did I Ever Tell You This?*, in 2023. Throughout his life, Neill was active in various
+  causes, including environmental advocacy in New Zealand. In 1991, he was appointed
+  an Officer of the Order of the British Empire for his services as an actor. He passed
+  away in 2026 at the age of 78.'
+multiple_choice:
+- question_num: 1
+  text: Where was Sam Neill born?
+  A: Christchurch, New Zealand
+  B: Omagh, Northern Ireland
+  C: Sydney, Australia
+  D: Dunedin, New Zealand
+  answer: B
+  points: 1
+  explanation: The text states he was born on 14 September 1947 in Omagh, County Tyrone,
+    Northern Ireland.
+- question_num: 2
+  text: Why did the actor choose the name 'Sam'?
+  A: It was his middle name
+  B: He wanted to honor his grandfather
+  C: There were other boys named Nigel at his school
+  D: It was a requirement for his first acting role
+  answer: C
+  points: 1
+  explanation: The text notes he began calling himself 'Sam' at school because several
+    other boys were named Nigel.
+- question_num: 3
+  text: Which film is cited as Sam Neill's breakthrough performance in New Zealand?
+  A: The Piano
+  B: Sleeping Dogs
+  C: The City of No
+  D: Hunt for the Wilderpeople
+  answer: B
+  points: 1
+  explanation: The text identifies 'Sleeping Dogs' (1977) as his breakthrough performance
+    in New Zealand.
+- question_num: 4
+  text: What was the name of the winery owned by Sam Neill?
+  A: Two Paddocks
+  B: Central Otago Estates
+  C: Gibbston Vineyards
+  D: Neill & Co.
+  answer: A
+  points: 1
+  explanation: The text states he owned a winery called Two Paddocks.
+- question_num: 5
+  text: In which 1993 film did Sam Neill play Dr. Alan Grant?
+  A: The Piano
+  B: Jurassic Park
+  C: The Hunt for Red October
+  D: Event Horizon
+  answer: B
+  points: 1
+  explanation: The text identifies him as playing Dr. Alan Grant in the 1993 film
+    Jurassic Park.
+- question_num: 6
+  text: What was the title of Sam Neill's 2023 memoir?
+  A: My Life in Film
+  B: Did I Ever Tell You This?
+  C: The Actor's Journey
+  D: From Omagh to Hollywood
+  answer: B
+  points: 1
+  explanation: The text states he wrote a memoir titled 'Did I Ever Tell You This?',
+    published in March 2023.
+- question_num: 7
+  text: Which television series featured Sam Neill as Major Chester Campbell?
+  A: The Tudors
+  B: Alcatraz
+  C: Peaky Blinders
+  D: Reilly, Ace of Spies
+  answer: C
+  points: 1
+  explanation: The text notes he appeared as Major Chester Campbell in the BBC series
+    Peaky Blinders.
+- question_num: 8
+  text: What honor was Sam Neill appointed in 1991?
+  A: Knight Bachelor
+  B: Officer of the Order of the British Empire
+  C: Companion of the New Zealand Order of Merit
+  D: Academy Award for Best Actor
+  answer: B
+  points: 1
+  explanation: The text states he was appointed an Officer of the Order of the British
+    Empire in the 1991 Queen's Birthday Honours.
+- question_num: 9
+  text: Which of these films did Sam Neill NOT appear in?
+  A: The Piano
+  B: Event Horizon
+  C: Dead Calm
+  D: Titanic
+  answer: D
+  points: 1
+  explanation: The text lists The Piano, Event Horizon, and Dead Calm as his credits,
+    but does not mention Titanic.
+- question_num: 10
+  text: What health condition did Sam Neill reveal in 2023?
+  A: Heart disease
+  B: Angioimmunoblastic T-cell lymphoma
+  C: Diabetes
+  D: Chronic fatigue syndrome
+  answer: B
+  points: 1
+  explanation: The text states he was diagnosed with stage 3 angioimmunoblastic T-cell
+    lymphoma.
+- question_num: 11
+  text: In which year did Sam Neill pass away?
+  A: '2023'
+  B: '2024'
+  C: '2025'
+  D: '2026'
+  answer: D
+  points: 1
+  explanation: The text states he died on 13 July 2026.
+- question_num: 12
+  text: What was the name of the miniseries where Neill played the title role?
+  A: The Tudors
+  B: Merlin
+  C: Reilly, Ace of Spies
+  D: Alcatraz
+  answer: B
+  points: 1
+  explanation: The text states he portrayed the eponymous wizard in the miniseries
+    Merlin.
+- question_num: 13
+  text: Where did the Neill family settle after moving to New Zealand in 1954?
+  A: Dunedin
+  B: Wellington
+  C: Christchurch
+  D: Auckland
+  answer: C
+  points: 1
+  explanation: The text states the family moved to New Zealand and settled in the
+    Christchurch suburb of Cashmere in 1954.
+- question_num: 14
+  text: Which university did Sam Neill attend to complete his Bachelor of Arts?
+  A: University of Canterbury
+  B: Victoria University of Wellington
+  C: University of Otago
+  D: University of Auckland
+  answer: B
+  points: 1
+  explanation: The text states he attended Victoria University of Wellington for a
+    year to complete his Bachelor of Arts.
+- question_num: 15
+  text: How many nationalities did Sam Neill hold?
+  A: One
+  B: Two
+  C: Three
+  D: Four
+  answer: C
+  points: 1
+  explanation: 'The text states he held three documented nationalities: New Zealand,
+    Ireland, and the United Kingdom.'
