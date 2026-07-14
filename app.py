@@ -151,8 +151,16 @@ if 'quiz_data' in st.session_state:
     with st.expander("Edit Resource Text (Raw Markdown)", expanded=False):
         edited_resource = st.text_area("Markdown Resource", value=st.session_state.get('resource_text', ''), height=300)
     
+    # --- IMAGE PREVIEW SECTION ---
     if 'image_url' in st.session_state and st.session_state['image_url']:
-        edited_image_url = st.text_input("Image URL", value=st.session_state['image_url'])
+        st.subheader("Image Preview")
+        c1, c2 = st.columns([1, 1])
+        with c1:
+            edited_image_url = st.text_input("Image URL", value=st.session_state['image_url'])
+        with c2:
+            st.image(edited_image_url, width=300)
+    else:
+        edited_image_url = None
     
     st.subheader("Multiple Choice Questions")
     final_compiled_questions = []
@@ -196,7 +204,7 @@ if 'quiz_data' in st.session_state:
     }
     if final_la:
         yaml_data["long_answer"] = final_la
-    if 'image_url' in st.session_state and st.session_state['image_url']:
+    if edited_image_url:
         yaml_data["image_url"] = edited_image_url
     
     yaml_string = yaml.dump(yaml_data, allow_unicode=True, sort_keys=False)
