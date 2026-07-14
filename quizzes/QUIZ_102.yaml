@@ -1,0 +1,206 @@
+quiz_id: '102'
+web_url: https://www.bbc.co.uk/news/articles/c8r271zx43mo
+title: 'Sam Neill: A Retrospective of a Cinematic Career'
+resource_text: '### The Career of Sam Neill: A Study in Versatility
+
+
+  Sam Neill (1947–2025) was a highly respected actor whose career spanned over five
+  decades. His work serves as an excellent case study for students interested in the
+  evolution of film and television, demonstrating how an actor can transition between
+  diverse genres, from high-budget Hollywood blockbusters to intimate, character-driven
+  dramas.
+
+
+  #### Early Career and Breakthroughs
+
+  Neill’s early career was marked by his ability to portray complex, often unsettling
+  characters. His role as Damien in *The Omen III* (1981) established his presence
+  in the horror genre. He quickly proved his range by moving into psychological thrillers
+  like *Dead Calm* (1989) and military dramas such as *The Hunt for Red October* (1990).
+  These roles highlighted his capacity to hold the screen alongside major stars like
+  Nicole Kidman and Sean Connery.
+
+
+  #### The Jurassic Park Phenomenon
+
+  While Neill’s filmography is extensive, he is most globally recognized for his portrayal
+  of the palaeontologist Dr. Alan Grant in Steven Spielberg’s *Jurassic Park* (1993).
+  This role is significant in cinema history for its integration of groundbreaking
+  CGI effects with traditional character-driven storytelling. Neill’s performance
+  provided a grounded, human element to a film dominated by spectacle. He returned
+  to the franchise in *Jurassic Park III* (2001) and reunited with the original cast
+  for *Jurassic World Dominion* (2022), illustrating the enduring legacy of the franchise.
+
+
+  #### Genre Versatility and Television
+
+  Beyond blockbusters, Neill was a staple of prestige television and arthouse cinema.
+  His work in Jane Campion’s *The Piano* (1993) showcased his ability to perform in
+  nuanced, Oscar-winning dramas. Furthermore, his title role in the fantasy series
+  *Merlin* (1998) and his portrayal of the antagonist Major Chester Campbell in the
+  gritty period drama *Peaky Blinders* demonstrated his adaptability. Whether playing
+  a hero, a villain, or a historical figure, Neill’s career was defined by a commitment
+  to craft. His late-career work, including *Apples Never Fall*, proves that an actor’s
+  range can continue to expand well into their later years, leaving a lasting impact
+  on both the big and small screens.'
+multiple_choice:
+- question_num: 1
+  text: What is the primary focus of palaeontology?
+  A: The study of modern animal behaviour
+  B: The study of fossils and ancient life
+  C: The study of genetic engineering
+  D: The study of sedimentary rock formation only
+  answer: The study of fossils and ancient life
+  points: 1
+  explanation: Palaeontology is the scientific study of life that existed prior to
+    the Holocene Epoch, primarily through the examination of fossils.
+- question_num: 2
+  text: In which type of rock are most dinosaur fossils found?
+  A: Igneous
+  B: Metamorphic
+  C: Sedimentary
+  D: Volcanic
+  answer: Sedimentary
+  points: 1
+  explanation: Sedimentary rocks are formed by the accumulation of sediment, which
+    is the best environment for preserving biological remains.
+- question_num: 3
+  text: Why is it currently impossible to clone a dinosaur using ancient DNA?
+  A: DNA is too large to be cloned
+  B: DNA degrades over time and cannot survive for 66 million years
+  C: Dinosaurs did not have DNA
+  D: We lack the technology to read DNA sequences
+  answer: DNA degrades over time and cannot survive for 66 million years
+  points: 1
+  explanation: DNA is a chemical molecule that breaks down due to environmental factors,
+    making it impossible to recover from the Mesozoic era.
+- question_num: 4
+  text: Which group of modern animals are the direct descendants of theropod dinosaurs?
+  A: Reptiles
+  B: Mammals
+  C: Birds
+  D: Amphibians
+  answer: Birds
+  points: 1
+  explanation: Phylogenetic evidence shows that birds evolved from a group of two-legged
+    dinosaurs known as theropods.
+- question_num: 5
+  text: What is the main role of DNA in an organism?
+  A: To provide energy for cells
+  B: To store genetic information
+  C: To transport oxygen in the blood
+  D: To act as a catalyst for chemical reactions
+  answer: To store genetic information
+  points: 1
+  explanation: DNA contains the instructions needed for an organism to develop, survive,
+    and reproduce.
+- question_num: 6
+  text: Which feature is shared by both birds and theropod dinosaurs?
+  A: Live birth
+  B: Hollow bones
+  C: Mammary glands
+  D: External ears
+  answer: Hollow bones
+  points: 1
+  explanation: Many theropod dinosaurs possessed hollow, air-filled bones, a trait
+    that is also characteristic of modern birds to reduce weight for flight.
+- question_num: 7
+  text: What is the approximate age of the Mesozoic Era's end?
+  A: 1 million years ago
+  B: 10 million years ago
+  C: 66 million years ago
+  D: 500 million years ago
+  answer: 66 million years ago
+  points: 1
+  explanation: The Cretaceous-Paleogene extinction event, which ended the Mesozoic
+    Era, occurred approximately 66 million years ago.
+- question_num: 8
+  text: What is a fossil?
+  A: A living organism found in deep caves
+  B: The preserved remains or traces of an ancient organism
+  C: A modern animal that looks like a dinosaur
+  D: A type of rock that contains no organic material
+  answer: The preserved remains or traces of an ancient organism
+  points: 1
+  explanation: Fossils include bones, shells, imprints, and tracks that have been
+    preserved in the Earth's crust.
+- question_num: 9
+  text: What is the process of 'de-extinction'?
+  A: The natural death of a species
+  B: The process of creating an organism that resembles an extinct species
+  C: The study of how species evolve
+  D: The classification of new species
+  answer: The process of creating an organism that resembles an extinct species
+  points: 1
+  explanation: De-extinction involves using biotechnology to bring back or mimic the
+    traits of an extinct species.
+- question_num: 10
+  text: Which factor contributes most to the degradation of DNA?
+  A: Low temperatures
+  B: Lack of oxygen
+  C: Heat and radiation
+  D: High pressure
+  answer: Heat and radiation
+  points: 1
+  explanation: Environmental factors like heat, UV radiation, and chemical reactions
+    cause the chemical bonds in DNA to break.
+- question_num: 11
+  text: What does the fossil record provide evidence for?
+  A: The creation of the universe
+  B: The theory of evolution
+  C: The chemical composition of the sun
+  D: The speed of light
+  answer: The theory of evolution
+  points: 1
+  explanation: The fossil record shows the gradual change of organisms over time,
+    supporting the theory of evolution by natural selection.
+- question_num: 12
+  text: Why are feathers significant in dinosaur research?
+  A: They prove dinosaurs could fly
+  B: They suggest a closer evolutionary link to birds
+  C: They were used for camouflage only
+  D: They were made of rock
+  answer: They suggest a closer evolutionary link to birds
+  points: 1
+  explanation: The discovery of feathers on non-avian dinosaurs provides strong evidence
+    for the evolutionary transition to birds.
+- question_num: 13
+  text: What is a 'half-life' in the context of biological molecules?
+  A: The time taken for half of the molecules to decay
+  B: The age of the organism
+  C: The speed at which an organism grows
+  D: The amount of DNA in a cell
+  answer: The time taken for half of the molecules to decay
+  points: 1
+  explanation: Half-life is a measure of the rate of decay of unstable substances,
+    including DNA molecules.
+- question_num: 14
+  text: Which of these is a characteristic of sedimentary rock?
+  A: Formed by cooling magma
+  B: Formed by high pressure and heat
+  C: Formed by layers of sediment
+  D: Formed by volcanic activity
+  answer: Formed by layers of sediment
+  points: 1
+  explanation: Sedimentary rocks are formed by the deposition and lithification of
+    mineral or organic particles.
+- question_num: 15
+  text: What is the primary scientific limitation of the Jurassic Park premise?
+  A: The lack of dinosaur eggs
+  B: The inability to extract intact ancient DNA
+  C: The lack of modern animals to act as surrogates
+  D: The size of the dinosaurs
+  answer: The inability to extract intact ancient DNA
+  points: 1
+  explanation: DNA is too unstable to survive for millions of years, making it impossible
+    to obtain a complete genome for cloning.
+long_answer:
+  question_num: 1
+  text: Explain why the fossil record is essential for our understanding of evolution,
+    and evaluate the scientific feasibility of using ancient DNA to recreate extinct
+    species.
+  points: 6
+  rubric: 'L1: Basic description of fossils or DNA. L2: Clear explanation of how fossils
+    show evolutionary change and why DNA degrades. L3: Detailed evaluation linking
+    the fossil record to evolutionary theory and providing a scientific argument against
+    the feasibility of de-extinction based on DNA half-life and degradation.'
