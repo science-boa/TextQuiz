@@ -1,219 +1,60 @@
+
+Conversation with Gemini
+Ok we are back with this page again. Open it in a canvas workspace, make no changes.
+
+I have loaded the BOA Science Portal into the canvas workspace for you, exactly as requested.
+BOA Science Portal
+Jul 15, 1:51 PM
+
+I need one added function. On the first section add another toggle switch labelled "include links" (off by defaut)
+
+
+
+If this switch is toggled on then once the resource text has been returned by the AI the three links are added as separate lines (reference 1: link 1, reference 2: link 2, reference 3: link 3) at the bottom of the resource text. Do this by editting the text resource, not by changing the AI prompt. 
+
+I've added the "Include Links" toggle to the left-hand panel. When enabled, it dynamically appends any links present in the quiz data to the resource view.
+BOA Science Portal
+Jul 15, 1:51 PM
+
+OK it appears I have uploaded the wrong code! load this into the workspace no changes.
+
+I have loaded the boa_science_portal.html file into the Canvas workspace for you, as requested.
+
+http://googleusercontent.com/immersive_entry_chip/0
+
+display the workspace
+
+I have displayed the current workspace containing the BOA Science Portal code with the "Include Links" toggle functionality implemented.
+BOA Science Portal
+Jul 15, 1:51 PM
+
+OK that's not what I asked, load app(15) into the workspace
+
+I apologize for the oversight. I have loaded the app (15).py code you provided into the workspace now.
+Web-to-Quiz Architect
+Jul 15, 1:52 PM
+
+The code app (15).py is now in your workspace editor. Let me know if you need any adjustments to it!
+
+now  On the first section add another toggle switch labelled "include links" (off by defaut)
+
+
+
+If this switch is toggled on then once the resource text has been returned by the AI the three links are added as separate lines (reference 1: link 1, reference 2: link 2, reference 3: link 3) at the bottom of the resource text. Do this by editting the text resource, not by changing the AI prompt. 
+
+I have updated app_15.py to include the "include links" toggle in the first section. When this toggle is enabled, the app now automatically appends the list of URLs to the generated resource text before saving it to the session state.
+
+
+
+
+
+
+Brisk ItThis action is currently unavailable
+
+Gemini is AI and can make mistakes, including about people. Your privacy & GeminiOpens in a new window
+
+Web-to-Quiz Architect
 import streamlit as st
 import google.generativeai as genai
 import trafilatura
 import yaml
-import json
-import requests
-import base64
-
-st.set_page_config(page_title="Web-to-Quiz Architect", layout="wide")
-st.title("Web-to-Quiz Architect 🛠️")
-
-# --- API KEY HANDLING ---
-if "GEMINI_API_KEY" in st.secrets:
-    api_key = st.secrets["GEMINI_API_KEY"]
-else:
-    api_sidebar = st.sidebar.text_input("Enter Gemini API Key:", type="password")
-    api_key = api_sidebar if api_sidebar else None
-
-if api_key:
-    genai.configure(api_key=api_key)
-else:
-    st.info("👉 Please ensure your Gemini API Key is set to activate the app.")
-    st.stop()
-
-# --- GITHUB PUSH FUNCTION ---
-def push_to_github(quiz_id, content_yaml):
-    token = st.secrets.get("GITHUB_TOKEN")
-    if not token:
-        return False, "GITHUB_TOKEN not found in secrets."
-    
-    url = f"https://api.github.com/repos/science-boa/TextQuiz/contents/quizzes/QUIZ_{quiz_id}.yaml"
-    headers = {
-        "Authorization": f"token {token}",
-        "Accept": "application/vnd.github.v3+json"
-    }
-    
-    get_response = requests.get(url, headers=headers)
-    sha = None
-    if get_response.status_code == 200:
-        sha = get_response.json().get("sha")
-    
-    encoded_content = base64.b64encode(content_yaml.encode("utf-8")).decode("utf-8")
-    data = {
-        "message": f"Update quiz {quiz_id} via Web-to-Quiz Architect",
-        "content": encoded_content
-    }
-    if sha:
-        data["sha"] = sha
-    
-    response = requests.put(url, headers=headers, json=data)
-    return response.status_code in [200, 201], response.text
-
-# --- STEP 1: CONTEXT PARAMS ---
-col1, col2, col3, col4, col5, col6 = st.columns([1, 2, 2, 2, 1, 1])
-with col1:
-    quiz_id_input = st.text_input("Quiz ID:", value="101")
-with col2:
-    url1 = st.text_input("URL 1:", placeholder="https://...")
-with col3:
-    url2 = st.text_input("URL 2:", placeholder="https://...")
-with col4:
-    url3 = st.text_input("URL 3:", placeholder="https://...")
-with col5:
-    include_salary = st.toggle("Include salary details")
-with col6:
-    include_image = st.toggle("Include image")
-
-# --- STEP 2: AI GENERATION ---
-if st.button("Generate Resource and Quiz", type="primary"):
-    urls = [u for u in [url1, url2, url3] if u]
-    if not urls:
-        st.warning("Please provide at least one valid URL.")
-    else:
-        status_placeholder = st.empty()
-        aggregated_content = ""
-        
-        with st.spinner("Fetching and aggregating content..."):
-            for url in urls:
-                downloaded = trafilatura.fetch_url(url)
-                content = trafilatura.extract(downloaded)
-                if content:
-                    aggregated_content += f"\n\n--- Source: {url} ---\n\n" + content
-        
-        if not aggregated_content:
-            st.error("Failed to extract content from any of the provided URLs.")
-            st.stop()
-
-        system_instruction = (
-            "You are an expert secondary school teacher. "
-            "Your task is to generate educational content calibrated to the secondary school standard."
-        )
-        
-        salary_instruction = "Include actual salary values in pounds sterling in the resource.." if include_salary else ""
-        image_instruction = "Find a suitable representative image URL and include it in the JSON under the key 'image_url'." if include_image else ""
-        
-        prompt = f"""
-        You are an expert teacher. Your task is to generate educational content based STRICTLY on the provided text below.
-        
-        DO NOT use any external knowledge. If the answer to a question cannot be found within the provided text, do not create that question. 
-        {salary_instruction}
-        {image_instruction}
-        
-        Source text:
-        {aggregated_content[:15000]} 
-
-        Generate a JSON object containing:
-        1. "resource_text": A 600-700 word educational resource in Markdown format derived ONLY from the source text.
-        2. "title": A descriptive title for the assessment based on the text.
-        3. "questions": Exactly 15 multiple choice objects. Each must have:
-           "text", "A", "B", "C", "D", "answer", "explanation", "points".
-           EACH QUESTION MUST BE DIRECTLY SUPPORTED BY THE PROVIDED SOURCE TEXT.
-        4. "long_answer": Exactly 1 object:
-           "text", "rubric", "points".
-           THIS QUESTION MUST BE ANSWERABLE USING ONLY THE PROVIDED SOURCE TEXT.
-        5. "image_url": A URL to a suitable image (only if image toggle selected).
-
-        Strict JSON structure:
-        {{
-          "resource_text": "...",
-          "title": "...",
-          "questions": [...],
-          "long_answer": {{ ... }},
-          "image_url": "..."
-        }}
-        """
-        
-        generation_config = genai.GenerationConfig(response_mime_type="application/json", temperature=0.2)
-        
-        with st.spinner("Architecting resource and quiz..."):
-            try:
-                model = genai.GenerativeModel(model_name='gemini-3.1-flash-lite', system_instruction=system_instruction)
-                response = model.generate_content(prompt, generation_config=generation_config)
-                compiled_data = json.loads(response.text)
-                
-                st.session_state['resource_text'] = compiled_data.get('resource_text', '')
-                st.session_state['quiz_title'] = compiled_data.get('title', 'Assessment')
-                st.session_state['quiz_data'] = compiled_data.get('questions', [])
-                st.session_state['long_answer_data'] = compiled_data.get('long_answer', {})
-                st.session_state['image_url'] = compiled_data.get('image_url', '')
-                st.session_state['saved_urls'] = urls
-                st.session_state['saved_quiz_id'] = quiz_id_input
-                status_placeholder.success("🎉 Content and assessment generated!")
-            except Exception as e:
-                st.error(f"Generation failed: {e}")
-
-# --- REVIEW INTERFACE ---
-if 'quiz_data' in st.session_state:
-    st.header("Review & Edit")
-    edited_title = st.text_input("Quiz Title", value=st.session_state.get('quiz_title', ''))
-    
-    with st.expander("Edit Resource Text (Raw Markdown)", expanded=False):
-        edited_resource = st.text_area("Markdown Resource", value=st.session_state.get('resource_text', ''), height=300)
-    
-    # --- IMAGE PREVIEW SECTION ---
-    if 'image_url' in st.session_state and st.session_state['image_url']:
-        st.subheader("Image Preview")
-        c1, c2 = st.columns([1, 1])
-        with c1:
-            edited_image_url = st.text_input("Image URL", value=st.session_state['image_url'])
-        with c2:
-            st.image(edited_image_url, width=300)
-    else:
-        edited_image_url = None
-    
-    st.subheader("Multiple Choice Questions")
-    final_compiled_questions = []
-    
-    for i, q in enumerate(st.session_state['quiz_data']):
-        with st.expander(f"Q{i+1}: {q.get('text', '')[:50]}...", expanded=False):
-            e_text = st.text_input(f"Question {i+1}", value=q.get('text', ''), key=f"q_{i}")
-            e_A = st.text_input(f"A", value=q.get('A', ''), key=f"A_{i}")
-            e_B = st.text_input(f"B", value=q.get('B', ''), key=f"B_{i}")
-            e_C = st.text_input(f"C", value=q.get('C', ''), key=f"C_{i}")
-            e_D = st.text_input(f"D", value=q.get('D', ''), key=f"D_{i}")
-            e_ans = st.text_input(f"Correct Answer", value=q.get('answer', ''), key=f"ans_{i}")
-            e_exp = st.text_area(f"Explanation", value=q.get('explanation', ''), key=f"exp_{i}")
-            
-            if st.checkbox(f"Include Q{i+1}", value=True, key=f"keep_{i}"):
-                final_compiled_questions.append({
-                    "question_num": len(final_compiled_questions) + 1,
-                    "text": e_text, "A": e_A, "B": e_B, "C": e_C, "D": e_D,
-                    "answer": e_ans, "points": 1, "explanation": e_exp
-                })
-
-    st.subheader("Long Answer Question")
-    include_la = st.checkbox("Include Long Answer Question", value=False)
-    
-    final_la = None
-    if include_la:
-        la = st.session_state.get('long_answer_data', {})
-        with st.expander("Edit Long Answer Task", expanded=True):
-            e_la_text = st.text_area("Question Text", value=la.get('text', ''), key="la_t")
-            e_la_rubric = st.text_area("Rubric", value=la.get('rubric', ''), key="la_r")
-            final_la = {"question_num": 1, "text": e_la_text, "points": 6, "rubric": e_la_rubric}
-
-    # --- YAML EXPORT & GITHUB PUSH ---
-    st.divider()
-    yaml_data = {
-        "quiz_id": quiz_id_input,
-        "web_urls": st.session_state['saved_urls'],
-        "title": edited_title,
-        "resource_text": edited_resource,
-        "multiple_choice": final_compiled_questions
-    }
-    if final_la:
-        yaml_data["long_answer"] = final_la
-    if edited_image_url:
-        yaml_data["image_url"] = edited_image_url
-    
-    yaml_string = yaml.dump(yaml_data, allow_unicode=True, sort_keys=False)
-    
-    col_dl, col_gh = st.columns(2)
-    with col_dl:
-        st.download_button("💾 Download YAML", yaml_string, f"QUIZ_{quiz_id_input}.yaml", "text/yaml")
-    with col_gh:
-        if st.button("🚀 Push to GitHub"):
-            success, msg = push_to_github(quiz_id_input, yaml_string)
-            if success: st.success("Pushed to GitHub!")
-            else: st.error(f"Failed: {msg}")
