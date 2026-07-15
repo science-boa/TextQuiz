@@ -266,11 +266,22 @@
                     allAnswered = false;
                 } else {
                     const selectedLetter = selected.value;
-                    // Resolves q[selectedLetter] to transmit the actual text of the answer option instead of the label letter
+                    
+                    // Resolves q[selectedLetter] to transmit the actual text of the answer option 
                     mc_answers[q.question_num] = {
                         answer: q[selectedLetter],
+                        correct_answer: q[q.correct_answer] || q[q.answer] || "", // Resolving actual text for the correct answer
                         explanation: q.explanation || null
                     };
+
+                    // Additionally, overwrite the letter with the full text inside the overall quiz schema payload being sent
+                    // (This ensures backend checks dynamically comparing user-answers to the schema will match correctly)
+                    if (q.correct_answer && ['A', 'B', 'C', 'D'].includes(q.correct_answer)) {
+                        q.correct_answer = q[q.correct_answer];
+                    }
+                    if (q.answer && ['A', 'B', 'C', 'D'].includes(q.answer)) {
+                        q.answer = q[q.answer];
+                    }
                 }
             });
 
@@ -314,7 +325,7 @@
                 mc_answers: mc_answers, 
                 la_input: isLongAnswerVisible ? document.getElementById('la-input').value : "",
                 quiz_schema: quizData,
-                KEY: 29031977,
+                KEY: 29031977, // Reverted back to an integer
                 total_time: total_time,
                 long_answer_time: long_answer_time
             };
