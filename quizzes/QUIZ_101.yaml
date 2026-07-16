@@ -1,198 +1,169 @@
-quiz_id: 101
-title: 'GCSE Biology Assessment: DNA, Genes, and the Human Genome'
-resource_text: |
-  # GCSE Biology: DNA, Genes, and the Human Genome
-
-  ## Introduction to Genetic Material
-  In eukaryotic cells, the genetic material is safely stored within the **nucleus**. This genetic material is organized into structures called **chromosomes**. Chromosomes are long, coiled molecules of a chemical known as **DNA** (Deoxyribonucleic Acid). 
-
-  DNA acts as the primary genetic material, carrying the code that determines all of an organism's inherited characteristics.
-
-  ---
-
-  ## The Structure of DNA
-  A DNA molecule is made up of two long strands coiled together in a unique spiral shape known as a **double helix**. 
-
-  ```
-     DNA Double Helix Structure
-     
-     |--|     <-- Chemical Backbones
-    |    |
-    |====|    <-- Nitrogenous Base Pairs (genetic code)
-    |    |
-     |--|
-  ```
-
-  ---
-
-  ## What is a Gene?
-  A **gene** is a small section of DNA located on a chromosome. Each gene contains the specific code to construct a particular sequence of **amino acids**, which fold together to create a specific **protein**. 
-
-  Chromosomes exist in matching pairs inside cells. Both chromosomes in a pair carry the same genes in the exact same positions. This means that for every characteristic, we have two copies of each gene (for example, the gene determining ABO blood groups is located on **chromosome 9**).
-
-  ---
-
-  ## The Human Genome
-  The **genome** refers to the entire genetic material of an organism. This includes all the genes and chromosomes within its cells.
-
-  Understanding and mapping the entire human genome has unlocked major advancements in modern medicine and science:
-  
-  1. **Predictive Medicine:** It allows scientists and doctors to search for genes linked to different types of non-communicable diseases, such as cancers or Alzheimer's disease.
-  2. **Treating Inherited Disorders:** It helps us understand, target, and treat genetic disorders caused by faulty genes, such as **cystic fibrosis**.
-  3. **Tracing Human History:** By looking at tiny mutations and variations in the genome over generations, scientists can track historical **human migration patterns** from the past, helping modern populations discover their ancestral roots.
-
+quiz_id: '101'
+web_urls:
+- https://www.gov.uk/government/organisations/environment-agency/about/recruitment#what-we-offer-you
+- https://cieem.net/i-want-to-be/what-is-an-ecologist-or-environmental-manager/
+- https://cieem.net/i-want-to-be/how-to-become-an-eem/what-to-study/
+title: Careers and Educational Pathways in Environmental Science
+resource_text: "# Careers and Opportunities at the Environment Agency\n\nWorking for\
+  \ the Environment Agency offers a unique opportunity to contribute to the protection\
+  \ and improvement of the environment across England. With a workforce of approximately\
+  \ 13,400 people, the agency employs professionals in diverse roles, including scientists,\
+  \ engineers, hydrologists, policy advisors, and project managers. The organization\
+  \ prides itself on valuing difference and ensuring that every employee feels appreciated\
+  \ and able to bring their whole self to work.\n\n## Benefits and Wellbeing\n\nThe\
+  \ Environment Agency provides a comprehensive package of benefits to support its\
+  \ employees. This includes a competitive salary and a generous career average pension\
+  \ scheme. Employees benefit from a holiday allowance starting at 25 or 27 days per\
+  \ year (depending on grade), which increases to 30 days based on length of service,\
+  \ plus 8 public/bank holidays. \n\nTo support work-life balance, the agency offers\
+  \ flexible working options, including flexi-time. Further support includes maternity,\
+  \ paternity, and adoption leave, as well as leave for public duties, studies, and\
+  \ environmental work. Health and wellbeing are prioritized through occupational\
+  \ health services, including counselling, eye care, and an employee assistance service.\
+  \ Additional perks include interest-free loans for bicycles or season tickets, childcare\
+  \ vouchers, and access to subsidised sports and social clubs.\n\n## Early Careers\
+  \ and Entry-Level Programmes\n\nThe Environment Agency is committed to developing\
+  \ the next generation of professionals through various early career schemes:\n\n\
+  *   **Summer Internship Programme (SIP):** A 12-week programme for final-year undergraduates\
+  \ and recent graduates, providing experience in environment, science, business,\
+  \ or communication.\n*   **Industry Placements:** Paid placements lasting up to\
+  \ 12 months for undergraduates and recent graduates in engineering, science, or\
+  \ business roles.\n*   **Environment and Science Graduate Training Scheme (ES-GTS):**\
+  \ A four-year programme for those entering permanent science-based roles. It covers\
+  \ disciplines such as climate science, hydrology, and ecology, offering a path to\
+  \ accreditation with the Chartered Institute of Water and Environmental Management\
+  \ (CIWEM).\n*   **Engineering Graduate Training Scheme:** A 3-to-4-year programme\
+  \ for graduates with a master’s degree in civil, electrical, or mechanical engineering.\
+  \ It prepares participants for chartered status with institutions like the ICE,\
+  \ IET, or IMechE.\n*   **Apprenticeships:** Hands-on training programmes available\
+  \ at multiple levels, ranging from school leavers to career changers, covering roles\
+  \ such as Data Analyst or Environmental Practitioner.\n\n## Volunteering\n\nFor\
+  \ those interested in community involvement, the agency recruits River Thames Volunteer\
+  \ Assistant Lock Keepers. These volunteers work alongside experienced staff to manage\
+  \ lock sites and provide guidance to river users, particularly during the busy summer\
+  \ months.\n\n## Pursuing a Career in Ecology and Environmental Management\n\nIf\
+  \ you are passionate about nature, a career in ecology or environmental management\
+  \ may be for you. Ecology is the study of how organisms relate to one another and\
+  \ their physical surroundings, while environmental management focuses on human interactions\
+  \ with the environment. \n\nTo succeed in this field, you need more than just academic\
+  \ qualifications in biological or environmental subjects. Essential qualities include:\n\
+  *   An interest in the natural world and knowledge of natural systems.\n*   Expertise\
+  \ in specific groups of living organisms.\n*   Enjoyment of fieldwork and the resilience\
+  \ to handle tedious or uncomfortable conditions.\n*   An objective approach to conservation\
+  \ issues.\n\nEducational pathways include undergraduate and postgraduate degrees.\
+  \ Studying these subjects allows you to learn species identification, survey techniques,\
+  \ and how human activity alters ecosystems. Postgraduate study, with over 200 programmes\
+  \ available in the UK and Ireland, allows for further specialization and enhanced\
+  \ employability.\n\n### References\nreference 1: https://www.gov.uk/government/organisations/environment-agency/about/recruitment#what-we-offer-you\n\
+  reference 2: https://cieem.net/i-want-to-be/what-is-an-ecologist-or-environmental-manager/\n\
+  reference 3: https://cieem.net/i-want-to-be/how-to-become-an-eem/what-to-study/\n"
 multiple_choice:
 - question_num: 1
-  text: Where in a eukaryotic cell are chromosomes located?
-  A: In the cytoplasm
-  B: In the nucleus
-  C: On the ribosomes
-  D: Inside the cell membrane
-  answer: In the nucleus
+  text: How many people does the Environment Agency employ?
+  A: Approximately 10,000
+  B: Approximately 13,400
+  C: Approximately 15,000
+  D: Approximately 20,000
+  answer: B
   points: 1
-  explanation: In eukaryotic cells, chromosomes containing the genetic material are
-    enclosed within the nucleus.
+  explanation: The text states the agency employs around 13,400 people.
 - question_num: 2
-  text: Which molecule makes up chromosomes and acts as the genetic material?
-  A: Protein
-  B: RNA
-  C: DNA
-  D: Carbohydrate
-  answer: DNA
+  text: How long does the Summer Internship Programme typically last?
+  A: 4 weeks
+  B: 8 weeks
+  C: 12 weeks
+  D: 6 months
+  answer: C
   points: 1
-  explanation: Chromosomes are made of DNA, which is the genetic material because
-    it determines inherited features.
+  explanation: The text states the SIP runs for approximately 12 weeks.
 - question_num: 3
-  text: What is the structural shape of a DNA molecule?
-  A: A single straight strand
-  B: A triple helix
-  C: A double helix
-  D: A circular ring
-  answer: A double helix
+  text: Which professional body can you gain accreditation from after the ES-GTS programme?
+  A: ICE
+  B: IET
+  C: CIWEM
+  D: IMechE
+  answer: C
   points: 1
-  explanation: DNA consists of two strands that wrap around each other to form a double
-    helix structure.
+  explanation: The text mentions accreditation from the Chartered Institute of Water
+    and Environmental Management (CIWEM).
 - question_num: 4
-  text: What is a gene?
-  A: A small section of DNA on a chromosome that codes for a specific protein
-  B: The entire genetic material of an organism
-  C: A single strand of amino acids
-  D: A protein that determines inherited features
-  answer: A small section of DNA on a chromosome that codes for a specific protein
+  text: What is the duration of the Engineering Graduate Training Scheme?
+  A: 1 year
+  B: 2 years
+  C: 3 to 4 years
+  D: 5 years
+  answer: C
   points: 1
-  explanation: A gene is defined as a small section of DNA on a chromosome. Each gene
-    encodes a specific sequence of amino acids to make a specific protein.
+  explanation: The text states the engineering programme lasts 3 to 4 years.
 - question_num: 5
-  text: Which of the following statements is true regarding genes on a pair of chromosomes?
-  A: Both chromosomes in a pair contain completely different genes.
-  B: Only one chromosome in a pair contains genes.
-  C: Both chromosomes in a pair have the same genes.
-  D: Genes are only found on chromosome number nine.
-  answer: Both chromosomes in a pair have the same genes.
+  text: What is the primary focus of ecology?
+  A: Managing human interactions with the environment
+  B: The relations of organisms to one another and their physical surroundings
+  C: Engineering and infrastructure design
+  D: Financial management of environmental projects
+  answer: B
   points: 1
-  explanation: Chromosomes exist in pairs, and both chromosomes in a pair carry the
-    same genes, meaning there are two copies of each gene (such as the gene for blood
-    type on chromosome nine).
+  explanation: The text defines ecology as the branch of biology concerned with relations
+    of organisms to one another and their physical surroundings.
 - question_num: 6
-  text: Proteins are polymers made by joining together which smaller molecules?
-  A: Nucleotides
-  B: Fatty acids
-  C: Glucose molecules
-  D: Amino acids
-  answer: Amino acids
+  text: Which of these is NOT listed as a core business area for industry placements?
+  A: Engineering
+  B: Environment and science
+  C: Business and communication
+  D: Legal and finance
+  answer: D
   points: 1
-  explanation: Proteins are synthesized by linking together specific sequences of
-    amino acids.
+  explanation: The text lists engineering, environment and science, and business and
+    communication as the core areas.
 - question_num: 7
-  text: How does a gene determine the structure of a specific protein?
-  A: By encoding the sequence of amino acids
-  B: By directly folding into a protein shape
-  C: By absorbing proteins from the cytoplasm
-  D: By converting glucose into amino acids
-  answer: By encoding the sequence of amino acids
+  text: What degree qualification is required for the Engineering Graduate Training
+    Scheme?
+  A: Bachelor's degree
+  B: Master's degree
+  C: PhD
+  D: No degree required
+  answer: B
   points: 1
-  explanation: Each gene contains the genetic code that determines the specific sequence
-    of amino acids required to build a particular protein.
+  explanation: The text specifies looking for graduates with a master's degree in
+    engineering.
 - question_num: 8
-  text: What is meant by the term 'genome'?
-  A: The study of proteins in a cell
-  B: The entire genetic material of an organism
-  C: The physical appearance of an organism
-  D: The process of cell division
-  answer: The entire genetic material of an organism
+  text: What is a required quality for a career in ecology?
+  A: Ability to work alone at all times
+  B: Expertise in one or more groups of living organisms
+  C: Experience in political lobbying
+  D: A degree in economics
+  answer: B
   points: 1
-  explanation: The genome is defined as the entire genetic material of an organism.
+  explanation: The text lists expertise in one or more groups of living organisms
+    as a special quality needed.
 - question_num: 9
-  text: How does understanding the human genome help in the field of medicine regarding
-    non-communicable diseases?
-  A: It allows scientists to cure all infectious diseases instantly.
-  B: It helps search for genes linked to different types of disease, such as cancer.
-  C: It eliminates the need for lifestyle changes to prevent disease.
-  D: It allows scientists to change a person's blood type.
-  answer: It helps search for genes linked to different types of disease, such as
-    cancer.
+  text: Which of these is a benefit of studying a postgraduate degree in ecology?
+  A: Guaranteed job placement
+  B: Enhancing your employability
+  C: Automatic chartered status
+  D: Free tuition
+  answer: B
   points: 1
-  explanation: Mapping the human genome helps scientists identify specific genes that
-    increase the risk of developing diseases like cancer or Alzheimer's disease.
+  explanation: The text lists enhancing your employability as a benefit of postgraduate
+    study.
 - question_num: 10
-  text: Which of the following is an inherited disorder that scientists can better
-    understand and treat by studying the human genome?
-  A: Influenza
-  B: Scurvy
-  C: Cystic fibrosis
-  D: Type 2 diabetes
-  answer: Cystic fibrosis
+  text: What is the purpose of the ES-GTS programme?
+  A: To train volunteers
+  B: To provide development for new entrants into permanent science-based roles
+  C: To manage lock sites
+  D: To provide short-term summer work
+  answer: B
   points: 1
-  explanation: Cystic fibrosis is an inherited disorder caused by a faulty gene, which
-    can be studied and targeted for treatment using genomic data.
+  explanation: The text describes it as a development programme for new entrants into
+    permanent science-based roles.
 - question_num: 11
-  text: How can the human genome be used to study human history?
-  A: By predicting future human evolution
-  B: By tracing human migration patterns from the past
-  C: By determining the exact diet of ancient humans
-  D: By calculating the exact age of fossilized bones
-  answer: By tracing human migration patterns from the past
+  text: What is the role of a River Thames Volunteer Assistant Lock Keeper?
+  A: To repair lock machinery
+  B: To help with the safe passage of boats through locks
+  C: To design new lock systems
+  D: To manage the agency's budget
+  answer: B
   points: 1
-  explanation: By analyzing genetic variations in the human genome, scientists can
-    trace human migration patterns from the past to help people discover their ancestry.
-- question_num: 12
-  text: On which human chromosome is the gene that determines blood type located?
-  A: Chromosome 1
-  B: Chromosome 9
-  C: Chromosome 21
-  D: The X chromosome
-  answer: Chromosome 9
-  points: 1
-  explanation: The gene responsible for determining ABO blood groups is located on
-    chromosome number nine.
-- question_num: 13
-  text: Which of the following correctly ranks genetic structures from smallest to
-    largest?
-  A: Gene -> Chromosome -> Nucleus -> Genome
-  B: Genome -> Chromosome -> Gene -> Nucleus
-  C: Chromosome -> Gene -> Genome -> Nucleus
-  D: Nucleus -> Genome -> Chromosome -> Gene
-  answer: Gene -> Chromosome -> Nucleus -> Genome
-  points: 1
-  explanation: A gene is a small section of DNA on a chromosome. Chromosomes are located
-    inside the nucleus. The genome represents the entire genetic material of the organism
-    (which includes all chromosomes).
-long_answer:
-  question_num: 1
-  text: Explain the relationship between DNA, genes, and proteins, and describe how
-    mapping the entire human genome is beneficial to modern medicine and science.
-  points: 6
-  rubric: "Level 1 (1-2 marks): Simple statements showing a basic understanding of\
-    \ DNA, genes, or the genome, with little or no logical structure.\nLevel 2 (3-4\
-    \ marks): Clear descriptions of how genes relate to proteins, or some clear benefits\
-    \ of mapping the human genome, with some logical scientific linkages.\nLevel 3\
-    \ (5-6 marks): Detailed, structured, and logical scientific explanation linking\
-    \ DNA, genes, and proteins, alongside a comprehensive discussion of the medical\
-    \ and scientific benefits of mapping the human genome.\n\nIndicative Content:\n\
-    - DNA is a double-helix polymer made of two strands.\n- A gene is a small section\
-    \ of DNA on a chromosome.\n- Each gene codes for a specific sequence of amino\
-    \ acids to make a specific protein.\n- The genome is the entire genetic material\
-    \ of an organism.\n- Benefits of mapping the genome:\n  1. Searching for genes\
-    \ linked to different types of disease (e.g., cancer, Alzheimer's).\n  2. Understanding\
-    \ and treating inherited disorders (e.g., cystic fibrosis).\n  3. Tracing human\
-    \ migration patterns from the past to understand ancestry."
+  explanation: The text states they help with the safe passage of boats through the
+    locks.
+image_url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Environment_Agency_logo.svg/1200px-Environment_Agency_logo.svg.png
