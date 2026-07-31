@@ -1,0 +1,191 @@
+quiz_id: BIO1
+web_urls:
+- https://www.bbc.co.uk/bitesize/guides/zpqpqhv/revision/5
+- https://www.bbc.co.uk/bitesize/guides/zpqpqhv/revision/6
+- https://www.bbc.co.uk/bitesize/guides/zpqpqhv/revision/4
+title: The Science of Microscopy and Cell Observation
+resource_text: '# Understanding Cells and Microscopy
+
+
+  ## The Nature of Organisms
+
+  All living organisms are composed of cells. In most cases, these organisms are multicellular,
+  meaning they are made up of many cells. These cells are often specialised, which
+  means they have evolved or adapted to perform a particular job within the organism.
+  Because cells are generally very small, scientists require specialised equipment,
+  specifically microscopes, to study them in sufficient detail.
+
+
+  ## The History of the Microscope
+
+  While the exact identity of the person who first invented the microscope remains
+  unknown, the development of this tool has followed several key historical stages.
+  In the 1590s, Dutch spectacle makers, the Janssen family, experimented with placing
+  lenses into tubes. This led to the creation of the first compound microscope. A
+  compound microscope is defined by its use of two lenses: an objective lens and an
+  eyepiece. The objective lens, which has a very short focal length, creates a greatly
+  magnified image, which is then magnified further by the eyepiece. Although none
+  of the original Janssen microscopes have survived, it is estimated that they provided
+  magnification between ×3 and ×9.
+
+
+  In 1650, the British scientist Robert Hooke, who is also renowned for his work on
+  the law of elasticity in physics, used a compound microscope to observe and draw
+  cells. Later, in the late 1600s, the Dutch scientist Antonie van Leeuwenhoek constructed
+  a microscope using a single spherical lens. This device was significantly more powerful,
+  capable of magnifying objects up to ×275. By the 1800s, the optical quality of lenses
+  had improved drastically, leading to the development of microscopes that are similar
+  in design to those used in modern laboratories today. Throughout this history, the
+  magnification of light microscopes has steadily increased, though there is a physical
+  limit to this technology, with modern light microscopes reaching a maximum magnification
+  of approximately ×1500.
+
+
+  ## Resolution and Detail
+
+  Magnification is not the only important factor when viewing cells; the level of
+  detail visible is equally critical. This detail is determined by the resolution,
+  or resolving power, of the microscope. Resolution is defined as the ability to distinguish
+  two separate points as distinct entities rather than seeing them merged into one.
+  If a digital photograph is enlarged beyond a certain point, it becomes blurry because
+  the resolution is insufficient to show more detail; the same principle applies to
+  microscopy.
+
+
+  Light microscopes have a resolution of approximately 0.2 micrometres (μm), or 200
+  nanometres (nm). This means they cannot distinguish between two points that are
+  closer together than 200 nm. A nanometre is one billionth of a metre, expressed
+  as 1 × 10^-9 metres.
+
+
+  ## Electron Microscopy
+
+  To see structures that are invisible to light microscopes, scientists use electron
+  microscopes, which employ a beam of electrons instead of light rays. There are two
+  primary types:
+
+  1. The Scanning Electron Microscope (SEM): This type has a large field of view,
+  making it ideal for examining the surface structure of specimens. SEMs are typically
+  used at lower magnifications.
+
+  2. The Transmission Electron Microscope (TEM): This is used to examine thin slices
+  or sections of cells or tissue. TEMs offer a maximum magnification of around ×1,000,000,
+  and images can be further enlarged photographically. The limit of resolution for
+  a TEM is now less than 1 nm, allowing for the observation of cellular structures
+  that light microscopes cannot detect.
+
+
+  ## Investigating Cells with a Light Microscope
+
+  When using a light microscope, specific procedures must be followed. When first
+  examining a slide, one should rotate the objective lenses so that the low-power
+  lens (e.g., ×10) is in line with the stage. Safety is paramount: users must be careful
+  with bright illumination, handle microscope stains with caution, and be mindful
+  when using coverslips and slides.
+
+
+  Recording observations is a vital part of the process. This can be done through
+  labelled diagrams or digital images. When using low power, a diagram should be drawn
+  to act as a plan, showing the arrangement of distinct regions of tissue or the outlines
+  of individual cells. A high-power diagram should then be produced to show a detailed
+  image of a specific part of the slide, such as a single cheek or onion cell.'
+multiple_choice:
+- question_num: 1
+  text: What is the maximum magnification of a light microscope?
+  A: ×275
+  B: ×1000
+  C: ×1500
+  D: ×1,000,000
+  answer: C
+  points: 1
+  explanation: The text states the maximum magnification with a light microscope is
+    around ×1500.
+- question_num: 2
+  text: What is the resolution of a light microscope?
+  A: 0.2 μm
+  B: 1 nm
+  C: 200 μm
+  D: 1000 nm
+  answer: A
+  points: 1
+  explanation: The text states the resolution of a light microscope is around 0.2
+    μm, or 200 nm.
+- question_num: 3
+  text: Which microscope is best for examining the surface structure of specimens?
+  A: Compound microscope
+  B: Transmission electron microscope
+  C: Scanning electron microscope
+  D: Light microscope
+  answer: C
+  points: 1
+  explanation: The text states the scanning electron microscope (SEM) has a large
+    field of view and is used to examine the surface structure of specimens.
+- question_num: 4
+  text: What does a compound microscope use to magnify images?
+  A: A single spherical lens
+  B: A beam of electrons
+  C: An objective lens and an eyepiece
+  D: A digital sensor
+  answer: C
+  points: 1
+  explanation: 'The text defines a compound microscope as one that uses two lenses:
+    the objective lens and the eyepiece.'
+- question_num: 5
+  text: What is the definition of resolution?
+  A: The ability to make an image larger
+  B: The ability to see two points as two points rather than merged
+  C: The area seen when looking through a microscope
+  D: The brightness of the illumination
+  answer: B
+  points: 1
+  explanation: The text defines resolution as the ability to see two points as two
+    points, rather than merged into one.
+- question_num: 6
+  text: How is a nanometre written in standard form?
+  A: 1 × 10^-6 m
+  B: 1 × 10^-3 m
+  C: 1 × 10^-9 m
+  D: 1 × 10^-12 m
+  answer: C
+  points: 1
+  explanation: The text states one nanometre is 1 × 10^-9 m.
+- question_num: 7
+  text: Which microscope is used to examine thin slices of cells or tissue?
+  A: Scanning electron microscope
+  B: Transmission electron microscope
+  C: Light microscope
+  D: Spherical lens microscope
+  answer: B
+  points: 1
+  explanation: The text states the transmission electron microscope (TEM) is used
+    to examine thin slices or sections of cells or tissue.
+- question_num: 8
+  text: Who constructed a microscope with a single spherical lens in the late 1600s?
+  A: Robert Hooke
+  B: The Janssens
+  C: Antonie van Leeuwenhoek
+  D: AQA
+  answer: C
+  points: 1
+  explanation: The text identifies Antonie van Leeuwenhoek as the scientist who constructed
+    a microscope with a single spherical lens.
+- question_num: 9
+  text: What is the maximum magnification of a transmission electron microscope?
+  A: ×1500
+  B: ×275
+  C: ×100,000
+  D: ×1,000,000
+  answer: D
+  points: 1
+  explanation: The text states TEMs have a maximum magnification of around ×1,000,000.
+long_answer:
+  question_num: 1
+  text: Compare and contrast the light microscope and the transmission electron microscope
+    (TEM) in terms of their magnification, resolution, and primary uses.
+  points: 6
+  rubric: The answer should mention that light microscopes have a maximum magnification
+    of ×1500 and a resolution of 200 nm, whereas TEMs have a magnification of ×1,000,000
+    and a resolution of less than 1 nm. It should note that light microscopes use
+    light rays while TEMs use electron beams, and that TEMs are used for thin slices
+    of cells/tissue while light microscopes are used for general cell observation.
+image_url: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Compound_Microscope_%28cropped%29.JPG/960px-Compound_Microscope_%28cropped%29.JPG
