@@ -51,7 +51,7 @@ def push_to_github(quiz_id, content_yaml):
     return response.status_code in [200, 201], response.text
 
 # --- STEP 1: CONTEXT PARAMS ---
-col1, col2, col3, col4, col5, col6, col7 = st.columns([1, 2, 2, 2, 1, 1, 1])
+col1, col2, col3, col4, col5, col6, col7, col8 = st.columns([1, 2, 2, 2, 1, 1, 1, 1])
 with col1:
     quiz_id_input = st.text_input("Quiz ID:", value="101")
 with col2:
@@ -61,10 +61,12 @@ with col3:
 with col4:
     url3 = st.text_input("URL 3:", placeholder="https://...")
 with col5:
-    include_salary = st.toggle("Include salary details")
+    text_length = st.text_input("Text length", value="600-700")
 with col6:
-    include_image = st.toggle("Include image")
+    include_salary = st.toggle("Include salary details")
 with col7:
+    include_image = st.toggle("Include image")
+with col8:
     include_links = st.toggle("Include links")
 
 # --- STEP 2: AI GENERATION ---
@@ -106,7 +108,7 @@ if st.button("Generate Resource and Quiz", type="primary"):
         {aggregated_content[:15000]} 
 
         Generate a JSON object containing:
-        1. "resource_text": A 600-700 word educational resource in Markdown format derived ONLY from the source text.
+        1. "resource_text": A {text_length} word educational resource in Markdown format derived ONLY from the source text.
         2. "title": A descriptive title for the assessment based on the text.
         3. "questions": Exactly 15 multiple choice objects. Each must have:
            "text", "A", "B", "C", "D", "answer", "explanation", "points".
