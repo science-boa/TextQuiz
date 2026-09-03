@@ -51,7 +51,7 @@ resource_text: "### Combustion and Atmospheric Pollutants\n\nMost fuels, such as
   \ incomplete combustion might occur, such as near boilers. The study of these reactions\
   \ highlights the delicate balance between energy production and the preservation\
   \ of our atmosphere and health.\n\n### References\nreference 1: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/5 \n\
-  \ reference 2: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/6 \n"
+  \ \nreference 2: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/6 \n"
 multiple_choice:
 - question_num: 1
   text: What are the products of the complete combustion of a hydrocarbon fuel?
