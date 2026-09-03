@@ -1,0 +1,205 @@
+quiz_id: CHEM1
+web_urls:
+- https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/5
+- https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/6
+title: Combustion Processes and Atmospheric Pollution
+resource_text: "### Combustion and Atmospheric Pollutants\n\nMost fuels, such as coal,\
+  \ oil, and gas, contain carbon and hydrogen. When these fuels undergo combustion—the\
+  \ process of burning by heat—they react with oxygen. The nature of this reaction\
+  \ depends heavily on the availability of oxygen. \n\n#### Complete Combustion\n\
+  Complete combustion occurs when there is a plentiful supply of oxygen or air. During\
+  \ this process, the hydrogen atoms in the fuel are oxidized to form water, and the\
+  \ carbon atoms are completely oxidized to form carbon dioxide. This type of combustion\
+  \ is significant because it releases the maximum amount of energy from the fuel.\
+  \ For example, when methane (CH4) undergoes complete combustion, the chemical reaction\
+  \ is: CH4 + 2O2 → CO2 + 2H2O. In this equation, methane reacts with oxygen to produce\
+  \ carbon dioxide and water vapour.\n\n#### Incomplete Combustion\nIncomplete combustion\
+  \ occurs when there is a limited supply of oxygen. Because there is less oxygen\
+  \ available, the fuel does not release as much energy as it would during complete\
+  \ combustion. While hydrogen atoms are still oxidized to form water, the carbon\
+  \ atoms are not fully oxidized. Instead, the process may produce carbon monoxide,\
+  \ a poisonous gas, or particulate carbon, commonly known as soot. Particulate carbon\
+  \ consists of fine black particles that can cause significant health issues, including\
+  \ lung irritation, worsening of asthma, and potentially cancer. Furthermore, particulate\
+  \ carbon contributes to global dimming, a phenomenon where small particles in the\
+  \ atmosphere reduce the amount of solar radiation reaching the Earth's surface,\
+  \ which may lead to reduced rainfall. Carbon monoxide is particularly dangerous\
+  \ because it is colourless, odourless, and binds to haemoglobin in red blood cells,\
+  \ preventing them from transporting oxygen throughout the body.\n\n#### Atmospheric\
+  \ Pollutants\nBurning fuels releases various atmospheric pollutants. Carbon dioxide\
+  \ is produced by the complete combustion of any fuel containing carbon. Incomplete\
+  \ combustion of these same fuels results in carbon monoxide and particulate carbon.\
+  \ Unburned hydrocarbons are also released when fuel molecules are not oxidized at\
+  \ all. \n\nBeyond carbon-based pollutants, other substances are released depending\
+  \ on the fuel's composition and the conditions of combustion. Sulfur dioxide (SO2)\
+  \ is produced when fossil fuels containing sulfur impurities are burned. Once in\
+  \ the atmosphere, sulfur dioxide can be further oxidized to sulfur trioxide (SO3),\
+  \ which then reacts with water to form sulfuric acid (H2SO4). This results in acid\
+  \ rain, which is harmful to aquatic life, plants, and man-made structures like buildings\
+  \ and statues. \n\nNitrogen oxides (NOx) are another major pollutant. Although nitrogen\
+  \ is not a component of the fuel itself, the extreme temperatures and pressures\
+  \ inside car engines cause atmospheric nitrogen and oxygen to react. This produces\
+  \ nitrogen oxides, specifically NO and NO2. Like sulfur dioxide, NOx gases contribute\
+  \ to acid rain. Additionally, they react with other pollutants in the atmosphere\
+  \ to form smog, a visible and harmful type of air pollution that can trigger asthma\
+  \ attacks and, in severe cases, lead to death. \n\nUnderstanding these chemical\
+  \ processes is essential for managing the environmental and health impacts of fuel\
+  \ consumption. By identifying the sources of pollutants—such as sulfur impurities\
+  \ in diesel or the high-pressure environment of a car engine—scientists and engineers\
+  \ can work toward cleaner energy solutions. Monitoring systems, such as electronic\
+  \ detectors for carbon monoxide, are vital safety measures in environments where\
+  \ incomplete combustion might occur, such as near boilers. The study of these reactions\
+  \ highlights the delicate balance between energy production and the preservation\
+  \ of our atmosphere and health.\n\n### References\nreference 1: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/5\n\
+  reference 2: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/6\n"
+multiple_choice:
+- question_num: 1
+  text: What are the products of the complete combustion of a hydrocarbon fuel?
+  A: Carbon monoxide and water
+  B: Carbon dioxide and water
+  C: Carbon and water
+  D: Carbon dioxide and oxygen
+  answer: B
+  points: 1
+  explanation: Complete combustion of a hydrocarbon produces water vapour and carbon
+    dioxide.
+- question_num: 2
+  text: Why is carbon monoxide considered dangerous?
+  A: It causes global dimming
+  B: It is highly flammable
+  C: It binds to haemoglobin and prevents oxygen transport
+  D: It reacts with water to form acid rain
+  answer: C
+  points: 1
+  explanation: Carbon monoxide binds to haemoglobin in red blood cells, preventing
+    them from carrying oxygen to the cells.
+- question_num: 3
+  text: What is the common name for particulate carbon produced during incomplete
+    combustion?
+  A: Smog
+  B: Soot
+  C: Sulfur dioxide
+  D: Hydrocarbon
+  answer: B
+  points: 1
+  explanation: Particulate carbon is known commonly as soot.
+- question_num: 4
+  text: Which condition is necessary for complete combustion?
+  A: A limited supply of oxygen
+  B: A high concentration of nitrogen
+  C: A plentiful supply of oxygen
+  D: The presence of sulfur impurities
+  answer: C
+  points: 1
+  explanation: Complete combustion occurs when there is a good supply of oxygen.
+- question_num: 5
+  text: How is sulfur dioxide produced?
+  A: By the oxidation of atmospheric nitrogen
+  B: By the combustion of fossil fuels containing sulfur impurities
+  C: By the incomplete combustion of hydrocarbons
+  D: By the reaction of carbon with water
+  answer: B
+  points: 1
+  explanation: Sulfur dioxide is caused when sulfur atoms present in some fossil fuels
+    are oxidized.
+- question_num: 6
+  text: What is the general formula for the nitrogen-based pollutants formed in car
+    engines?
+  A: SOx
+  B: COx
+  C: NOx
+  D: HOx
+  answer: C
+  points: 1
+  explanation: The two pollutants made inside engines are NO and NO2, which are grouped
+    together with the general formula NOx.
+- question_num: 7
+  text: What environmental effect is caused by particulate carbon?
+  A: Acid rain
+  B: Global dimming
+  C: Smog formation
+  D: Ozone depletion
+  answer: B
+  points: 1
+  explanation: Particulate carbon can cause global dimming, which may reduce rainfall.
+- question_num: 8
+  text: What is the result of sulfur trioxide dissolving in rainwater?
+  A: Smog
+  B: Sulfuric acid
+  C: Carbon monoxide
+  D: Nitrogen oxides
+  answer: B
+  points: 1
+  explanation: Sulfur trioxide dissolves in rainwater to make acid rain, which is
+    a dilute solution of sulfuric acid.
+- question_num: 9
+  text: Where do nitrogen oxides originate in a car?
+  A: From the fuel itself
+  B: From sulfur impurities in the fuel
+  C: From the oxidation of atmospheric nitrogen inside the engine
+  D: From the incomplete combustion of carbon
+  answer: C
+  points: 1
+  explanation: The high temperatures and pressures inside a car engine cause the nitrogen
+    and oxygen in the air to react together.
+- question_num: 10
+  text: What is the balanced equation for the complete combustion of methane?
+  A: CH4 + O2 → CO2 + H2O
+  B: CH4 + 2O2 → CO2 + 2H2O
+  C: 2CH4 + O2 → 2CO2 + 2H2O
+  D: CH4 + 2O2 → CO + 2H2O
+  answer: B
+  points: 1
+  explanation: The balanced equation for the complete combustion of methane is CH4
+    + 2O2 → CO2 + 2H2O.
+- question_num: 11
+  text: Which pollutant is associated with the formation of smog?
+  A: Carbon dioxide
+  B: Particulate carbon
+  C: Nitrogen oxides
+  D: Unburned hydrocarbons
+  answer: C
+  points: 1
+  explanation: NOx gases react in the atmosphere with other pollutants to make smog.
+- question_num: 12
+  text: What happens to the energy released during incomplete combustion compared
+    to complete combustion?
+  A: More energy is released
+  B: The same amount of energy is released
+  C: Less energy is released
+  D: No energy is released
+  answer: C
+  points: 1
+  explanation: Incomplete combustion occurs when there is a poor supply of oxygen,
+    and less energy is released.
+- question_num: 13
+  text: Why is it difficult to detect carbon monoxide?
+  A: It is a solid particulate
+  B: It is colourless and has no smell
+  C: It is only produced at night
+  D: It is heavier than air
+  answer: B
+  points: 1
+  explanation: Carbon monoxide is colourless and has no smell, so it is very difficult
+    to tell if you are breathing it in.
+- question_num: 14
+  text: What are unburned hydrocarbons?
+  A: Fuel molecules that have not been oxidized at all
+  B: Fuel molecules that have been fully oxidized
+  C: A mixture of carbon and sulfur
+  D: A byproduct of nitrogen oxidation
+  answer: A
+  points: 1
+  explanation: Unburned hydrocarbons are hydrocarbon fuel molecules which have not
+    been oxidized at all.
+- question_num: 15
+  text: Which of the following is a health effect of particulate carbon?
+  A: It causes acid rain
+  B: It irritates the lining of the lungs
+  C: It binds to haemoglobin
+  D: It causes smog
+  answer: B
+  points: 1
+  explanation: Particulate carbon can cause health problems because it irritates the
+    lining of the lungs.
+image_url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Combustion_reaction.svg/500px-Combustion_reaction.svg.png
