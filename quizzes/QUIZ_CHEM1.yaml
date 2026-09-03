@@ -51,7 +51,7 @@ resource_text: "### Combustion and Atmospheric Pollutants\n\nMost fuels, such as
   \ incomplete combustion might occur, such as near boilers. The study of these reactions\
   \ highlights the delicate balance between energy production and the preservation\
   \ of our atmosphere and health.\n\n### References\nreference 1: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/5\n\
-  reference 2: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/6\n"
+  \ reference 2: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/6\n"
 multiple_choice:
 - question_num: 1
   text: What are the products of the complete combustion of a hydrocarbon fuel?
@@ -202,4 +202,4 @@ multiple_choice:
   points: 1
   explanation: Particulate carbon can cause health problems because it irritates the
     lining of the lungs.
-image_url: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Combustion_reaction.svg/500px-Combustion_reaction.svg.png
+image_url: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Fire%2C_Fireplace%2C_Rostov-on-Don%2C_Russia.jpg/500px-Fire%2C_Fireplace%2C_Rostov-on-Don%2C_Russia.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail
