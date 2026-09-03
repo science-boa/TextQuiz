@@ -1,0 +1,206 @@
+quiz_id: CHEM2
+web_urls:
+- https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/1
+- https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/2
+- https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/3
+title: The Science of Global Warming and Climate Change
+resource_text: "### Understanding the Greenhouse Effect and Global Climate Change\n\
+  \n#### The Greenhouse Effect\nThe Earth's atmosphere is composed of layers of gases\
+  \ that surround the planet. Without the presence of greenhouse gases, the mean temperature\
+  \ on Earth would be approximately -18°C. At this temperature, the planet would be\
+  \ too cold to support life as we know it. Greenhouse gases play a vital role in\
+  \ maintaining a habitable climate by trapping heat. These gases include water vapour,\
+  \ carbon dioxide, methane, nitrous oxide, and CFCs (chlorofluorocarbons).\n\nThe\
+  \ greenhouse effect is the process by which heat is retained in the atmosphere due\
+  \ to the build-up of these gases. The mechanism works as follows: electromagnetic\
+  \ radiation from the Sun passes through the atmosphere and is absorbed by the Earth,\
+  \ causing the surface to warm up. The Earth then radiates this energy back out as\
+  \ infrared radiation. While some of this infrared radiation escapes into space,\
+  \ a significant portion is absorbed by greenhouse gases in the atmosphere. These\
+  \ gases then release the energy in all directions, effectively keeping the Earth\
+  \ warm.\n\n#### Human Activities and Global Warming\nWhile the greenhouse effect\
+  \ is a natural process, human activities are significantly increasing the concentration\
+  \ of these gases in the atmosphere. Farming cattle and rice in paddy fields releases\
+  \ methane, a colourless gas that can harm life forms. Furthermore, the burning of\
+  \ fossil fuels—such as oil, coal, and natural gas—in vehicles and power stations\
+  \ releases large amounts of carbon dioxide. Deforestation also contributes to this\
+  \ problem; cutting down trees releases carbon dioxide and simultaneously reduces\
+  \ the planet's capacity to absorb carbon dioxide through the process of photosynthesis.\n\
+  \nThe vast majority of scientists have concluded that human activities are responsible\
+  \ for the increase in greenhouse gases, which is driving global warming—the rise\
+  \ in the average temperature of the Earth's surface. This conclusion is supported\
+  \ by evidence published in peer-reviewed journals, where scientific reports are\
+  \ checked for accuracy by other experts before publication.\n\n#### Climate Change\
+  \ vs. Weather\nIt is important to distinguish between weather and climate. Weather\
+  \ refers to the day-to-day condition of the atmosphere, such as whether it is windy\
+  \ or hot on a specific day. Climate, however, refers to the average weather conditions\
+  \ over long periods, typically decades or longer. While the Earth's climate has\
+  \ changed naturally for 4.6 billion years due to volcanic eruptions and changes\
+  \ in solar energy, the term 'global warming' specifically describes the warming\
+  \ trend observed over the past 200 years. There is a strong correlation between\
+  \ the rise in human-produced carbon dioxide and the increase in global temperatures\
+  \ during this same timeframe.\n\n#### Evaluating Evidence and Future Impacts\nClimate\
+  \ science is complex, and predicting future temperature changes is difficult. Media\
+  \ outlets may sometimes present information that is simplified, biased, or inaccurate.\
+  \ When evaluating scientific evidence, one should consider the trustworthiness and\
+  \ experience of the researchers, potential funding biases, the methods used for\
+  \ data collection, and the reputation of the publishing organization. \n\nThe consequences\
+  \ of global warming are already being felt globally. These effects include the melting\
+  \ of glaciers and polar ice, rising sea levels, changing rainfall patterns leading\
+  \ to floods or droughts, and the alteration of habitats. As the Earth's temperature\
+  \ increases, seawater expands and water from melting ice enters the oceans, both\
+  \ of which contribute to rising sea levels. These changes will ultimately affect\
+  \ billions of people worldwide.\n\n### References\nreference 1: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/1\n\
+  reference 2: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/2\nreference\
+  \ 3: https://www.bbc.co.uk/bitesize/guides/zxy4xfr/revision/3\n"
+multiple_choice:
+- question_num: 1
+  text: What would the mean temperature of Earth be without greenhouse gases?
+  A: 0°C
+  B: -18°C
+  C: 10°C
+  D: -5°C
+  answer: B
+  points: 1
+  explanation: The text states that without greenhouse gases, the mean temperature
+    on Earth would be about -18°C.
+- question_num: 2
+  text: Which of the following is a greenhouse gas mentioned in the text?
+  A: Nitrogen
+  B: Oxygen
+  C: Methane
+  D: Helium
+  answer: C
+  points: 1
+  explanation: The text lists water vapour, carbon dioxide, methane, and CFCs as greenhouse
+    gases.
+- question_num: 3
+  text: What happens to infrared radiation radiated by the Earth?
+  A: It is all reflected back to the Sun.
+  B: It is all absorbed by the atmosphere.
+  C: Some goes into space and some is absorbed by greenhouse gases.
+  D: It is converted into light energy.
+  answer: C
+  points: 1
+  explanation: The text explains that some infrared radiation goes into space, while
+    some is absorbed by greenhouse gases.
+- question_num: 4
+  text: Which human activity releases methane?
+  A: Deforestation
+  B: Farming cattle
+  C: Burning coal
+  D: Using solar panels
+  answer: B
+  points: 1
+  explanation: The text explicitly states that farming cattle releases methane.
+- question_num: 5
+  text: What is the primary result of burning fossil fuels in vehicles?
+  A: Release of methane
+  B: Release of water vapour
+  C: Release of carbon dioxide
+  D: Reduction of photosynthesis
+  answer: C
+  points: 1
+  explanation: The text states that burning fossil fuels in vehicles and power stations
+    releases carbon dioxide.
+- question_num: 6
+  text: What is 'peer review'?
+  A: A process where the media checks scientific reports.
+  B: A process where scientific reports are checked by other experts.
+  C: A method of farming rice.
+  D: A way to measure sea levels.
+  answer: B
+  points: 1
+  explanation: The text defines peer review as a process by which a scientific report
+    is reviewed and checked for accuracy by other science experts.
+- question_num: 7
+  text: How does deforestation contribute to global warming?
+  A: It increases methane production.
+  B: It releases carbon dioxide and reduces its absorption.
+  C: It increases the amount of solar radiation reaching Earth.
+  D: It causes volcanic eruptions.
+  answer: B
+  points: 1
+  explanation: The text states that deforestation releases carbon dioxide and reduces
+    the absorption of carbon dioxide through photosynthesis.
+- question_num: 8
+  text: What is the difference between climate and weather?
+  A: Climate is short-term; weather is long-term.
+  B: Climate refers to average conditions over long periods; weather is day-to-day.
+  C: There is no difference.
+  D: Weather is only about temperature; climate is only about rain.
+  answer: B
+  points: 1
+  explanation: The text defines climate as average weather conditions over long periods,
+    while weather is the day-to-day condition of the atmosphere.
+- question_num: 9
+  text: What caused climate changes before 200 years ago?
+  A: Human activities
+  B: Burning fossil fuels
+  C: Natural changes like volcanic eruptions
+  D: Deforestation
+  answer: C
+  points: 1
+  explanation: The text states that until 200 years ago, changes were caused by natural
+    factors such as volcanic eruptions and changes in solar energy.
+- question_num: 10
+  text: What is a common piece of evidence for human-caused global warming?
+  A: The correlation between carbon dioxide levels and global temperatures.
+  B: The increase in volcanic activity.
+  C: The decrease in cattle farming.
+  D: The stability of sea levels.
+  answer: A
+  points: 1
+  explanation: The text mentions the strong correlation between the increase in global
+    carbon dioxide levels and the increase in global temperatures.
+- question_num: 11
+  text: Which of these is an effect of global warming?
+  A: Decrease in sea levels
+  B: Glacier and polar ice melting
+  C: More stable rainfall patterns
+  D: Expansion of ice sheets
+  answer: B
+  points: 1
+  explanation: The text lists glacier and polar ice melting as an effect of global
+    warming.
+- question_num: 12
+  text: Why should you consider who funded research when evaluating evidence?
+  A: To see if they are famous.
+  B: Because it might cause bias.
+  C: To see if the research was expensive.
+  D: To check the spelling.
+  answer: B
+  points: 1
+  explanation: The text advises considering who funded the research because it might
+    cause some bias.
+- question_num: 13
+  text: What happens to seawater as the Earth's temperature increases?
+  A: It freezes.
+  B: It turns into methane.
+  C: It expands.
+  D: It disappears.
+  answer: C
+  points: 1
+  explanation: The text states that as the Earth’s temperature increases, seawater
+    warms up and expands.
+- question_num: 14
+  text: What is the greenhouse effect?
+  A: The cooling of the Earth by ice.
+  B: The retention of heat in the atmosphere due to greenhouse gases.
+  C: The process of plants making oxygen.
+  D: The way volcanoes erupt.
+  answer: B
+  points: 1
+  explanation: The text defines the greenhouse effect as the retention of heat in
+    the atmosphere caused by the build-up of greenhouse gases.
+- question_num: 15
+  text: What is a 'journal' in a scientific context?
+  A: A daily diary of weather.
+  B: A science magazine that publishes peer-reviewed research.
+  C: A newspaper that reports on climate change.
+  D: A book about the history of the Earth.
+  answer: B
+  points: 1
+  explanation: The text defines a journal as a science magazine that publishes research
+    checked by other scientists.
+image_url: https://bam.files.bbci.co.uk/bam/live/content/zq86yrd/large
