@@ -1,0 +1,197 @@
+quiz_id: CHEM4
+web_urls:
+- https://www.bbc.co.uk/bitesize/guides/zqqtrwx/revision/1
+- https://www.bbc.co.uk/bitesize/guides/zqqtrwx/revision/2
+- https://www.bbc.co.uk/bitesize/guides/zqqtrwx/revision/3
+title: Pure Substances, Mixtures, and Chromatography
+resource_text: "####Purity and Formulations\n\nIn chemistry, the term 'pure' carries\
+  \ a specific scientific definition that differs from everyday usage. While a carton\
+  \ of orange juice might be labeled 'pure' in a grocery store to indicate it contains\
+  \ no additives, in chemistry, this juice is considered a mixture because it contains\
+  \ various substances combined together. A pure substance, by contrast, consists\
+  \ of only one element or only one compound. An element is defined as a substance\
+  \ made of only one type of atom, while a compound is formed by the chemical union\
+  \ of two or more elements. A mixture consists of two or more different substances\
+  \ that are not chemically joined together; these substances can be elements, compounds,\
+  \ or a combination of both.\n\nDistinguishing between pure substances and mixtures\
+  \ is a fundamental skill in chemistry. One primary method involves observing melting\
+  \ points. Pure substances possess a sharp, specific melting point—the temperature\
+  \ at which a solid changes into a liquid. In contrast, mixtures melt over a range\
+  \ of temperatures. This phenomenon is also observable during freezing. If one monitors\
+  \ the cooling curve of a pure substance, the graph will show a horizontal section\
+  \ representing the constant temperature at which the substance freezes. An impure\
+  \ substance, or mixture, will show a gradual fall in temperature as it freezes rather\
+  \ than a sharp, defined point. For example, if a sample of sulfur is tested and\
+  \ melts over a range of 95-101°C rather than at its known melting point of 115°C,\
+  \ it is classified as impure.\n\nBeyond simple mixtures, chemists work with **'formulations.'**\
+  \ A formulation is a complex mixture designed as a useful product, where every chemical\
+  \ is added in carefully measured proportions to serve a specific purpose. Examples\
+  \ of formulations include fuels, cleaning products, paints, medicines, alloys, fertilizers,\
+  \ and various food products. Because these are mixtures, they can be analyzed using\
+  \ techniques like chromatography.\n\n####Chromatography\n\nPaper chromatography\
+  \ is a technique used to separate mixtures of soluble substances. It relies on two\
+  \ distinct phases: the mobile phase and the stationary phase. The mobile phase is\
+  \ a solvent that moves through the paper, carrying the dissolved substances with\
+  \ it. The stationary phase is the paper itself, which does not move. As the solvent\
+  \ travels, the different substances in the mixture are attracted to the two phases\
+  \ in varying proportions. This difference in attraction causes the substances to\
+  \ move at different rates, effectively separating them.\n\nThe result of this process\
+  \ is a chromatogram. A chromatogram allows scientists to distinguish between pure\
+  \ and impure substances: a pure substance will produce only one spot, whereas an\
+  \ impure substance will produce two or more spots. \n\nChromatography relies on\
+  \ two different 'phases':\n- the **mobile phase**  is the  solvent  that moves through\
+  \ the paper, carrying different substances with it.\n- the **stationary phase**\
+  \ is the paper and does not move \n\nSubstances move at different rates depending\
+  \ on how soluble they are in the mobile phase and how well they stick to the stationary\
+  \ phase.\n\nFurthermore, chromatography can help identify unknown substances. If\
+  \ an unknown substance produces the same number of spots as a known reference substance,\
+  \ and those spots match in color and travel the same distance, they are likely the\
+  \ same substance. This distance is quantified using the Rf value, calculated by\
+  \ dividing the distance traveled by the substance by the distance traveled by the\
+  \ solvent. Rf values range from 0 to 1 and remain constant for a specific substance\
+  \ when using the same solvent system. By comparing these values to known reference\
+  \ data, chemists can identify the components within a complex mixture or formulation."
+multiple_choice:
+- question_num: 1
+  text: What is the chemical definition of a pure substance?
+  A: A substance with no additives.
+  B: A substance consisting of only one element or one compound.
+  C: A substance that has been filtered.
+  D: A substance that is naturally occurring.
+  answer: B
+  points: 1
+  explanation: In chemistry, a pure substance consists only of one element or one
+    compound.
+- question_num: 2
+  text: How does a mixture differ from a compound?
+  A: Mixtures are always liquids.
+  B: Compounds are always mixtures.
+  C: In a mixture, substances are not chemically joined.
+  D: Mixtures contain only one type of atom.
+  answer: C
+  points: 1
+  explanation: A mixture consists of two or more different substances that are not
+    chemically joined together.
+- question_num: 3
+  text: What happens to the melting point of a pure substance?
+  A: It melts over a wide range of temperatures.
+  B: It has a sharp melting point.
+  C: It does not melt.
+  D: It melts at 0 degrees Celsius.
+  answer: B
+  points: 1
+  explanation: Pure substances have a sharp melting point.
+- question_num: 4
+  text: What is a formulation?
+  A: A pure element.
+  B: A mixture designed as a useful product with specific proportions.
+  C: A substance that cannot be separated.
+  D: A type of chemical bond.
+  answer: B
+  points: 1
+  explanation: A formulation is a mixture which has been designed as a useful product,
+    with chemicals added in carefully measured amounts.
+- question_num: 5
+  text: In chromatography, what is the 'mobile phase'?
+  A: The paper.
+  B: The solvent that moves through the paper.
+  C: The spot on the paper.
+  D: The heat source.
+  answer: B
+  points: 1
+  explanation: The mobile phase is the solvent that moves through the paper.
+- question_num: 6
+  text: What does a single spot on a chromatogram indicate?
+  A: The substance is impure.
+  B: The substance is a formulation.
+  C: The substance is pure.
+  D: The solvent was not effective.
+  answer: C
+  points: 1
+  explanation: A pure substance produces one spot on the chromatogram.
+- question_num: 7
+  text: How is the Rf value calculated?
+  A: Distance of solvent / Distance of substance.
+  B: Distance of substance / Distance of solvent.
+  C: Distance of substance + Distance of solvent.
+  D: Distance of substance * Distance of solvent.
+  answer: B
+  points: 1
+  explanation: The Rf value is calculated as the distance travelled by the substance
+    divided by the distance travelled by the solvent.
+- question_num: 8
+  text: Which of the following is an example of a formulation?
+  A: Pure gold.
+  B: Oxygen gas.
+  C: Fertiliser.
+  D: A single atom.
+  answer: C
+  points: 1
+  explanation: Fertilisers are listed as examples of formulations.
+- question_num: 9
+  text: What is the stationary phase in paper chromatography?
+  A: The solvent.
+  B: The ink.
+  C: The paper.
+  D: The heat.
+  answer: C
+  points: 1
+  explanation: The stationary phase is contained on the paper and does not move.
+- question_num: 10
+  text: 'If a substance melts over a range of temperatures, it is likely:'
+  A: Pure.
+  B: An element.
+  C: Impure.
+  D: A single atom.
+  answer: C
+  points: 1
+  explanation: Mixtures melt over a range of temperatures, indicating they are impure.
+- question_num: 11
+  text: What is an element?
+  A: A substance made of two or more types of atom.
+  B: A substance made of one type of atom only.
+  C: A mixture of compounds.
+  D: A type of solvent.
+  answer: B
+  points: 1
+  explanation: An element contains just one type of atom.
+- question_num: 12
+  text: What is a compound?
+  A: A substance formed by the chemical union of two or more elements.
+  B: A mixture of elements.
+  C: A substance that cannot be dissolved.
+  D: A pure solvent.
+  answer: A
+  points: 1
+  explanation: A compound is a substance formed by the chemical union of two or more
+    elements.
+- question_num: 13
+  text: What happens to the Rf value if the solvent system is changed?
+  A: It stays the same.
+  B: It becomes 0.
+  C: It becomes 1.
+  D: It may change.
+  answer: D
+  points: 1
+  explanation: The Rf value is the same for a particular substance if run in the same
+    solvent system, implying it may change if the system changes.
+- question_num: 14
+  text: Why do substances separate during chromatography?
+  A: They have different colors.
+  B: They are attracted to the two phases in different proportions.
+  C: They have different melting points.
+  D: They are all insoluble.
+  answer: B
+  points: 1
+  explanation: The different dissolved substances are attracted to the two phases
+    in different proportions, causing them to move at different rates.
+- question_num: 15
+  text: What is the range of possible Rf values?
+  A: 0 to 100.
+  B: 1 to 10.
+  C: 0 to 1.
+  D: -1 to 1.
+  answer: C
+  points: 1
+  explanation: Rf values vary from 0 to 1.
+image_url: https://microbenotes.com/wp-content/uploads/2018/10/Rf-values.jpg
