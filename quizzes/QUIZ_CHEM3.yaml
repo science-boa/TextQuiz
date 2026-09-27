@@ -1,0 +1,212 @@
+quiz_id: CHEM3
+web_urls:
+- https://www.bbc.co.uk/bitesize/guides/zwvq4qt/revision/1
+- https://www.bbc.co.uk/bitesize/guides/zwvq4qt/revision/2
+- https://www.bbc.co.uk/bitesize/guides/zwvq4qt/revision/3
+title: Life-Cycle Assessment and Sustainable Metal Extraction
+resource_text: "### Life-Cycle Assessment and Sustainable Resource Management\n\n\
+  A life-cycle assessment (LCA), also known as a life-cycle analysis, is a comprehensive\
+  \ 'cradle-to-grave' evaluation of the environmental impact of a manufactured product.\
+  \ This analysis considers the entire journey of a product, from the initial extraction\
+  \ of raw materials to its final disposal. The four primary stages of an LCA include:\
+  \ extracting and processing raw materials, manufacturing the product and its packaging,\
+  \ using the product throughout its lifetime, and disposing of the product at the\
+  \ end of its useful life. Throughout these stages, an LCA typically accounts for\
+  \ energy consumption, the transport of materials, and the release of waste substances\
+  \ into the environment.\n\n#### The Four Stages of an LCA\n\n1. **Raw Materials:**\
+  \ All raw materials originate from the Earth's crust, atmosphere, oceans, or living\
+  \ organisms. Obtaining these materials often involves using up limited resources\
+  \ like metal ores and crude oil. Furthermore, activities such as quarrying, mining,\
+  \ and felling trees can significantly damage natural habitats.\n\n2. **Manufacture:**\
+  \ This stage involves the use of land for factories, as well as the employment of\
+  \ machinery and human labor, all of which contribute to environmental impact.\n\n\
+  3. **Use:** The impact during the use phase varies greatly depending on the product.\
+  \ For instance, a wooden chair has a minimal environmental footprint unless it requires\
+  \ repair or cleaning. Conversely, operating a vehicle has a substantial impact.\n\
+  \n4. **Disposal:** The final stage involves the disposal of products, which often\
+  \ consumes land for landfill sites. The environmental impact here depends on whether\
+  \ the product can be reused or recycled.\n\n#### Comparative LCAs and Criticisms\n\
+  \nComparative LCAs are used to determine which of two alternative products has a\
+  \ lower negative impact on the environment. For example, comparing plastic and paper\
+  \ carrier bags reveals different trade-offs. Plastic bags are made from crude oil,\
+  \ a finite resource, and require energy-intensive processes like fractional distillation\
+  \ and cracking. However, they are often stronger and can be reused many times. Paper\
+  \ bags can be made from recycled paper or trees; while they biodegrade quickly in\
+  \ landfills, they are often more expensive to manufacture and have a shorter lifetime.\
+  \ \n\nIt is important to note that LCAs are not always perfectly objective. While\
+  \ some factors, such as energy usage or carbon dioxide emissions from transport,\
+  \ can be measured numerically, others—like the effect of specific pollutants—require\
+  \ subjective judgment. Furthermore, bias can occur if the company manufacturing\
+  \ the product conducts the LCA, as they may omit certain aspects of the environmental\
+  \ impact.\n\n#### Recycling \n\nRecycling is a vital strategy for reducing environmental\
+  \ impact. Metals, glass, building materials, and most plastics are derived from\
+  \ limited natural resources. Recycling these materials reduces the need for mining\
+  \ and quarrying, saves energy, and decreases the amount of waste sent to landfills.\
+  \ For example, recycling aluminum saves significantly more energy than recycling\
+  \ iron because extracting aluminum from its ore via electrolysis is highly energy-intensive.\
+  \ \n\nHowever, recycling has disadvantages, including the logistical challenges\
+  \ of collecting, transporting, and sorting materials. Sorting can be difficult,\
+  \ and the purity requirements for the final product (such as copper for electrical\
+  \ wiring) may necessitate further processing.\n\n#### Alternative sources of metals.\n\
+  \nBecause high-grade ores (metal containing rocks) are becoming scarce, alternative\
+  \ biological methods for metal extraction are being developed. **Phytomining** involves\
+  \ growing plants on low-grade ore; the plants absorb metal ions through their roots,\
+  \ are harvested, and then burned to produce ash rich in metal compounds. While slow,\
+  \ this method reduces the need for traditional mining and preserves high-grade ore\
+  \ supplies. **Bioleaching** uses bacteria to break down low-grade ores into an acidic\
+  \ solution called a leachate, which contains metal ions. While bioleaching avoids\
+  \ high temperatures, it can produce toxic substances like sulfuric acid. Once a\
+  \ leachate is obtained, metals like copper can be recovered by displacing them with\
+  \ cheaper scrap iron or through electrolysis."
+multiple_choice:
+- question_num: 1
+  text: What does the term 'cradle-to-grave' refer to in a life-cycle assessment?
+  A: The process of recycling a product.
+  B: An analysis of the impact of a product from raw material extraction to disposal.
+  C: The manufacturing phase of a product only.
+  D: The transportation of raw materials.
+  answer: B
+  points: 1
+  explanation: A life-cycle assessment is defined as a 'cradle-to-grave' analysis
+    of the impact of a manufactured product on the environment.
+- question_num: 2
+  text: Which of the following is a primary source of raw materials?
+  A: Synthetic laboratories
+  B: The Earth's crust
+  C: Recycling centers
+  D: Landfill sites
+  answer: B
+  points: 1
+  explanation: The text states that all raw materials come from the Earth's crust,
+    atmosphere, oceans, or living organisms.
+- question_num: 3
+  text: Why is the use of plastic bags sometimes considered to have a lower impact
+    than paper bags?
+  A: They are made from renewable resources.
+  B: They biodegrade faster.
+  C: They are stronger and can be reused many times.
+  D: They are cheaper to recycle.
+  answer: C
+  points: 1
+  explanation: The text notes that plastic bags are usually stronger and can be reused
+    many times, giving them a lower impact during the use phase.
+- question_num: 4
+  text: What is a major criticism of LCAs?
+  A: They are always too expensive to conduct.
+  B: They only measure energy usage.
+  C: They are not always totally objective and may contain bias.
+  D: They cannot be used to compare two different products.
+  answer: C
+  points: 1
+  explanation: The text states that completing an LCA is not a totally objective process
+    and that bias can occur if the company making the product conducts the assessment.
+- question_num: 5
+  text: Which metal saves more energy when recycled compared to extraction from its
+    ore?
+  A: Iron
+  B: Copper
+  C: Aluminium
+  D: Steel
+  answer: C
+  points: 1
+  explanation: The table shows that recycling aluminium saves 92% of energy, whereas
+    iron saves 70%.
+- question_num: 6
+  text: What is the main disadvantage of phytomining?
+  A: It requires extremely high temperatures.
+  B: It is a slow process.
+  C: It produces too much carbon dioxide.
+  D: It cannot be used on low-grade ores.
+  answer: B
+  points: 1
+  explanation: The text explicitly states that phytomining is a slow process.
+- question_num: 7
+  text: How does bioleaching extract metals?
+  A: By using plants to absorb ions.
+  B: By using electrolysis on high-grade ore.
+  C: By using bacteria to produce an acidic solution containing metal ions.
+  D: By heating the ore with carbon.
+  answer: C
+  points: 1
+  explanation: Bioleaching uses bacteria to break down low-grade ores to produce an
+    acidic solution containing metal ions.
+- question_num: 8
+  text: What is a simple way to separate iron from aluminium?
+  A: Using a magnet.
+  B: Using electrolysis.
+  C: Using sulfuric acid.
+  D: Using fractional distillation.
+  answer: A
+  points: 1
+  explanation: A magnet or electromagnet will attract iron but not aluminium.
+- question_num: 9
+  text: Why is scrap iron used in the production of copper from leachate?
+  A: It is a more reactive metal that displaces copper.
+  B: It is a better conductor of electricity.
+  C: It is easier to mine than copper.
+  D: It prevents the formation of toxic substances.
+  answer: A
+  points: 1
+  explanation: Iron is more reactive than copper and can displace it from the leachate,
+    and it is cheaper.
+- question_num: 10
+  text: What is one environmental impact of traditional mining?
+  A: It increases the amount of recycled material.
+  B: It destroys natural habitats.
+  C: It reduces the need for factories.
+  D: It lowers the cost of energy.
+  answer: B
+  points: 1
+  explanation: The text states that mining damages habitats through quarrying and
+    mining activities.
+- question_num: 11
+  text: Which stage of a pillowcase's life cycle uses the most energy?
+  A: Raw materials
+  B: Manufacture
+  C: Use
+  D: Disposal
+  answer: C
+  points: 1
+  explanation: The table shows that 70% of the lifetime energy use for a pillowcase
+    occurs during the 'Use' stage.
+- question_num: 12
+  text: What is a disadvantage of the recycling process itself?
+  A: It requires no energy.
+  B: It is always cheaper than mining.
+  C: It requires organization, transport, and sorting.
+  D: It produces no greenhouse gases.
+  answer: C
+  points: 1
+  explanation: The text lists the need for organization, workers, vehicles, and fuel
+    for collection and transport as disadvantages.
+- question_num: 13
+  text: What happens to the plants used in phytomining?
+  A: They are replanted.
+  B: They are harvested and burnt.
+  C: They are processed via electrolysis.
+  D: They are used as landfill.
+  answer: B
+  points: 1
+  explanation: The text states that plants are harvested and burnt to produce ash
+    containing metal compounds.
+- question_num: 14
+  text: Why is aluminium extraction more energy-intensive than iron extraction?
+  A: Aluminium is more abundant.
+  B: Aluminium is extracted using electrolysis.
+  C: Iron is extracted using electrolysis.
+  D: Aluminium has a higher melting point.
+  answer: B
+  points: 1
+  explanation: The text states that aluminium is extracted using electrolysis, which
+    uses more energy than heating with carbon.
+- question_num: 15
+  text: What is a potential environmental risk of bioleaching?
+  A: It produces toxic substances like sulfuric acid.
+  B: It requires high temperatures.
+  C: It destroys large areas of land.
+  D: It uses up all the copper.
+  answer: A
+  points: 1
+  explanation: The text notes that bioleaching produces toxic substances, including
+    sulfuric acid, which damage the environment.
+image_url: https://upload.wikimedia.org/wikipedia/commons/4/44/Recycle001.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original
